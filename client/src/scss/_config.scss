@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;700&display=swap');
+
+// colors
+
+$primary: #3aafa9;
+$dark: #2b7a7b;
+$light: #def2f1;
+$black: #17252a;
+$white: #feffff;
+
+//Fonts
+$nunito: 'Nunito', sans-serif;
+
+// $radius
+$r-small: 4px;
+$r-medium: 6px;
+$r-big: 12px;
+
+//texts size
+
+$t-x-s: 1vw;
+$t-small: 1.5vw;
+$t-medium: 2vw;
+$t-big: 3vw;
+$t-xl: 4vw;
+
+//Shadow
+
+$sh-big: 0px 2px 8px rgba(0, 0, 0, 0.822);
+$sh-small: 0px 1px 3px rgba(0, 0, 0, 0.671);
+$sh-text: 0px 2px 3px rgb(85, 84, 84);
