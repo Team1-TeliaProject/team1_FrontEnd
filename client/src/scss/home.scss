@@ -1,0 +1,9 @@
+.home {
+    background-color: $primary;
+    height: 100%;
+    color: $light;
+    .home__main {
+        //height: calc(100% - 10%);
+        @include calc(height,'100% - 10%');
+    }
+}

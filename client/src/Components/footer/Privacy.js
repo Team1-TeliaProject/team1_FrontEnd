@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-const Footer = ()=> {
+
+const Privacy = ()=> {
     return (
-        <div>
+        <div className="privacy">
             <h2>terms of service</h2>
             <h3>About DuuniClick</h3>
             <p>for the use of DuuniClick users</p>
@@ -16,4 +17,4 @@ const Footer = ()=> {
     )
 }
 
-export default Footer;
+export default Privacy;
