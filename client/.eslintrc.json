@@ -13,7 +13,7 @@
   },
   "plugins": ["react"],
   "rules": {
-    "react/prop-types": 0,
+    "react/prop-types": "off",
     "no-unused-vars": [1, { "vars": "all" }],
     "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }]
   }
