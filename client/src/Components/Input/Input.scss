@@ -1,0 +1,11 @@
+@import '../../scss/config';
+
+.input {
+  width: 100%;
+  height: 35px;
+  padding: 5px 10px;
+  border: 1.5px solid $dark;
+  border-radius: $r-small;
+  margin: 10px 0px;
+  font-size: $t-small;
+}
