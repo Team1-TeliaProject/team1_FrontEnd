@@ -2,7 +2,7 @@
 
 ## General
 
-### Project timeline 20.10.2020 - 11.11.2020
+### Project timeline 24.03.2021 - 21.05.2021
 
 - **Sprints Timetable**
 
@@ -20,7 +20,7 @@
 
   **Sprint 3** 26.04 - 07.05
 
-  - MVP
+  - MVP of Project Ready.
 
   **Sprint 4** 10.05 - 21.5
 
@@ -32,8 +32,8 @@
 
 **Every Wedenesday**
 
-- Sprint Demo: 9:30 - 10:10
-- Restrospective: 10:10 - 10:30
+- Sprint Demo: 9:30 - 10:00
+- Restrospective: 10:00 - 10:30
 - Sprint Planning: 10:30 -11:00
 - Development time: 11:45 - 15:00
 - Joint development time 11:45 - 15:00
@@ -66,13 +66,13 @@ Individual development time as per allowed by personal schedules
 
 **Feature branch**
 
-- naming convention: feature/...(issue)
-- commit message must start with prefix branch name, i.e feature/featurename
+- naming convention: feat/...(issue)
+- commit message must start with e.g. "feat/feat name/commit message.
 
 **bugfix**
 
 - Bug fixing branches for existing features
-- Commits must include commit msg with prefix bugfix/%feature name%:
+- Commits must include commit msg  bugfix/%feature name%:
 
 **doc**
 
@@ -86,14 +86,14 @@ Individual development time as per allowed by personal schedules
 ```
 $ git pull --all
 $ git checkout dev
-$ git checkout -b feature/%my_awesome_new_feature%
+$ git checkout -b feat/%my_awesome_new_feature%
 ```
 
 Once done, or at least once a day when you've been coding, add & commit:
 
 ```
 $ git add %files_that_you_added%
-$ git commit -m "feature/%my_awesome_new_feature%: your commit msg here"
+$ git commit -m "feat/%my_awesome_new_feature%: your commit msg here"
 
 ```
 
