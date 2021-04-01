@@ -30,11 +30,3 @@ $sh-big: 0px 2px 8px rgba(0, 0, 0, 0.822);
 $sh-small: 0px 1px 3px rgba(0, 0, 0, 0.671);
 $sh-text: 0px 2px 3px rgb(85, 84, 84);
 
-// important for calc to function properly
-@mixin calc($property, $expression) {
-    #{$property}: -moz-calc(#{$expression});
-    #{$property}: -webkit-calc(#{$expression});
-    #{$property}: calc(#{$expression});
-  }
-
-  
