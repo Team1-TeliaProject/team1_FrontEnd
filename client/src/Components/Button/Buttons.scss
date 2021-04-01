@@ -70,6 +70,9 @@
     &--nav {
       font-size: $t-big;
     }
+    &--bg {
+      font-size: $t-big;
+    }
   }
 }
 
@@ -77,6 +80,9 @@
   .button {
     height: 40px;
     &--nav {
+      font-size: $t-xl;
+    }
+    &--bg {
       font-size: $t-xl;
     }
   }
