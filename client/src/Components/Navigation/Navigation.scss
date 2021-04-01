@@ -1,0 +1,42 @@
+@import '../../scss/config';
+
+.nav {
+  width: 100vw;
+  height: 100px;
+  box-sizing: border-box;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    width: 15em;
+  }
+
+  &__profile-div {
+    width: 130px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+    height: 70px;
+
+    &__logo {
+      width: 10em;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .nav {
+    padding: 10px 20px;
+    &__logo {
+      width: 8em;
+    }
+  }
+}
