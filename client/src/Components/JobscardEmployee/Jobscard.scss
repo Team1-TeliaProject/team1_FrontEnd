@@ -1,0 +1,44 @@
+@import '../../scss/config';
+@import '../../scss/mixins';
+
+.jobcard {
+  width: 50vh;
+  background-color: $light;
+  font-family: $nunito;
+  box-shadow: 0 0 10px gray;
+  display: flex;
+  flex-direction: column;
+  &__avatar {
+    margin: auto;
+    margin-top: 2rem;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: $dark;
+  }
+  &__company {
+    padding-top: 1rem;
+    margin: auto;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 1rem 0 1rem;
+  }
+  &__leveltype {
+    margin: 0 2rem;
+  }
+  &__skills {
+    margin: 0 2rem;
+  }
+  &__deadline {
+    margin: 1rem 2rem;
+  }
+  &__icons {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    background-color: $dark;
+  }
+}
