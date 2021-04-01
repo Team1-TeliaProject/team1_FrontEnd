@@ -1,0 +1,117 @@
+@import '../../scss/config';
+@import '../../scss/mixins';
+
+.login-modal {
+  font-family: $nunito;
+  background-color: #DEF2F1;
+  min-width: 500px;
+  position: absolute;
+  top : 50%;
+  left : 50%;
+  right : auto;
+  bottom : auto;
+  margin-right : -50%;
+  transform : translate(-50%, -50%);
+  padding: 0px 10px 10px 10px;
+  .close-btn-container{
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 5px;
+    .close-btn{
+      font-style: normal;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 35px;
+      color: #117722;
+      background-color: transparent;
+      border: 0;
+    }
+  }
+  h2{
+    margin: 0 auto;
+    text-align: center;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 55px;
+    color: #000000;
+  }
+  .field-container{
+    margin: 40px auto;
+    text-align: center;
+    input{
+      width: 484px;
+      height: 70px;
+      background: #FEFFFF;
+      border: 1px solid #000000;
+      box-sizing: border-box;
+      border-radius: 10px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 30px;
+      line-height: 41px;
+      color: #FEFFFF;
+    }
+  }
+  .login-btn-container{
+    text-align: center;
+    margin: 0 auto;
+    .button{
+      padding: 0;
+      margin: 0;
+    }
+    .button--login{
+      background: #17252A;
+      border-radius: 6px;
+      width: 316px;
+      height: 60px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 30px;
+      line-height: 35px;
+      color: #FEFFFF;
+    }
+  }
+  .forgot-password-container{
+    text-align: center;
+    margin-top: 29px;
+    a{
+      width: 258px;
+      height: 23px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 23px;
+      color: #000000;
+      text-decoration: none;
+    }
+  }
+  .create-account-container{
+    margin-top: 66px;
+    text-align: center;
+    margin-bottom: 91px;
+    .button{
+      padding: 0;
+      margin: 0;
+    }
+    p{
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 23px;
+      color: #000000;
+      margin: 0;
+    }
+    .button--create-account{
+      width: 316px;
+      height: 60px;
+      background: #DEF2F1;
+      border-radius: 6px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 30px;
+      color: #17252A;
+      margin-top: 23px;
+    }
+  }
+}
