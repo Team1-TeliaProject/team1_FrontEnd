@@ -1,0 +1,14 @@
+// Breakpoints
+
+@mixin breakpoint($size, $max: false) {
+    @if max==true {
+        @media screen and (max-width: '#{$size}'){
+            @content;
+        }
+    } @else {
+        @media screen and (min-width: '#{$size}'){
+            @content;
+        }
+    }
+        
+}
