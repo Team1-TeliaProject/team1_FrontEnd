@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaHeart, FaInfo } from 'react-icons/fa';
-import { BsHeartFill } from 'react-icons/bs';
+import { IoMdPersonAdd } from 'react-icons/io';
 
 import './Jobscard.scss';
 
@@ -22,7 +22,6 @@ const Jobcard = ({
       <section className="jobcard">
         <img className="jobcard__avatar" src={`${image}`} alt="company logo" />
         <h2 className="jobcard__company">{company}</h2>
-
         <div className="jobcard__head">
           <p className="jobcard__head jobcard__head--title">
             <b>{jobtitle}</b>
@@ -31,11 +30,10 @@ const Jobcard = ({
         </div>
         <div className="jobcard__leveltype">
           <p className="title-level">
-            {level},&nbsp;&nbsp;
+            {level}, &nbsp;&nbsp;
             {type}
           </p>
         </div>
-
         <div className="jobcard__skills">
           <p>{skills}</p>
         </div>
@@ -45,8 +43,8 @@ const Jobcard = ({
         </h4>
         <div className="jobcard__icons">
           <FaInfo onClick={handleOpenInfo} style={{ height: '2em', width: '2em' }} />
-          <FaHeart onClick={handleSuperLike} style={{ height: '3em', width: '3em' }} />
-          <BsHeartFill onClick={handlelike} style={{ height: '2em', width: '2em' }} />
+          <FaHeart onClick={handleSuperLike} style={{ height: '2em', width: '2em' }} />
+          <IoMdPersonAdd onClick={handlelike} style={{ height: '2em', width: '2em' }} />
         </div>
       </section>
     </>
