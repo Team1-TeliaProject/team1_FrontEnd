@@ -8,3 +8,15 @@ body {
   width: 70vw;
   margin: 20px auto;
 }
+
+@media screen and (max-width: 768px) {
+  .app {
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .app {
+    width: 100vw;
+  }
+}
