@@ -2,12 +2,13 @@ import React from 'react';
 
 
 
+
 import './App.scss';
 
 function App() {
   return (
     <div className="app">
-      <h1>Welcome to the project</h1>
+      <h1>Welcome to the project</h1> 
       
       
           

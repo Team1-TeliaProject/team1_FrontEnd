@@ -11,7 +11,7 @@ import './Buttons.scss';
 const Button = ({ text, modifier, handleClick }) => {
   return (
     <div className="button">
-      <button className={`button button--${modifier}`} onClick={handleClick}>
+      <button className={`button button--${modifier} `} onClick={handleClick}>
         {text}
       </button>
     </div>

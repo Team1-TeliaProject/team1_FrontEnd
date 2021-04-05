@@ -8,45 +8,45 @@
     width: 100%;
     height: auto;
 }
-header {
-        display: flex;
-        margin-bottom: 2rem;
-        padding: 2rem;
-        .logo__main {
-            display: flex;
-            flex-grow: 2;
-            justify-content: center;
-            align-items: center;
+// header {
+//         display: flex;
+//         margin-bottom: 2rem;
+//         padding: 2rem;
+//         .logo__main {
+//             display: flex;
+//             flex-grow: 2;
+//             justify-content: center;
+//             align-items: center;
             
-            .logo {
-                width: 80%; 
-            }
-            @include breakpoint(768px){
-                .logo{
-                    width: auto;
-                }
-                justify-content: left;
-            }
-        }
+//             .logo {
+//                 width: 80%; 
+//             }
+//             @include breakpoint(768px){
+//                 .logo{
+//                     width: auto;
+//                 }
+//                 justify-content: left;
+//             }
+//         }
         
 
-        .employee-profile__image__small {
-            display: none;
+//         .employee-profile__image--small {
+//             display: none;
             
-            @include breakpoint(768px){
-                display: inline-block;
-            }
-        }
+//             @include breakpoint(768px){
+//                 display: inline-block;
+//             }
+//         }
 
-}
+// }
                 
         
-.employee-profile__image__small {
+// .employee-profile__image--small {
             
-            width: 70px;
-            height: auto;
-            margin: 0 auto;
-        }
+//             width: 70px;
+//             height: auto;
+//             margin: 0 auto;
+//         }
         
 
 .employee-profile__main {
@@ -67,13 +67,13 @@ header {
         margin-bottom: 1rem;
     }
 
-    .employee-profile__image__big {
-       width: 200px;
-       height: auto;
-       margin-bottom: 1rem;
-        vertical-align: top;
-               
-       
+    .employee-profile__image {
+        &--big {
+            width: 200px;
+            height: auto;
+            margin-bottom: 1rem;
+            vertical-align: top;
+        }
     }
     .employee-profile__main__content{
         @include breakpoint(768px){
