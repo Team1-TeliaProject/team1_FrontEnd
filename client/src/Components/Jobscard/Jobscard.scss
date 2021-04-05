@@ -2,7 +2,8 @@
 @import '../../scss/mixins';
 
 .jobcard {
-  width: 50vh;
+  margin: 0 auto;
+  width: 50vw;
   background-color: $light;
   font-family: $nunito;
   box-shadow: 0 0 10px gray;
@@ -17,22 +18,27 @@
     background-color: $dark;
   }
   &__company {
+    font-size: $t-xl;
     padding-top: 1rem;
     margin: auto;
   }
 
   &__head {
+    font-size: $t-big;
     display: flex;
     justify-content: space-between;
     margin: 1rem 1rem 0 1rem;
   }
   &__leveltype {
+    font-size: $t-medium;
     margin: 0 2rem;
   }
   &__skills {
     margin: 0 2rem;
+    font-size: $t-medium;
   }
   &__deadline {
+    font-size: $t-medium;
     margin: 1rem 2rem;
   }
   &__icons {
@@ -42,3 +48,9 @@
     background-color: $dark;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .jobcard {
+    width: 80vw;
+  }
+} ;
