@@ -8,15 +8,15 @@ import './profiledropdn.scss';
 const ProfileDropdown = ({ handleEdit, handleExit }) => {
   return (
     <>
-      <section className="profDropDn">
-        <div className="profDropDn__edit" onClick={handleEdit}>
-          <AiTwotoneEdit style={{ height: '4em', width: '2em', paddingLeft: '1rem' }} />
-          <p className="profDropDn__edit profDropDn__edit__text">Profile</p>
+      <section className="dropdown">
+        <div className="dropdown__edit" onClick={handleEdit}>
+          <AiTwotoneEdit className="dropdown__icon" />
+          <p className="dropdown__text">Profile</p>
         </div>
 
-        <div className="profDropDn__logout" onClick={handleExit}>
-          <IoLogOutOutline style={{ height: '4em', width: '2em', paddingLeft: '1rem' }} />
-          <p className="profDropDn__logout profDropDn__logout__text">LogOut</p>
+        <div className="dropdown__logout" onClick={handleExit}>
+          <IoLogOutOutline className="dropdown__icon" />
+          <p className="dropdown__text">Log Out</p>
         </div>
       </section>
     </>

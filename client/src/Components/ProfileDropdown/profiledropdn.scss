@@ -1,7 +1,7 @@
 @import '../../scss/config';
 @import '../../scss/mixins';
 
-.profDropDn {
+.dropdown{
   box-sizing: border-box;
   position: absolute;
   top: 10%;
@@ -13,12 +13,18 @@
   &__logout {
     width: 100%;
     display: inline-flex;
-    padding: 0.5rem;
+    align-content: center;
     background-color: $primary;
     justify-content: space-around;
-    &__text {
-      padding: 0.1rem 0 0 0;
-    }
+   
+  }
+  &__text {
+    font-size: $t-medium;
+    padding-right: 3rem;
+  }
+  &__icon{
+    height: 4em;
+    width: 2em;
   }
   &__logout {
     background-color: $light;
@@ -26,7 +32,14 @@
 }
 
 @media screen and (max-width: 768px) {
-  .profDropDn {
+  .dropdown {
     right: 6vw;
   }
+}
+@media screen and (max-width:600px){
+.dropdown{
+  &__text {
+    padding-right: 1rem;
+  }
+}
 }
