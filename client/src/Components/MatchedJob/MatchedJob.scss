@@ -14,7 +14,7 @@
   .button--full-height{
     height: 50%;
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -45%);
   }
@@ -43,82 +43,68 @@
       position: absolute;
       right: 0;
       top: 0;
+      color: $black;
+      font-style: normal;
       .row{
         height: 50%;
         align-items: flex-end;
         .job-title{
-          font-style: normal;
           font-weight: bold;
-          font-size: $t-medium;
-          line-height: 35px;
-          color: $black;
           margin-top: 10px;
         }
         .company-name{
-          font-style: normal;
           font-weight: normal;
-          font-size: 25px;
-          line-height: 30px;
-          color: $black;
         }
         .location{
-          font-style: normal;
           font-weight: normal;
-          font-size: 25px;
-          line-height: 30px;
-          color: $black;
         }
         .job-position-level{
-          font-style: normal;
           font-weight: normal;
-          font-size: 25px;
-          line-height: 30px;
-          color: $black;
         }
       }
     }
   }
   @media screen and (max-width: 768px) {
+    .job-title{
+      font-size: $t-big;
+      line-height: 1.5rem;
+    }
+
     .job-position-level{
-      font-size: 18px;
-      line-height: 25px;
+      font-size: $t-medium;
+      line-height: 30px;
     }
 
     .location{
-      font-size: 18px;
-      line-height: 25px;
+      font-size: $t-medium;
+      line-height: 30px;
     }
 
     .company-name{
-      font-size: 18px;
-      line-height: 25px;
-    }
-
-    .job-title{
-      font-size: $t-small;
-      line-height: $t-medium;
+      font-size: $t-medium;
+      line-height: 30px;
     }
   }
 
   @media screen and (max-width: 600px) {
+    .job-title{
+      font-size: $t-big;
+      line-height: 1.5rem;
+    }
+
     .job-position-level{
-      font-size: 18px;
-      line-height: 25px;
+      font-size: $t-medium;
+      line-height: 30px;
     }
 
     .location{
-      font-size: 18px;
-      line-height: 25px;
+      font-size: $t-medium;
+      line-height: 30px;
     }
 
     .company-name{
-      font-size: 18px;
-      line-height: 25px;
-    }
-
-    .job-title{
-      font-size: $t-small;
-      line-height: $t-medium;
+      font-size: $t-medium;
+      line-height: 30px;
     }
   }
 }
