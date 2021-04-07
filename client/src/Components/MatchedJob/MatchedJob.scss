@@ -6,10 +6,10 @@
   padding: 0;
   min-height: 124px;
   width: 100%;
-  background: #DEF2F1;
+  background: $light;
   border: none;
   box-sizing: border-box;
-  color: black;
+  color: $black;
   margin: 15px;
   .button--full-height{
     height: 50%;
@@ -19,8 +19,8 @@
     transform: translate(-50%, -45%);
   }
   .col-box{
-    background: #3AAFA9;
-    border-radius: 6px 0px 0px 6px;
+    background: $primary;
+    border-radius: $r-medium 0px 0px $r-medium;
     border-color: transparent;
     margin-top: 1px;
     margin-bottom: 1px;
@@ -31,13 +31,13 @@
     padding-top: 100%; 	/* initial ratio of 1:1*/
   }
   .last-col{
-    border-radius: 0px 6px 6px 0px;
-    border-right: 1px solid #000000;
+    border-radius: 0px $r-medium $r-medium 0px;
+    border-right: 1px solid $black;
     margin-right: 5px;
   }
   .col-content{
-    border-top: 1px solid #000000;
-    border-bottom: 1px solid #000000;
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
     .inner-container{
       height: 100%;
       position: absolute;
@@ -49,66 +49,76 @@
         .job-title{
           font-style: normal;
           font-weight: bold;
-          font-size: 30px;
+          font-size: $t-medium;
           line-height: 35px;
-          color: #000000;
+          color: $black;
           margin-top: 10px;
-          @media (min-width: 767px) and (max-width:1024px) {
-            font-size: 22px;
-            line-height: 30px;
-          }
-          @media (max-width: 768px) {
-            font-size: 21px;
-            line-height: 30px;
-          }
         }
         .company-name{
           font-style: normal;
           font-weight: normal;
           font-size: 25px;
           line-height: 30px;
-          color: #000000;
-          @media (min-width: 767px) and (max-width:1024px) {
-            font-size: 23px;
-            line-height: 28px;
-          }
-          @media (max-width: 768px) {
-            font-size: 18px;
-            line-height: 25px;
-          }
-
+          color: $black;
         }
         .location{
           font-style: normal;
           font-weight: normal;
           font-size: 25px;
           line-height: 30px;
-          color: #000000;
-          @media (min-width: 767px) and (max-width:1024px) {
-            font-size: 23px;
-            line-height: 28px;
-          }
-          @media (max-width: 768px) {
-            font-size: 18px;
-            line-height: 25px;
-          }
+          color: $black;
         }
         .job-position-level{
           font-style: normal;
           font-weight: normal;
           font-size: 25px;
           line-height: 30px;
-          color: #000000;
-          @media (min-width: 767px) and (max-width:1024px) {
-            font-size: 23px;
-            line-height: 28px;
-          }
-          @media (max-width: 768px) {
-            font-size: 18px;
-            line-height: 25px;
-          }
+          color: $black;
         }
       }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .job-position-level{
+      font-size: 18px;
+      line-height: 25px;
+    }
+
+    .location{
+      font-size: 18px;
+      line-height: 25px;
+    }
+
+    .company-name{
+      font-size: 18px;
+      line-height: 25px;
+    }
+
+    .job-title{
+      font-size: $t-small;
+      line-height: $t-medium;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .job-position-level{
+      font-size: 18px;
+      line-height: 25px;
+    }
+
+    .location{
+      font-size: 18px;
+      line-height: 25px;
+    }
+
+    .company-name{
+      font-size: 18px;
+      line-height: 25px;
+    }
+
+    .job-title{
+      font-size: $t-small;
+      line-height: $t-medium;
     }
   }
 }
