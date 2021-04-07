@@ -30,7 +30,7 @@ applicant, handleSuperLike, handlelike
           <p className="applicant__text applicant__text--description">{applicant.description}</p>
         </div>
         <h4 className="applicant__deadline">
-          <b>Deadline: &nbsp;&nbsp;</b>
+          <b>Available: &nbsp;&nbsp;</b>
           {applicant.available}
         </h4>
         </div>
