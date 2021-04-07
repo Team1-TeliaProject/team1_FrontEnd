@@ -1,0 +1,66 @@
+@import '../../scss/config';
+@import '../../scss/mixins';
+
+.employer{
+  width: 50vw;
+  background-color: $light;
+  margin: 0 auto;
+  box-shadow: 0 0 10px gray;
+}
+  .jobcard{ 
+  margin: 0 2rem;
+  padding: 1rem;
+  font-family: $nunito;
+  display: flex;
+  flex-direction: column;
+  &__avatar {
+    margin: 1rem auto;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background-color: $dark;
+  }
+  &__company {
+    margin: auto;
+    font-size: $t-big;
+  }
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding-top:2rem;
+  }
+  &__text{
+    margin: 0;
+    &--position{
+      font-weight: bold;
+      font-size: $t-medium;
+      font-size:2.3vw;
+    }
+    &--location{
+      font-size: $t-small;
+    }
+    &--seniority{
+       font-size: $t-medium;
+       padding-bottom: 1rem;
+    }
+   &--skills{
+  padding-top:1rem;
+  }
+  &--description{
+    padding-top:1rem;
+    font-size: $t-small;
+  }
+}
+  &__deadline {
+     font-size: $t-small;
+    padding-top:1rem;
+    margin:0;
+  }
+  &__icons {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    background-color: $dark;
+  }
+}
