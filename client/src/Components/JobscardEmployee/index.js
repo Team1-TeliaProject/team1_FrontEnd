@@ -35,8 +35,8 @@ employer, handleSuperLike, handlelike
         </h4>
         </div>
         <div className="jobcard__icons">
-          <FaHeart onClick={handleSuperLike} style={{ height: '2em', width: '2em' }} />
-          <BiLike onClick={handlelike} style={{ height: '2em', width: '2em' }} />
+          <FaHeart onClick={handleSuperLike}  className="jobcard__icons jobcard__icons--superlike"/>
+          <BiLike onClick={handlelike}  className="jobcard__icons jobcard__icons--like"/>
         </div>
       </section>
     </>

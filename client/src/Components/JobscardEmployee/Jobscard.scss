@@ -63,8 +63,19 @@
     display: flex;
     justify-content: space-around;
     background-color: $dark;
+    &--superlike{
+ padding:1rem;
+      height: 2rem;
+      width: 2rem;
+    }
+    &--like{
+   padding: 1rem;
+      height: 2rem;
+      width: 2rem;
+    }
   }
 }
+
 
 @media screen and (max-width: 768px) {
  
