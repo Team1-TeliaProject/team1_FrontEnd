@@ -4,12 +4,12 @@
 
 
 //mobile first
-.employee-profile{
+.employee{
     width: 100%;
     height: auto;
 }
 
-.employee-profile__main {
+.employee__main {
     
     display: flex;
     justify-content: center;
@@ -21,7 +21,7 @@
         margin-bottom: 1rem;
     }
 
-    .employee-profile__image {
+    .employee__image {
         &--big {
             width: 200px;
             height: auto;
@@ -29,22 +29,24 @@
             vertical-align: top;
         }
     }
-    .employee-profile__main__content{
-        
-    .employee-profile__btn {
+    .employee__content{
+        padding-left: 2rem;
+
+    .employee__main--btn {
         display: flex;
         justify-content: flex-end;
     }
-    .button {
+    .employee__btn-div {
         font-size: 1.2rem;
         margin: 0 auto;
+        width: 30%;
     }
     
     }
 }
 
 @include breakpoint(768px){
-    .employee-profile__main {
+    .employee__main {
         flex-direction: row;
         align-items: flex-start;
         min-height: 100vh;   
@@ -54,7 +56,7 @@
             width: 50%;
             padding: 1rem;
         }
-        .button{
+        &__btn-div{
             width: auto;
             margin: 1px;
         }   

@@ -5,12 +5,14 @@ import Button from '../Button/index'
  
         const EmployeeProfile = ({alt, modifier, name, location, title, position, about, description, skills}) => {
             return (
-                <div className="employee-profile">
+                <div className="employee">
                     
                     
-                    <div className="employee-profile__main">
-                        <img className={`employee-profile__image employee-profile__image--${modifier}`} alt={alt} src="/image/employee-profile-image.jpg" />
-                        <div className="employee-profile__main__content">
+                    <div className="employee__main">
+                        <img className={`employee__image employee__image--big ${modifier}`} alt={alt} src="/image/employee-profile-image.jpg" />
+
+                        <div className="employee__content">
+
                             <h2>{name}</h2>
                             <p>{location}</p>
 
@@ -20,10 +22,10 @@ import Button from '../Button/index'
                             <h3>{about}</h3>
                             <p>{description}</p>
                             <p>{skills}</p>
-                            <div className="employee-profile__btn">
-                       
-                       <Button text="Edit Profile" modifier="md" />
-                    </div>
+
+                            <div className="employee__btn-div">
+                                <Button text="Edit Profile" modifier="md" />
+                            </div>
 
                         </div>
                         
