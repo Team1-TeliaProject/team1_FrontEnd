@@ -28,15 +28,9 @@ const Jobcard = ({
   handlelike
 }) => {
   const [userType, setUserType] = useState(false);
-
-  //sets the rendering components based on user type
-  //if user type is employer renders employer props
-  //else renders applicant props
   const handleIdentifier = () => {
     if (user === 'employer') setUserType(true);
   };
-
-  //sets rendering options each time on content load
   window.addEventListener('DOMContentLoaded', handleIdentifier);
   return (
     <>
