@@ -1,3 +1,6 @@
+@import './scss/config';
+@import './scss/mixins';
+
 body {
   margin: 0px;
   padding: 0px;
@@ -6,4 +9,9 @@ body {
 
 .app {
   width: 100vw;
+  background-color: $light;
+
+  &--landing {
+    background-color: $primary;
+  }
 }

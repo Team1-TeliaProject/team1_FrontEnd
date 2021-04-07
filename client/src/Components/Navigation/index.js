@@ -41,7 +41,7 @@ function Navigation() {
     <div className="nav">
       <img
         className="nav__logo"
-        src={window.location.href.includes('landing') ? whiteLogo : blueLogo}
+        src={window.location.href.includes('welcomepage') ? whiteLogo : blueLogo}
         alt="logo"
         onClick={() => console.log('xxx')}
       />
