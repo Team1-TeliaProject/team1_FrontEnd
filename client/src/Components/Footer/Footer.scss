@@ -1,26 +1,20 @@
 @import '../../scss/config';
 
-.app {
-  background-color: $primary;
-  font-family: $nunito;
-  color: $light;
-  height: 100vh;
-}
 .footer {
   width: 100vw;
   padding: 10px 50px;
   box-sizing: border-box;
   height: 100px;
-  background-color:$primary;
+  background-color: $primary;
   position: fixed;
   bottom: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   &__link {
-  text-decoration: none;
-  font-size: $t-small;
-  color: $light;
+    text-decoration: none;
+    font-size: $t-small;
+    color: $light;
   }
- }
+}
