@@ -8,46 +8,6 @@
     width: 100%;
     height: auto;
 }
-// header {
-//         display: flex;
-//         margin-bottom: 2rem;
-//         padding: 2rem;
-//         .logo__main {
-//             display: flex;
-//             flex-grow: 2;
-//             justify-content: center;
-//             align-items: center;
-            
-//             .logo {
-//                 width: 80%; 
-//             }
-//             @include breakpoint(768px){
-//                 .logo{
-//                     width: auto;
-//                 }
-//                 justify-content: left;
-//             }
-//         }
-        
-
-//         .employee-profile__image--small {
-//             display: none;
-            
-//             @include breakpoint(768px){
-//                 display: inline-block;
-//             }
-//         }
-
-// }
-                
-        
-// .employee-profile__image--small {
-            
-//             width: 70px;
-//             height: auto;
-//             margin: 0 auto;
-//         }
-        
 
 .employee-profile__main {
     
@@ -57,12 +17,6 @@
     flex-direction: column;
     width: 100%;
     
-    @include breakpoint(768px){
-        flex-direction: row;
-        align-items: flex-start;
-        min-height: 100vh;   
-        margin-top: 7em;   
-    }
     p {
         margin-bottom: 1rem;
     }
@@ -76,11 +30,7 @@
         }
     }
     .employee-profile__main__content{
-        @include breakpoint(768px){
-            width: 50%;
-            padding: 1rem;
-           }
-        }
+        
     .employee-profile__btn {
         display: flex;
         justify-content: flex-end;
@@ -88,16 +38,26 @@
     .button {
         font-size: 1.2rem;
         margin: 0 auto;
-
-        @include breakpoint(768px){
-            width: auto;
-            margin: 1px;
-            
-        }
-
     }
     
-
+    }
 }
 
-
+@include breakpoint(768px){
+    .employee-profile__main {
+        flex-direction: row;
+        align-items: flex-start;
+        min-height: 100vh;   
+        margin-top: 7em;
+        
+        &__content{
+            width: 50%;
+            padding: 1rem;
+        }
+        .button{
+            width: auto;
+            margin: 1px;
+        }   
+    }
+    
+}
