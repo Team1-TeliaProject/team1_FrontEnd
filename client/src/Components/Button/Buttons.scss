@@ -3,17 +3,18 @@
 
 .button {
   font-family: $nunito;
-  padding: 0.5rem;
-  margin: 0.5rem;
   display: inline-block;
   box-sizing: border-box;
   width: 100%;
+  height: 50px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+
   &--bg {
     font-size: $t-small;
     border-radius: $r-big;
     background-color: $black;
     color: $white;
-    height: 50px;
     border: 0.1em solid $black;
   }
   &--bg:hover {
@@ -26,7 +27,6 @@
     border-radius: $r-medium;
     color: black;
     background-color: $primary;
-    height: 50px;
     font-weight: 500;
     border: 0.05em solid $black;
   }
@@ -40,11 +40,50 @@
     border-radius: $r-small;
     color: $black;
     background-color: $light;
-    height: 60px;
     font-weight: bold;
     border: 0.05em solid $black;
   }
   &--sm:hover {
-    border-color: rgba(255, 255, 255, 1);
+    border: 0.05em solid $black;
+    background-color: $black;
+    color: $white;
+  }
+
+  &--nav {
+    font-size: $t-medium;
+    text-transform: uppercase;
+    border-radius: $r-small;
+    color: $black;
+    background-color: $light;
+    font-weight: bold;
+    border: 0.05em solid $black;
+  }
+  &--nav:hover {
+    border: 0.05em solid $black;
+    background-color: $black;
+    color: $white;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .button {
+    &--nav {
+      font-size: $t-big;
+    }
+    &--bg {
+      font-size: $t-big;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .button {
+    height: 40px;
+    &--nav {
+      font-size: $t-xl;
+    }
+    &--bg {
+      font-size: $t-xl;
+    }
   }
 }
