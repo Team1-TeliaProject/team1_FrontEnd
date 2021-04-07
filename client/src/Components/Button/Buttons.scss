@@ -41,10 +41,10 @@
     color: $black;
     background-color: $light;
     font-weight: bold;
-    border: 0.05em solid $black;
+    border: none;
+    padding: 0px 10px;
   }
   &--sm:hover {
-    border: 0.05em solid $black;
     background-color: $black;
     color: $white;
   }
