@@ -1,0 +1,32 @@
+@import '../../scss/config';
+@import '../../scss/mixins';
+
+.job-details {
+  @include pageBase;
+  margin-bottom: 200px;
+  display: flex;
+  justify-content: space-between;
+
+  &__arrow {
+    font-size: $t-xl;
+    cursor: pointer;
+    color: $black;
+  }
+
+  &__content {
+    display: flex;
+    width: 70%;
+  }
+
+  &__image-div {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    @include flexAbslouteCenter;
+  }
+
+  &__image {
+    width: 90%;
+  }
+}

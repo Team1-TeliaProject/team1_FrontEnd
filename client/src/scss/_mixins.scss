@@ -1,23 +1,24 @@
-
-
-
 // Breakpoints
 
 @mixin breakpoint($size, $max: false) {
-    @if max==true {
-        @media screen and (max-width: '#{$size}'){
-            @content;
-        }
-    } @else {
-        @media screen and (min-width: '#{$size}'){
-            @content;
-        }
+  @if max==true {
+    @media screen and (max-width: '#{$size}') {
+      @content;
     }
-        
+  } @else {
+    @media screen and (min-width: '#{$size}') {
+      @content;
+    }
+  }
+}
 
 @mixin pageBase {
   width: 80vw;
   margin: 15px auto;
+}
 
-
+@mixin flexAbslouteCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
