@@ -1,10 +1,19 @@
-// body {
-//   margin: 0px;
-//   padding: 0px;
-//   box-sizing: border-box;
-// }
 
-// .app {
-//   width: 70vw;
-//   margin: 20px auto;
-// }
+@import './scss/config';
+@import './scss/mixins';
+
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.app {
+  width: 100vw;
+  background-color: $light;
+
+  &--landing {
+    background-color: $primary;
+  }
+}
+
