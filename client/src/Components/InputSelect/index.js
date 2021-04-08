@@ -4,14 +4,14 @@ import './InputSelect.scss';
 
 const InputSelect = ({ options, handleInputChange }) => {
   return (
-    <select onChange={handleInputChange} className="select" placeholder="Choose">
-      <option value="">Select an Option</option>
-      {options.map((opt, index) => (
-        <option value={opt} key={index}>
-          {opt}
-        </option>
-      ))}
-    </select>
+    (Array.isArray(options)) ? <select onChange={handleInputChange} className="select" placeholder="Choose">
+    <option disabled value="">Select an Option</option>
+    {options.map((opt, index) => (
+      <option value={opt.toLowerCase()} key={index}>
+        {opt}
+      </option>
+    ))}
+  </select> : ''
   );
 };
 
