@@ -1,0 +1,110 @@
+@import '../../scss/config';
+@import '../../scss/mixins';
+
+.matched-job {
+  font-family: $nunito;
+  padding: 0;
+  min-height: 124px;
+  width: 100%;
+  background: $light;
+  border: none;
+  box-sizing: border-box;
+  color: $black;
+  margin: 15px;
+  .button--full-height{
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+  }
+  .col-box{
+    background: $primary;
+    border-radius: $r-medium 0px 0px $r-medium;
+    border-color: transparent;
+    margin-top: 1px;
+    margin-bottom: 1px;
+  }
+  .square:before{
+    content: "";
+    display: block;
+    padding-top: 100%; 	/* initial ratio of 1:1*/
+  }
+  .last-col{
+    border-radius: 0px $r-medium $r-medium 0px;
+    border-right: 1px solid $black;
+    margin-right: 5px;
+  }
+  .col-content{
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
+    .inner-container{
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: $black;
+      font-style: normal;
+      .row{
+        height: 50%;
+        align-items: flex-end;
+        .job-title{
+          font-weight: bold;
+          margin-top: 10px;
+        }
+        .company-name{
+          font-weight: normal;
+        }
+        .location{
+          font-weight: normal;
+        }
+        .job-position-level{
+          font-weight: normal;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .job-title{
+      font-size: $t-big;
+      line-height: 1.5rem;
+    }
+
+    .job-position-level{
+      font-size: $t-medium;
+      line-height: 30px;
+    }
+
+    .location{
+      font-size: $t-medium;
+      line-height: 30px;
+    }
+
+    .company-name{
+      font-size: $t-medium;
+      line-height: 30px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .job-title{
+      font-size: $t-big;
+      line-height: 1.5rem;
+    }
+
+    .job-position-level{
+      font-size: $t-medium;
+      line-height: 30px;
+    }
+
+    .location{
+      font-size: $t-medium;
+      line-height: 30px;
+    }
+
+    .company-name{
+      font-size: $t-medium;
+      line-height: 30px;
+    }
+  }
+}
