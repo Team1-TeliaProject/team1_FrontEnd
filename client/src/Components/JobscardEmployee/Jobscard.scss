@@ -1,0 +1,101 @@
+@import '../../scss/config';
+@import '../../scss/mixins';
+
+.employer{
+  width: 80vw;
+  background-color: $light;
+  margin: 0 auto;
+  box-shadow: 0 0 10px gray;
+}
+  .jobcard{ 
+  margin: 0 2rem;
+  padding: 2rem;
+  font-family: $nunito;
+  display: flex;
+  flex-direction: column;
+  &__avatar {
+    margin: 1rem auto;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background-color: $dark;
+  }
+  &__company {
+    margin: auto;
+    font-size: $t-big;
+  }
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding-top:2rem;
+  }
+  &__text{
+    margin: 0;
+    &--position{
+      font-weight: bold;
+      font-size: $t-medium;
+      font-size:2.3vw;
+    }
+    &--location{
+      font-size: $t-small;
+    }
+    &--seniority{
+       font-size: $t-medium;
+       padding-bottom: 1rem;
+    }
+   &--skills{
+    font-size: $t-medium;
+    padding-top:1rem;
+  }
+  &--description{
+    padding-top:1rem;
+    font-size: $t-small;
+  }
+}
+  &__deadline {
+     font-size: $t-small;
+    padding-top:1rem;
+    margin:0;
+  }
+  &__icons {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    background-color: $dark;
+    &--superlike{
+ padding:1rem;
+      height: 2rem;
+      width: 2rem;
+    }
+    &--like{
+   padding: 1rem;
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+ 
+}
+ 
+@media screen and (max-width: 600px) {
+ 
+ .jobcard{
+   padding:1rem;
+   &__avatar{
+    height: 70px;
+    width: 70px;
+   }
+   &__head {
+    padding-top:1rem;
+  }
+  &__text{
+    &--skills{
+      padding-top:0;
+    }
+  }
+ }
+}
