@@ -11,7 +11,7 @@ applicant, handleSuperLike, handlelike
     <>
       <section className="applicantcard">
         <div className="applicant">
-        <img className="applicant__avatar" src={`${applicant.image}`} alt="company logo" />
+        <img className="applicant__avatar" src={applicant.image} alt="company logo" />
         <h2 className="applicant__company">{applicant.name}</h2>
         <div className="applicant__head">
           <p className="applicant__text applicant__text--position">
