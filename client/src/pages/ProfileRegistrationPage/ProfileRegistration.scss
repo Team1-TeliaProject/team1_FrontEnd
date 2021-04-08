@@ -16,14 +16,17 @@
         text-transform: uppercase;
     }
     .registration {
-        min-height: 100vh;
+        margin-bottom: 4rem;
         display: block;
-        .input {
-            height: 30px;
+        
+        .input, .select {
+            background-color: $light;
+        }
+        textarea {
+            background-color: $light;
         }
         .button {
-            height: 30px;
-            margin: 0 0 10px 0;
+            margin: 1rem 0;
         }
     }
         

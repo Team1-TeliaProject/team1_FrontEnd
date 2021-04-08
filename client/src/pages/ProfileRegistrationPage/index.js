@@ -19,32 +19,41 @@ const ProfileRegistration = () => {
         <div className="profile-registration">
 
             <h3>create an account</h3>
+
             <div className="registration">
-                <InputSelect 
-                options ={usertype} className="registration__must registration__select" placeholder="Usertype" handleInputChange={(e) => {
+
+                <InputSelect text="User Type"
+                options ={usertype} placeholder="Usertype" handleInputChange={(e) => {
                     sethide(e.target.value === 'employer');
                 }}/>
-                <Input className="registration__must" placeholder="First Name"/>
-                {(!hide) ?                 <Input className="registration__must" placeholder="Last Name"/>: ''}
-                <Input className="registration__must registration__select" placeholder="Email Address"/>
 
-                <Input className="registration__must" placeholder="Phone Number"/>
+                <Input placeholder="First Name"/>
+                 
+                <Input placeholder="Last Name"/>
 
-                <Input className="registration__must" placeholder="Location"/>
+                <Input placeholder="Email Address"/>
 
-                <InputSelect options={type} className="registration__select" placeholder="Type"/>
+                <Input placeholder="Phone Number"/>
 
-                <InputSelect options={level} className="registration__select" placeholder="Level"/>
-                {(!hide) ?<Input className="registration__select" placeholder="Title"/>: ''}
+                <Input placeholder="Location"/>
+
+                {(!hide) ?<InputSelect text="Type" options={type}  placeholder="Type"/>: ''}
+
+                {(!hide) ?<InputSelect text="Level" options={level}  placeholder="Level"/>: ''}
+
+                {(!hide) ?<Input placeholder="Title"/>: ''}
+
                 {(!hide) ?<Input placeholder="GitHub"/>: ''}
+
                 {(!hide) ?<Input placeholder="LinkedIn"/>: ''}
-                {(!hide) ?<InputSelect options={skills}  className="registration__select" placeholder="Tech-Skills"/>: ''}
+
+                {(!hide) ?<InputSelect text="Tech-Skills" options={skills} placeholder="Tech-Skills"/>: ''}
                 
                 {(!hide) ?<Textarea placeholder="About yourself" />: ''}
 
-                {(!hide) ?<Button className="registration__select" text="Upload Photo" modifier=""/>: ''}
+                <Input modifier="bg" placeholder="Upload Photo" type="file"/>
 
-                <Button text="Create" modifier=""/>
+                <Button text="Create" modifier="bg"/>
                 
             </div>
             
