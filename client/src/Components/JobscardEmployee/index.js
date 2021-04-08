@@ -11,7 +11,7 @@ employer, handleSuperLike, handlelike
     <>
       <section className="employer">
         <div className="jobcard">
-        <img className="jobcard__avatar" src={`${employer.image}`} alt="company logo" />
+        <img className="jobcard__avatar" src={employer.image} alt="company logo" />
         <h2 className="jobcard__company">{employer.company}</h2>
         <div className="jobcard__head">
           <p className="jobcard__text jobcard__text--position">
