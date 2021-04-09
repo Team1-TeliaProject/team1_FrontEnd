@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './ImageUpload.scss';
 
-const ImageUpload = (setImage) => {
+const ImageUpload = ({ setImage }) => {
   const [loading, setLoading] = useState(false);
 
   const uploadImage = async (e) => {

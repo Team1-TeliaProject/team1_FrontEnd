@@ -26,11 +26,14 @@ const ProfileRegistration = ({ match }) => {
 
   const createAccount = (e) => {
     e.preventDefault();
-    console.log('created!!');
-    if (password !== passwordRe) {
-      setError('Password not matched');
+    if ((!firstName && !companyName) || !email || !password) {
+      setError('All fields are required');
     } else {
-      history.push(`/profilesetup/${type}`);
+      if (password !== passwordRe) {
+        setError('Password not matched');
+      } else {
+        history.push(`/profilesetup/${type}`);
+      }
     }
   };
 
@@ -91,6 +94,15 @@ const ProfileRegistration = ({ match }) => {
       {type === 'company' && (
         <form className="profile-registration__form">
           <h3 className="profile-registration__heading">CREATE AN ACCOUNT</h3>
+          <p
+            className={
+              error !== 'error'
+                ? 'profile-registration__error'
+                : 'profile-registration__error-hidden'
+            }
+          >
+            {error}
+          </p>
           <Input
             type="text"
             placeholder="Company Name"
