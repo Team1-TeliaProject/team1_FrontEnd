@@ -2,59 +2,71 @@
 @import '../../scss/mixins';
 
 //mobile first
-.employee{
-    width: 100%;
-    height: auto;
+.employee {
+  width: 100%;
+  height: auto;
 }
 .employee__main {
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    p {
-        margin-bottom: 1rem;
-    }
-    .employee__image {
-        &--big {
-            width: 200px;
-            height: auto;
-            margin-bottom: 1rem;
-            vertical-align: top;
-        }
-    }
-    .employee__content{
-        padding-left: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 
-    .employee__main--btn {
-        display: flex;
-        justify-content: flex-end;
-    }
-    .employee__btn-div {
-        font-size: 1.2rem;
-        margin: 0 auto;
-        width: 30%;
-    }
-    
-    }
+  .employee__image {
+    width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+    vertical-align: top;
+  }
+  .employee__content {
+    padding-left: 2rem;
+    padding-bottom: 1rem;
+  }
+  .employee__btn-div {
+    display: flex;
+    padding-left: 70%;
+    justify-content: flex-end;
+    font-size: $t-small;
+    margin-top: 10%;
+    width: 100%;
+  }
 }
 
-@include breakpoint(768px){
-    .employee__main {
-        flex-direction: row;
-        align-items: flex-start;
-        min-height: 100vh;   
-        margin-top: 7em;
-        
-        &__content{
-            width: 50%;
-            padding: 1rem;
-        }
-        &__btn-div{
-            width: auto;
-            margin: 1px;
-        }   
+.employee__text {
+  padding-top: 1rem;
+  margin: 0;
+  font-size: $t-medium;
+  font-weight: bold;
+}
+
+.employee__about {
+  font-size: $t-small;
+  font-weight: bold;
+}
+@include breakpoint(600px) {
+  .employee__main {
+    flex-direction: row;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin-top: 7em;
+  }
+}
+@media screen and (max-width: 600px) {
+  .employee__main {
+    .employee__image {
+      width: 100px;
+      margin: 0 auto;
+      padding-bottom: 1rem;
     }
-    
+    .employee__content {
+      padding: 0;
+    }
+    .employee__text {
+      padding-top: 1rem;
+      margin: 0;
+      font-size: $t-medium;
+      font-weight: bold;
+    }
+  }
 }

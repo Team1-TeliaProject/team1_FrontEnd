@@ -1,28 +1,39 @@
 import React from 'react';
-import Button from '../../Components/Button'
- 
-import ''
- 
-        const EmployeeProfile = ({alt, modifier, name, location, title, position, about, description, skills}) => {
-            return (
-                <div className="employee">                                     
-                    <div className="employee__main">
-                        <img className={`employee__image employee__image--big ${modifier}`} alt={alt} src="/image/employee-profile-image.jpg" />
-                        <div className="employee__content">
-                            <h2>{name}</h2>
-                            <p>{location}</p>
-                            <h3>{title}</h3>
-                            <p>{position}</p>
-                            <h3>{about}</h3>
-                            <p>{description}</p>
-                            <p>{skills}</p>
-                            <div className="employee__btn-div">
-                                <Button text="Edit Profile" modifier="md" />
-                            </div>
-                        </div>               
-                    </div>              
-                </div>
-            );
-        };
-        
-export default EmployeeProfile;
+import Button from '../../Components/Button';
+
+import './applicant-prof-page.scss';
+
+const ApplicantProfilePage = ({ applicant }) => {
+  return (
+    <div className="employee">
+      <div className="employee__main">
+        <img className={'employee__image'} src={applicant.image} alt="profile picture" />
+        <div className="employee__content">
+          <h2>
+            {applicant.firstname} {applicant.lastname}
+          </h2>
+          <p> {applicant.location}</p>
+          <p className="employee__text">{applicant.position}</p>
+          <p>
+            {applicant.seniority}, {applicant.type}
+          </p>
+          <p>
+            <p className="employee__about">About me</p>
+            {applicant.description}
+          </p>
+          <p>{applicant.skills}</p>
+          <p className="employee__about">
+            Early start date: &nbsp;
+            {applicant.availability}
+          </p>
+
+          <div className="employee__btn-div">
+            <Button text="Edit Profile" modifier="md" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ApplicantProfilePage;
