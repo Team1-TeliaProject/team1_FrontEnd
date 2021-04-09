@@ -59,7 +59,7 @@ body {
     width: 100%;
     font-family: $nunito;
     @include breakpoint(320px){}
-
+    
     @include breakpoint(768px){}
     @include breakpoint(1024px){}
     @include breakpoint(1224px){}

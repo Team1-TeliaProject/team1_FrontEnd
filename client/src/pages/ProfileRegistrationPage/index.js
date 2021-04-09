@@ -27,9 +27,11 @@ const ProfileRegistration = () => {
                     sethide(e.target.value === 'employer');
                 }}/>
 
-                <Input placeholder="First Name"/>
+                {(hide) ?<Input placeholder="Company Name"/>: ''}
+
+                {(!hide) ?<Input placeholder="First Name"/>: ''}
                  
-                <Input placeholder="Last Name"/>
+                {(!hide) ?<Input placeholder="Last Name"/>: ''}
 
                 <Input placeholder="Email Address"/>
 
@@ -51,7 +53,7 @@ const ProfileRegistration = () => {
                 
                 {(!hide) ?<Textarea placeholder="About yourself" />: ''}
 
-                <Input modifier="bg" placeholder="Upload Photo" type="file"/>
+                <Input modifier="bg" placeholder="Upload Photo" />
 
                 <Button text="Create" modifier="bg"/>
                 
