@@ -20,6 +20,11 @@ const JobDetailsPage = () => {
     stack: ['react', 'javaScript', 'Typescript', 'scss'],
     image: 'https://logo-logos.com/wp-content/uploads/2017/07/red-bull-logo.png'
   };
+
+  const handleLike = () => {};
+
+  const handleSuperLike = () => {};
+
   return (
     <div className="job-details">
       <BiArrowBack onClick={() => history.push('/homepage')} className="job-details__arrow" />
@@ -51,8 +56,8 @@ const JobDetailsPage = () => {
               ))}
             </div>
             <div className="job-details__actions">
-              <BiLike className="job-details__icon" />
-              <FaHeart className="job-details__icon" />
+              <BiLike onClick={handleLike} className="job-details__icon" />
+              <FaHeart onClick={handleSuperLike} className="job-details__icon" />
             </div>
           </div>
         </div>
