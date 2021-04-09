@@ -8,7 +8,7 @@ import './App.scss';
 
 function App() {
   return (
-    <div className={window.location.href.includes('welcomepage') ? 'app app--landing' : 'app'}>
+    <div className="app">
       <Navigation />
       <Routes />
       <Footer />
