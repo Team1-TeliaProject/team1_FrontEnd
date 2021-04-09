@@ -16,9 +16,6 @@ import './ProfileEditPage.scss';
 const ProfileEditPage = ({ match, type = 'company' }) => {
   const history = useHistory();
   const id = match.params.id;
-  const [image, setImage] = useState(
-    'https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.png'
-  );
   const [seniority, setSeniority] = useState('');
   const [timage, setTimage] = useState(profile.image);
   const [cimage, setCimage] = useState(company.image);
@@ -180,7 +177,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
           </div>
           <div className="profile-edit__image-div">
             <img className="profile-edit__image" src={timage} alt="profile" />
-            <ImageUpload setImage={setImage} />
+            <ImageUpload setImage={setTimage} />
           </div>
 
           <div className="profile-edit__btn-div">
@@ -229,7 +226,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
           />
           <div className="profile-edit__image-div">
             <img className="profile-edit__image" src={cimage} alt="profile" />
-            <ImageUpload setImage={setImage} />
+            <ImageUpload setImage={setCimage} />
           </div>
           <div className="profile-edit__btn-div">
             <Button modifier="dark" text="Update" handleClick={createAccount} />
