@@ -21,6 +21,7 @@ $r-big: 12px;
 //texts size
 
 $t-x-s: 1vw;
+$t-m-s: 1.3vw;
 $t-small: 1.5vw;
 $t-medium: 2vw;
 $t-big: 3vw;
@@ -32,40 +33,3 @@ $sh-big: 0px 2px 8px rgba(0, 0, 0, 0.822);
 $sh-small: 0px 1px 3px rgba(0, 0, 0, 0.671);
 $sh-text: 0px 2px 3px rgb(85, 84, 84);
 
-
-
-// global scope
-*, *::before, *::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html {
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
-}
-body {
-    min-height: 100vh;
-    width: 100%;
-    min-width: 320px;
-    overflow-x: hidden;
-    
-    
-}
-#root {
-    background-color: $light;
-    height: 100%;
-    width: 100%;
-    font-family: $nunito;
-    @include breakpoint(320px){}
-
-    @include breakpoint(768px){}
-    @include breakpoint(1024px){}
-    @include breakpoint(1224px){}
-}
-.app {
-    height: 100%;
-    width: 100%;
-    padding: .5rem;
-}
