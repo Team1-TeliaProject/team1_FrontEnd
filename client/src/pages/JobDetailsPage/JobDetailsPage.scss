@@ -1,0 +1,166 @@
+@import '../../scss/config';
+@import '../../scss/mixins';
+
+.job-details {
+  @include pageBase;
+  margin-bottom: 200px;
+  display: flex;
+  justify-content: space-between;
+
+  &__arrow {
+    font-size: $t-xl;
+    cursor: pointer;
+    color: $black;
+  }
+
+  &__content {
+    display: flex;
+    width: 80%;
+  }
+
+  &__image-div {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    background-position: center;
+    @include flexAbslouteCenter;
+    margin-right: 40px;
+  }
+
+  &__image {
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+  }
+
+  &__info {
+    width: 75%;
+  }
+
+  &__text {
+    color: $black;
+    font-family: $nunito;
+    font-size: $t-m-s;
+    line-height: 1.5;
+
+    &--name {
+      font-weight: 800;
+      margin-bottom: 0;
+      font-size: $t-medium;
+    }
+
+    &--title {
+      margin: 30px 0px 0px;
+      font-weight: bold;
+      font-size: $t-small;
+    }
+
+    &--deadline {
+      font-size: $t-m-s;
+    }
+
+    &--desc {
+      font-weight: bold;
+    }
+  }
+
+  &__type-info {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &__techs {
+    font-size: $t-m-s;
+    font-weight: bold;
+  }
+
+  &__actions {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__icon {
+    color: $dark;
+    font-size: $t-big;
+    margin-left: 40px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .job-details {
+    width: 90vw;
+
+    &__content {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .job-details {
+    flex-direction: column;
+
+    &__arrow {
+      font-size: 6vw;
+    }
+    &__content {
+      width: 100%;
+    }
+
+    &__image-div {
+      margin-bottom: 40px;
+      width: 170px;
+      height: 170px;
+    }
+
+    &__text {
+      color: $black;
+      font-family: $nunito;
+      font-size: $t-big;
+      line-height: 1.5;
+
+      &--name {
+        font-weight: 800;
+        margin-bottom: 0;
+        font-size: $t-xl;
+      }
+
+      &--title {
+        margin: 30px 0px 0px;
+        font-weight: bold;
+        font-size: $t-big;
+      }
+
+      &--deadline {
+        font-size: $t-big;
+      }
+
+      &--desc {
+        font-size: $t-big;
+        font-weight: bolder;
+      }
+    }
+
+    &__techs {
+      font-size: $t-big;
+    }
+
+    &__icon {
+      font-size: 6vw;
+    }
+  }
+}
