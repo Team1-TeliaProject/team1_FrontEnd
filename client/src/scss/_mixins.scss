@@ -12,8 +12,8 @@
 }
 
 @mixin pageBase {
-  width: 80vw;
-  margin: 15px auto;
+    width: 80vw;
+    margin: 15px auto;  
 }
 
 @mixin flexAbslouteCenter {
@@ -21,3 +21,4 @@
   justify-content: center;
   align-items: center;
 }
+

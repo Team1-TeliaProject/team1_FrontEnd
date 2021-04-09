@@ -3,7 +3,8 @@ import React from 'react';
 import './Input.scss';
 const Input = ({ handleInputChange, placeholder, type, id, value }) => {
   return (
-    <input
+   <div>
+      <input
       id={id}
       value={value}
       onChange={handleInputChange}
@@ -11,6 +12,7 @@ const Input = ({ handleInputChange, placeholder, type, id, value }) => {
       type={type}
       className="input"
     />
+   </div>
   );
 };
 
