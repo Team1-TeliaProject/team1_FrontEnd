@@ -5,6 +5,7 @@
 .employee {
   width: 100%;
   height: auto;
+  margin-bottom: 200px;
 }
 .employee__main {
   display: flex;
@@ -12,7 +13,6 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-
   .employee__image {
     width: 200px;
     height: auto;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../../Components/Button';
+import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 
 import './applicant-prof-page.scss';
 
@@ -7,7 +8,7 @@ const ApplicantProfilePage = ({ applicant }) => {
   return (
     <div className="employee">
       <div className="employee__main">
-        <img className={'employee__image'} src={applicant.image} alt="profile picture" />
+        <img className="employee__image" src={applicant.image} alt="profile picture" />
         <div className="employee__content">
           <h2>
             {applicant.firstname} {applicant.lastname}
@@ -26,7 +27,11 @@ const ApplicantProfilePage = ({ applicant }) => {
             Early start date: &nbsp;
             {applicant.availability}
           </p>
+          <div className="employee__icons">
+            <AiFillGithub />
 
+            <AiFillLinkedin />
+          </div>
           <div className="employee__btn-div">
             <Button text="Edit Profile" modifier="md" />
           </div>
