@@ -1,0 +1,81 @@
+@import '../../scss/config';
+@import '../../scss/mixins';
+
+.profile-edit {
+  @include pageBase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 200px;
+  background: url('../../Assets/background2.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: contain;
+
+  &__form {
+    padding: 0, 5%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__heading {
+    font-size: $t-medium;
+    font-family: $nunito;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  &__error {
+    margin: 0;
+    color: #be4040;
+  }
+
+  &__error-hidden {
+    margin: 0;
+    opacity: 0;
+  }
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: $r-medium;
+    margin-right: 50px;
+  }
+
+  &__btn-div {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .profile-edit {
+    &__form {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile-edit {
+    &__heading {
+      font-size: $t-big;
+    }
+    &__form {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile-edit {
+    @include pageBaseSmall;
+    &__heading {
+      font-size: 6vw;
+    }
+  }
+}

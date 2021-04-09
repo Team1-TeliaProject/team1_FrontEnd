@@ -7,6 +7,7 @@ import TryOutPage from './pages/TryOutPage';
 import JobDetailsPage from './pages/JobDetailsPage';
 import ProfileRegistration from './pages/ProfileRegistrationPage';
 import ProfileSetupPage from './pages/ProfileSetupPage';
+import ProfileEditPage from './pages/ProfileEditPage';
 
 const Routes = () => (
   <Switch>
@@ -16,6 +17,7 @@ const Routes = () => (
     <Route exact path="/jobs/details" component={JobDetailsPage} />
     <Route exact path="/registration/:type" component={ProfileRegistration} />
     <Route exact path="/profilesetup/:type" component={ProfileSetupPage} />
+    <Route exact path="/profile/edit" component={ProfileEditPage} />
   </Switch>
 );
 
