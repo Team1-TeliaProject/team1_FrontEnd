@@ -1,5 +1,4 @@
 // Breakpoints
-
 @mixin breakpoint($size, $max: false) {
   @if max==true {
     @media screen and (max-width: '#{$size}') {
@@ -17,7 +16,7 @@
   margin: 15px auto;
 }
 
-@mixin flexAbslouteCenter {
+@mixin flexAbsoluteCenter {
   display: flex;
   justify-content: center;
   align-items: center;
