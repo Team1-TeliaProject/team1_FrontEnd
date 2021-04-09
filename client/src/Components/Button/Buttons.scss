@@ -13,8 +13,8 @@
   &--dark {
     font-size: $t-small;
     border-radius: $r-medium;
-    color: $black;
-    background-color: $primary;
+    color: $white;
+    background-color: $dark;
     font-weight: 500;
     border: none;
   }
@@ -31,9 +31,9 @@
     border: none;
   }
   &--light:hover {
-    color: $dark;
+    color: $black;
     background-color: rgba(0, 0, 0, 0);
-    border: 1.5px solid $dark;
+    border: 1.5px solid $white;
   }
 
   &--nav {

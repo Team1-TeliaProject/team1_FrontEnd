@@ -4,6 +4,7 @@ import './Input.scss';
 const Input = ({ handleInputChange, placeholder, type, id, value }) => {
   return (
     <input
+      required
       id={id}
       value={value}
       onChange={handleInputChange}

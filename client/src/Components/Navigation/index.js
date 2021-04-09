@@ -41,12 +41,7 @@ function Navigation() {
 
   return (
     <div className="nav">
-      <img
-        className="nav__logo"
-        src={window.location.href.includes('welcomepage') ? whiteLogo : blueLogo}
-        alt="logo"
-        onClick={() => console.log('xxx')}
-      />
+      <img className="nav__logo" src={whiteLogo} alt="logo" onClick={() => console.log('xxx')} />
       <div className="nav__profile-div">
         {isUserLogged ? (
           <h2>User Profile</h2>
