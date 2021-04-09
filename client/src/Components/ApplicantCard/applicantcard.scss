@@ -2,12 +2,12 @@
 @import '../../scss/mixins';
 
 .applicantcard{
-  width: 80vw;
+  max-width: 80vw;
   background-color: $light;
   margin: 0 auto;
   box-shadow: 0 0 10px gray;
 }
-  .applicant{ 
+  .applicant{
   margin: 0 2rem;
   padding: 2rem;
   font-family: $nunito;
@@ -63,7 +63,7 @@
     display: flex;
     justify-content: space-around;
     background-color: $dark;
-  
+
     &--superlike{
       padding: 1rem;
       height: 2rem;
@@ -78,11 +78,11 @@
 }
 
 @media screen and (max-width: 768px) {
- 
+
 }
- 
+
 @media screen and (max-width: 600px) {
- 
+
  .applicant{
    padding:1rem;
    &__avatar{
@@ -100,6 +100,6 @@
   &__icons{
     padding: 1rem;
   }
- 
+
  }
 }
