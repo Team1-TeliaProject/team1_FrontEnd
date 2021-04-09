@@ -8,6 +8,7 @@ import './JobDetailsPage.scss';
 const JobDetailsPage = () => {
   const history = useHistory();
 
+  // dummy data to be removed when conneted with the db
   const job = {
     company: 'B Company',
     location: 'Helsinki, Finland',
