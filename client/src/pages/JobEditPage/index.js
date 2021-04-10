@@ -14,7 +14,7 @@ import './JobEditPage.scss';
 
 const JobEditPage = () => {
   const history = useHistory();
-  const [seniority, setSeniority] = useState(Job.level);
+  const [level, setLevel] = useState(Job.level);
   const [type, setType] = useState(Job.type);
   const [techList, setTechList] = useState([]);
   const [fields, setFields] = useForm({
@@ -84,7 +84,7 @@ const JobEditPage = () => {
         />
         <p className="job-edit__label">Seniority Level</p>
         <InputSelect
-          handleInputChange={(e) => setSeniority(e.target.value)}
+          handleInputChange={(e) => setLevel(e.target.value)}
           placeholder="Select seniority"
           options={['Junior', 'Mid-Senior', 'Senior', 'Internship']}
         />

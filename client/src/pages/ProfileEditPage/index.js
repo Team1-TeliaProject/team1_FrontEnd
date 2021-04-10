@@ -13,12 +13,12 @@ import { talentProfile as profile, companyProfile as company } from '../../Utils
 
 import './ProfileEditPage.scss';
 
-const ProfileEditPage = ({ match, type = 'company' }) => {
+const ProfileEditPage = ({ match, type = 'talent' }) => {
   const history = useHistory();
   const id = match.params.id;
-  const [seniority, setSeniority] = useState('');
-  const [timage, setTimage] = useState(profile.image);
-  const [cimage, setCimage] = useState(company.image);
+  const [level, setLevel] = useState('');
+  const [photo, setPhoto] = useState(profile.photo);
+  const [logo, setLogo] = useState(company.logo);
   const [typeList, setTypeList] = useState([]);
   const [techList, setTechList] = useState([]);
   const [fields, setFields] = useForm({
@@ -159,7 +159,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
           />
           <p className="profile-edit__label">Seniority Level</p>
           <InputSelect
-            handleInputChange={(e) => setSeniority(e.target.value)}
+            handleInputChange={(e) => setLevel(e.target.value)}
             placeholder="Select seniority"
             options={['Junior', 'Mid-Senior', 'Senior', 'Internship']}
           />
@@ -183,8 +183,8 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             options={techOptions}
           />
           <div className="profile-edit__image-div">
-            <img className="profile-edit__image" src={timage} alt="profile" />
-            <ImageUpload setImage={setTimage} />
+            <img className="profile-edit__image" src={photo} alt="profile" />
+            <ImageUpload setImage={setPhoto} />
           </div>
 
           <div className="profile-edit__btn-div">
@@ -235,8 +235,8 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             handleInputChange={setFields}
           />
           <div className="profile-edit__image-div">
-            <img className="profile-edit__image" src={cimage} alt="profile" />
-            <ImageUpload setImage={setCimage} />
+            <img className="profile-edit__image" src={logo} alt="profile" />
+            <ImageUpload setImage={setLogo} />
           </div>
           <div className="profile-edit__btn-div">
             <Button modifier="dark" text="Update" handleClick={createAccount} />

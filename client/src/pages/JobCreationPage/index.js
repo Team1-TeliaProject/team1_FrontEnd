@@ -13,7 +13,7 @@ import './JobCreationPage.scss';
 
 const JobCreationPage = () => {
   const history = useHistory();
-  const [seniority, setSeniority] = useState('');
+  const [level, setLevel] = useState('');
   const [type, setType] = useState([]);
   const [techList, setTechList] = useState([]);
   const [fields, setFields] = useForm({
@@ -76,7 +76,7 @@ const JobCreationPage = () => {
           handleInputChange={setFields}
         />
         <InputSelect
-          handleInputChange={(e) => setSeniority(e.target.value)}
+          handleInputChange={(e) => setLevel(e.target.value)}
           placeholder="Select seniority"
           options={['Junior', 'Mid-Senior', 'Senior', 'Internship']}
         />

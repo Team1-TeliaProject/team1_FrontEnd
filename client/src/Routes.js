@@ -16,7 +16,7 @@ const Routes = () => (
     <Route exact path="/" component={HomePage} />
     <Route exact path="/welcomepage" component={LandingPage} />
     <Route exact path="/tryout" component={TryOutPage} />
-    <Route exact path="/jobs/details" component={JobDetailsPage} />
+    <Route exact path="/job/:id/details" component={JobDetailsPage} />
     <Route exact path="/registration/:type" component={ProfileRegistration} />
     <Route exact path="/profilesetup/:type" component={ProfileSetupPage} />
     <Route exact path="/profile/edit" component={ProfileEditPage} />

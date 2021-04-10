@@ -8,14 +8,14 @@ const TalentCard = ({ talent, handleSuperLike, handlelike }) => {
   return (
     <section className="talent-card">
       <div className="talent-card__main">
-        <img className="talent-card__avatar" src={talent.image} alt="talent logo" />
+        <img className="talent-card__avatar" src={talent.photo} alt="talent logo" />
         <h2 className="talent-card__name">{`${talent.firstName} ${talent.lastName}`}</h2>
         <div className="talent-card__head">
           <p className="talent-card__text talent-card__text--position">{talent.title}</p>
           <p className="talent-card__text talent-card__text--location">{talent.location}</p>
         </div>
         <p className="talent-card__text talent-card__text--seniority">
-          {talent.seniority}, &nbsp;
+          {talent.level}, &nbsp;
           {talent.type}
         </p>
         <div className="talent-card__skills">
