@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Modal from 'react-modal';
 
 import Button from '../Button';
 import Input from '../Input';
 import { useForm } from '../../hooks/useForm';
 import whiteLogo from '../../Assets/DuuniClick_logo__white.svg';
-import blueLogo from '../../Assets/DuuniClick_logo_blue.svg';
 
 import './Navigation.scss';
 
 function Navigation() {
+  const history = useHistory();
   const [isUserLogged, setIsUserLogged] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toForgotPassword = () => {
+    history.push('./forgotpassword');
+  };
 
   const [fields, setFields] = useForm({
     username: '',
@@ -22,13 +27,11 @@ function Navigation() {
 
   const customStyles = {
     content: {
-      width: '500px',
-      height: '300px',
+      background: '#3aafa9',
       top: '50%',
       left: '50%',
       right: 'auto',
       bottom: 'auto',
-      marginRight: '-50%',
       transform: 'translate(-50%, -50%)'
     }
   };
@@ -49,31 +52,35 @@ function Navigation() {
           <Button text="Login" modifier="nav" handleClick={() => setIsModalOpen(true)} />
         )}
       </div>
-      <Modal isOpen={isModalOpen} style={customStyles} contentLabel="Example Modal">
+      <Modal isOpen={isModalOpen} style={customStyles}>
         <div onClick={() => setIsModalOpen(false)} className="close">
           X
         </div>
-        <div className="modal">
-          <div>
-            <h1 className="modal__title">LOG IN</h1>
-            <Input
-              id="username"
-              value={username}
-              handleInputChange={setFields}
-              type="text"
-              placeholder="Username"
-            />
-            <Input
-              id="password"
-              value={password}
-              handleInputChange={setFields}
-              type="password"
-              placeholder="Password"
-            />
-            <div className="modal__btn-div">
-              <Button modifier="bg" text="Login" handleClick={handleLogin} />
-            </div>
+        <div className="content">
+          <h1 className="content__title">LOG IN</h1>
+          <Input
+            id="username"
+            value={username}
+            handleInputChange={setFields}
+            type="text"
+            placeholder="Username"
+          />
+          <Input
+            id="password"
+            value={password}
+            handleInputChange={setFields}
+            type="password"
+            placeholder="Password"
+          />
+          <div className="content__btn-div">
+            <Button modifier="dark" text="Login" handleClick={handleLogin} />
           </div>
+          <p className="content__text">
+            Forgot password?{' '}
+            <span onClick={toForgotPassword} className="content__text-link ">
+              Reset
+            </span>
+          </p>
         </div>
       </Modal>
     </div>

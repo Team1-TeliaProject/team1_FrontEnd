@@ -8,6 +8,8 @@ body {
 }
 
 .app {
-  width: 100vw;
+  max-width: 100vw;
   background-color: $primary;
+  box-sizing: border-box;
+  overflow: hidden;
 }
