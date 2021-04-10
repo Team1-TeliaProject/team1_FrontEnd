@@ -44,10 +44,10 @@ const JobCreationPage = () => {
   };
 
   return (
-    <div className="profile-edit">
-      <h3 className="profile-edit__heading">ADD A NEW ROLE</h3>
+    <div className="job-create">
+      <h3 className="job-create__heading">ADD A NEW ROLE</h3>
 
-      <form className="profile-edit__form">
+      <form className="job-create__form">
         <Input
           type="text"
           placeholder="Job Title"
@@ -96,7 +96,7 @@ const JobCreationPage = () => {
           options={techOptions}
         />
 
-        <div className="profile-edit__btn-div">
+        <div className="job-create__btn-div">
           <Button modifier="dark" text="Create" handleClick={createAccount} />
         </div>
       </form>
