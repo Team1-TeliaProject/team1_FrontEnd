@@ -56,7 +56,7 @@ export const jobList = [
   },
   {
     id: 'a87afasdf655afd',
-    title: 'Front-edn Developer',
+    title: 'Front-end Developer',
     type: 'Full-time',
     level: 'Mid-senior',
     deadline: '04/30/2021',
@@ -183,5 +183,73 @@ export const talentList = [
     techs: ['React', 'JavaScript', 'Node', 'Express', 'UX Design', 'UI Design'],
     image:
       'https://pyxis.nymag.com/v1/imgs/210/d16/dea3c5c74efa65069b35d6b9a1629bdfa0-milana-vayntrub.rsquare.w330.jpg'
+  }
+];
+
+export const talentMatches = [
+  {
+    title: 'Full Stack Developer',
+    level: 'Junior',
+    location: 'Helsinki, Finland',
+    companyName: 'Business College Helsinki',
+    logo: 'https://pbs.twimg.com/profile_images/989034832935243782/zqwJlfVl_400x400.jpg'
+  },
+  {
+    title: 'Front-end Developer',
+    level: 'Mid-senior',
+    location: 'Helsinki, Finland',
+    companyName: 'Red Bull',
+    logo: 'https://logo-logos.com/wp-content/uploads/2017/07/red-bull-logo.png'
+  },
+  {
+    title: 'Full Stack Developer',
+    level: 'Junior',
+    location: 'Helsinki, Finland',
+    companyName: 'Nokia',
+    logo: 'https://1000logos.net/wp-content/uploads/2017/03/Nokia-Logo.png'
+  },
+  {
+    title: 'Back-end Developer',
+    level: 'Junior',
+    location: 'Espoo, Finland',
+    companyName: 'Business College Helsinki',
+    logo: 'https://muropaketti.com/wp-content/uploads/2017/11/apple-logo-black.png'
+  }
+];
+
+export const companyMatches = [
+  {
+    firstName: 'Chiranjibi',
+    lastName: 'Chiranjibi',
+    title: 'Full-stack developer',
+    level: 'Junior',
+    location: 'Espoo, Finland',
+    photo:
+      'https://avatars.githubusercontent.com/u/38856325?s=400&u=fab689158a188b966fdea8e88ceb5a9b95251a8b&v=4'
+  },
+  {
+    firstName: 'Mani',
+    lastName: 'Chapagain',
+    title: 'Front-end developer',
+    level: 'Junior',
+    location: 'Vantaa, Finland',
+    photo:
+      'https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg'
+  },
+  {
+    firstName: 'Sharada',
+    lastName: 'Gauchan',
+    title: 'Back-end developer',
+    level: 'Senior',
+    location: 'Helsinki, Finland',
+    photo: 'https://cdnimpuls.com/v.xing.al/media3/-640-0-5da5c77d6cf38.jpg'
+  },
+  {
+    firstName: 'James',
+    lastName: 'Rosh',
+    title: 'Back-end developer',
+    level: 'Senior',
+    location: 'Helsinki, Finland',
+    photo: 'https://mb.cision.com/Public/14029/3257020/9b83902ef9f956e8_400x400ar.jpg'
   }
 ];

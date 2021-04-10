@@ -4,7 +4,9 @@ import Jobcard from '../../Components/JobCard';
 
 import JobCard from '../../Components/JobCard';
 import TalentCard from '../../Components/TalentCard';
-import { jobList, talentList } from '../../Utils/dummyData';
+import MatchedJob from '../../Components/MatchedJob';
+import MatchedTalent from '../../Components/MatchedTalent';
+import { jobList, talentList, talentMatches, companyMatches } from '../../Utils/dummyData';
 
 import './HomePage.scss';
 
@@ -76,7 +78,17 @@ const HomePage = () => {
         </div>
       )}
 
-      {page === 'matches' && <h1>Here comes matches</h1>}
+      {page === 'matches' && (
+        <div className="homepage__matches">
+          <h1>Your Matches </h1>
+          <div>
+            {userType === 'talent' &&
+              talentMatches.map((item, index) => <MatchedJob match={item} key={index} />)}
+            {userType === 'company' &&
+              companyMatches.map((item, index) => <MatchedTalent match={item} key={index} />)}
+          </div>
+        </div>
+      )}
 
       {page === 'messages' && <h1>Here comes messages</h1>}
     </div>
