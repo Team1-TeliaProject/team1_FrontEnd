@@ -33,8 +33,6 @@ const ProfileSetupPage = ({ match }) => {
 
   const { phone, location, title, github, linkedin, about, website } = fields;
 
-  console.log('check', typeList, techList);
-
   const createAccount = (e) => {
     e.preventDefault();
     console.log('created!!');
@@ -52,6 +50,9 @@ const ProfileSetupPage = ({ match }) => {
   const handleChangeTech = (options) => {
     const techs = options.map((opt) => opt.value);
     setTechList(techs);
+  };
+  const setUpProfile = () => {
+    history.push('/');
   };
 
   return (
@@ -190,7 +191,7 @@ const ProfileSetupPage = ({ match }) => {
               handleInputChange={setFields}
             />
             <div className="profile-setup__btn-div">
-              <Button modifier="dark" text="Update" handleClick={createAccount} />
+              <Button modifier="dark" text="Update" handleClick={setUpProfile} />
             </div>
           </form>
         </div>
