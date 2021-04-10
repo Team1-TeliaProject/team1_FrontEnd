@@ -20,7 +20,7 @@
     width: 150px;
     object-fit: cover;
     border-radius: 50%;
-    background-color: $dark;
+    background-color: $white;
     box-shadow: 0px 0px 3px rgba(97, 97, 97, 0.829);
   }
   &__company {
@@ -64,6 +64,9 @@
       font-style: italic;
     }
     &--description {
+      max-height: 150px;
+      overflow-y: auto;
+      text-overflow: ellipsis;
       padding-top: 1rem;
       font-size: $t-m-s;
     }
@@ -87,7 +90,7 @@
 
   &__icon {
     font-size: $t-big;
-    color: $light;
+    color: $primary;
     cursor: pointer;
     transition: 0.3s ease-in-out;
 

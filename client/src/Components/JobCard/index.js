@@ -2,34 +2,33 @@ import React from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { BiLike } from 'react-icons/bi';
 
-import './Jobscard.scss';
+import './JobCard.scss';
 
-const Jobcard = ({ employer, handleSuperLike, handlelike }) => {
-  console.log('xxxx--', employer);
+const Jobcard = ({ company, handleSuperLike, handlelike }) => {
   return (
     <section className="jobcard">
       <div className="jobcard__main">
-        <img className="jobcard__avatar" src={employer.company.logo} alt="company logo" />
-        <h2 className="jobcard__company">{employer.company.companyName}</h2>
+        <img className="jobcard__avatar" src={company.logo} alt="company logo" />
+        <h2 className="jobcard__company">{company.name}</h2>
         <div className="jobcard__head">
-          <p className="jobcard__text jobcard__text--position">{employer.title}</p>
-          <p className="jobcard__text jobcard__text--location">{employer.location}</p>
+          <p className="jobcard__text jobcard__text--position">{company.title}</p>
+          <p className="jobcard__text jobcard__text--location">{company.location}</p>
         </div>
         <p className="jobcard__text jobcard__text--seniority">
-          {employer.level}, &nbsp;
-          {employer.type}
+          {company.level}, &nbsp;
+          {company.type}
         </p>
         <div className="jobcard__skills">
-          {employer.techs.map((item, index) => (
+          {company.techs.map((item, index) => (
             <p className="jobcard__text jobcard__text--skill" key={index}>
               {item}, &nbsp;
             </p>
           ))}
         </div>
-        <p className="jobcard__text jobcard__text--description">{employer.description}</p>
+        <p className="jobcard__text jobcard__text--description">{company.description}</p>
         <h4 className="jobcard__deadline">
           <b>Deadline: &nbsp;</b>
-          {employer.deadline}
+          {company.deadline}
         </h4>
       </div>
       <div className="jobcard__icons">

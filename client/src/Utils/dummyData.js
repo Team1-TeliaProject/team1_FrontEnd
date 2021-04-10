@@ -51,10 +51,8 @@ export const jobList = [
       'lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
     location: 'Helsinki, Finland',
     techs: ['React', 'JavaScript', 'Node', 'Express', 'UX Design', 'UI Design'],
-    company: {
-      companyName: 'Business College Helsinki',
-      logo: 'https://pbs.twimg.com/profile_images/989034832935243782/zqwJlfVl_400x400.jpg'
-    }
+    name: 'Business College Helsinki',
+    logo: 'https://pbs.twimg.com/profile_images/989034832935243782/zqwJlfVl_400x400.jpg'
   },
   {
     id: 'a87afasdf655afd',
@@ -66,10 +64,8 @@ export const jobList = [
       'lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
     location: 'Helsinki, Finland',
     techs: ['Vue', 'JavaScript', 'Node', 'Express', 'UX Design', 'UI Design'],
-    company: {
-      companyName: 'Red Bull',
-      logo: 'https://logo-logos.com/wp-content/uploads/2017/07/red-bull-logo.png'
-    }
+    name: 'Red Bull',
+    logo: 'https://logo-logos.com/wp-content/uploads/2017/07/red-bull-logo.png'
   },
   {
     id: 'adflkj2459fd',
@@ -81,10 +77,8 @@ export const jobList = [
       'lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
     location: 'Helsinki, Finland',
     techs: ['React', 'TypeScript', 'Node', 'Express', 'UI Design'],
-    company: {
-      companyName: 'Nokia',
-      logo: 'https://1000logos.net/wp-content/uploads/2017/03/Nokia-Logo.png'
-    }
+    name: 'Nokia',
+    logo: 'https://1000logos.net/wp-content/uploads/2017/03/Nokia-Logo.png'
   },
   {
     id: 'ad3456gfd',
@@ -96,10 +90,8 @@ export const jobList = [
       'lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
     location: 'Helsinki, Finland',
     techs: ['Docker', 'AWS', 'Node', 'Express', 'MongoDB'],
-    company: {
-      companyName: 'Apple',
-      logo: 'https://muropaketti.com/wp-content/uploads/2017/11/apple-logo-black.png'
-    }
+    name: 'Apple',
+    logo: 'https://muropaketti.com/wp-content/uploads/2017/11/apple-logo-black.png'
   }
 ];
 

@@ -7,6 +7,24 @@
   flex-direction: column;
   padding: 0 250px 250px 250px;
 
+  &__nav {
+    width: 80%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__nav-items {
+    cursor: pointer;
+    font-family: $nunito;
+    font-size: $t-medium;
+    transition: 0.3s ease-in-out;
+
+    &--dim {
+      color: rgb(83, 83, 83);
+    }
+  }
+
   &__main {
     width: 100%;
     display: flex;
