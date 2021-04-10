@@ -33,8 +33,6 @@ const ProfileSetupPage = ({ match }) => {
 
   const { phone, location, title, github, linkedin, about, website } = fields;
 
-  console.log('check', typeList, techList);
-
   const createAccount = (e) => {
     e.preventDefault();
     console.log('created!!');
