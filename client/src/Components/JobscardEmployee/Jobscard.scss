@@ -1,101 +1,156 @@
 @import '../../scss/config';
 @import '../../scss/mixins';
 
-.employer{
-  width: 80vw;
+.jobcard {
+  width: 100%;
   background-color: $light;
-  margin: 0 auto;
-  box-shadow: 0 0 10px gray;
-}
-  .jobcard{ 
-  margin: 0 2rem;
-  padding: 2rem;
-  font-family: $nunito;
-  display: flex;
-  flex-direction: column;
+  margin: 0 15px;
+  box-shadow: $sh-big;
+  border-radius: $r-big;
+
+  &__main {
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   &__avatar {
-    margin: 1rem auto;
-    height: 120px;
-    width: 120px;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
     border-radius: 50%;
     background-color: $dark;
+    box-shadow: 0px 0px 3px rgba(97, 97, 97, 0.829);
   }
   &__company {
-    margin: auto;
-    font-size: $t-big;
+    margin-top: 10px;
+    font-size: $t-medium;
+    color: $black;
   }
   &__head {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items:center;
-    padding-top:2rem;
+    align-items: center;
+    margin-top: 20px;
   }
-  &__text{
+
+  &__skills {
+    width: 100%;
+    display: flex;
+  }
+
+  &__text {
     margin: 0;
-    &--position{
+
+    &--position {
       font-weight: bold;
-      font-size: $t-medium;
-      font-size:2.3vw;
-    }
-    &--location{
       font-size: $t-small;
     }
-    &--seniority{
-       font-size: $t-medium;
-       padding-bottom: 1rem;
+    &--location {
+      font-size: $t-m-s;
     }
-   &--skills{
-    font-size: $t-medium;
-    padding-top:1rem;
+    &--seniority {
+      width: 100%;
+      text-align: start;
+      font-size: $t-m-s;
+      padding-bottom: 1rem;
+    }
+    &--skill {
+      font-size: $t-x-s;
+      font-weight: bold;
+      color: $black;
+      font-style: italic;
+    }
+    &--description {
+      padding-top: 1rem;
+      font-size: $t-m-s;
+    }
   }
-  &--description{
-    padding-top:1rem;
-    font-size: $t-small;
-  }
-}
+
   &__deadline {
-     font-size: $t-small;
-    padding-top:1rem;
-    margin:0;
+    width: 100%;
+    text-align: start;
+    font-size: $t-m-s;
+    padding-top: 1.2rem;
+    margin: 0;
   }
+
   &__icons {
     padding: 2rem;
     display: flex;
+    border-radius: 0px 0px 6px 6px;
     justify-content: space-around;
     background-color: $dark;
-    &--superlike{
- padding:1rem;
-      height: 2rem;
-      width: 2rem;
-    }
-    &--like{
-   padding: 1rem;
-      height: 2rem;
-      width: 2rem;
+  }
+
+  &__icon {
+    font-size: $t-big;
+    color: $light;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
     }
   }
 }
 
-
+@media screen and (max-width: 1200px) {
+}
 @media screen and (max-width: 768px) {
- 
-}
- 
-@media screen and (max-width: 600px) {
- 
- .jobcard{
-   padding:1rem;
-   &__avatar{
-    height: 70px;
-    width: 70px;
-   }
-   &__head {
-    padding-top:1rem;
-  }
-  &__text{
-    &--skills{
-      padding-top:0;
+  .jobcard {
+    &__avatar {
+      width: 120px;
+      height: 120px;
     }
   }
- }
+}
+@media screen and (max-width: 768px) {
+  .jobcard {
+    margin: 0 5px;
+    &__company {
+      font-size: 5.5vw;
+    }
+
+    &__deadline {
+      font-size: $t-xl;
+    }
+
+    &__text {
+      &--position {
+        font-size: $t-xl;
+      }
+      &--location {
+        font-size: $t-big;
+      }
+      &--seniority {
+        font-size: $t-big;
+      }
+      &--skill {
+        font-size: $t-medium;
+      }
+      &--description {
+        font-size: $t-big;
+      }
+    }
+    &__icons {
+      padding: 1.5rem 2rem;
+      justify-content: space-between;
+    }
+
+    &__icon {
+      font-size: 10vw;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .jobcard {
+    &__avatar {
+      width: 100px;
+      height: 100px;
+    }
+  }
 }
