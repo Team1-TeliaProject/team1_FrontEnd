@@ -164,17 +164,15 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             name="type"
             options={typeOptions}
           />
-          <div style={{ minWidth: '100%' }}>
-            <Select
-              defaultValue={defaultTechs}
-              placeholder="select techs"
-              onChange={handleChangeTech}
-              styles={selectStyles}
-              isMulti
-              name="tech"
-              options={techOptions}
-            />
-          </div>
+          <Select
+            defaultValue={defaultTechs}
+            placeholder="select techs"
+            onChange={handleChangeTech}
+            styles={selectStyles}
+            isMulti
+            name="tech"
+            options={techOptions}
+          />
           <div className="profile-edit__image-div">
             <img className="profile-edit__image" src={timage} alt="profile" />
             <ImageUpload setImage={setTimage} />
