@@ -9,6 +9,7 @@ import ProfileRegistration from './pages/ProfileRegistrationPage';
 import ProfileSetupPage from './pages/ProfileSetupPage';
 import ProfileEditPage from './pages/ProfileEditPage';
 import JobCreationPage from './pages/JobCreationPage';
+import JobEditPage from './pages/JobEditPage';
 
 const Routes = () => (
   <Switch>
@@ -20,6 +21,7 @@ const Routes = () => (
     <Route exact path="/profilesetup/:type" component={ProfileSetupPage} />
     <Route exact path="/profile/edit" component={ProfileEditPage} />
     <Route exact path="/profile/vacancy/addnew" component={JobCreationPage} />
+    <Route exact path="/profile/vacancy/edit" component={JobEditPage} />
   </Switch>
 );
 
