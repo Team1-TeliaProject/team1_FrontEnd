@@ -51,6 +51,9 @@ const ProfileSetupPage = ({ match }) => {
     const techs = options.map((opt) => opt.value);
     setTechList(techs);
   };
+  const setUpProfile = () => {
+    history.push('/');
+  };
 
   return (
     <div className="profile-setup">
@@ -188,7 +191,7 @@ const ProfileSetupPage = ({ match }) => {
               handleInputChange={setFields}
             />
             <div className="profile-setup__btn-div">
-              <Button modifier="dark" text="Update" handleClick={createAccount} />
+              <Button modifier="dark" text="Update" handleClick={setUpProfile} />
             </div>
           </form>
         </div>
