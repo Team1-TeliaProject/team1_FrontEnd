@@ -1,11 +1,18 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import './MatchedTalent.scss';
 
 import ChatButton from '../ChatButton';
 import InfoButton from '../InfoButton';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const MatchedTalent = ({ match, chatClicked, infoClicked }) => {
+const MatchedTalent = ({ match, setPage }) => {
+  const history = useHistory();
+
+  const toDetails = (e) => {
+    e.preventDefault();
+    history.push(`/job/${match.id}/details`);
+  };
   return (
     <Container>
       <Row className="matched-job">
@@ -37,12 +44,15 @@ const MatchedTalent = ({ match, chatClicked, infoClicked }) => {
           <Container className="inner-container">
             <Row>
               <Col style={{ height: '100%', width: '100%', padding: 0 }}>
-                <ChatButton handleClick={chatClicked} modifier={'full-height'}></ChatButton>
+                <ChatButton
+                  handleClick={() => setPage('messages')}
+                  modifier={'full-height'}
+                ></ChatButton>
               </Col>
             </Row>
             <Row>
               <Col style={{ height: '100%', width: '100%', padding: 0 }}>
-                <InfoButton handleClick={infoClicked} modifier={'full-height'}></InfoButton>
+                <InfoButton handleClick={toDetails} modifier={'full-height'}></InfoButton>
               </Col>
             </Row>
           </Container>

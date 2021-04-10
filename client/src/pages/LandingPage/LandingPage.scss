@@ -3,7 +3,7 @@
 
 .landing-page {
   @include pageBase;
-  height: 80vh;
+  padding-bottom: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,6 +16,8 @@
   }
 
   &__text {
+    width: 60%;
+    text-align: center;
     color: $white;
     font-family: $nunito;
     font-size: $t-small;
@@ -30,19 +32,56 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .landing-page {
+    height: 100vh;
+
     &__heading {
       font-size: $t-xl;
+    }
+
+    &__btn-div {
+      width: 40%;
+    }
+
+    &__text {
+      font-size: $t-big;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .landing-page {
+    &__btn-div {
+      width: 60%;
     }
   }
 }
 
 @media screen and (max-width: 600px) {
   .landing-page {
+    @include pageBaseSmall;
     &__heading {
       font-size: 5vw;
       text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .landing-page {
+    @include pageBaseSmall;
+
+    &__heading {
+      font-size: 5.5vw;
+      font-weight: bold;
+      text-align: center;
+    }
+    &__btn-div {
+      width: 90%;
+    }
+    &__text {
+      width: 90%;
+      font-size: 5vw;
     }
   }
 }

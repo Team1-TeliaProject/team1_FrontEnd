@@ -10,10 +10,10 @@ export const talentProfile = {
   linkedin: 'https://www.linkedin.com/feed/',
   about:
     'orem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
-  seniority: 'Junior',
+  level: 'Junior',
   type: ['Full-time', 'Part-time'],
   techs: ['React', 'JavaScript', 'Node', 'Express', 'UX Design', 'UI Design'],
-  image:
+  photo:
     'https://avatars.githubusercontent.com/u/38856325?s=400&u=fab689158a188b966fdea8e88ceb5a9b95251a8b&v=4'
 };
 
@@ -25,7 +25,7 @@ export const companyProfile = {
   website: 'https://www.bc.fi/',
   about:
     'lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
-  image: 'https://pbs.twimg.com/profile_images/989034832935243782/zqwJlfVl_400x400.jpg'
+  logo: 'https://pbs.twimg.com/profile_images/989034832935243782/zqwJlfVl_400x400.jpg'
 };
 
 export const Job = {
@@ -51,8 +51,8 @@ export const jobList = [
       'lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
     location: 'Helsinki, Finland',
     techs: ['React', 'JavaScript', 'Node', 'Express', 'UX Design', 'UI Design'],
-    name: 'Business College Helsinki',
-    logo: 'https://pbs.twimg.com/profile_images/989034832935243782/zqwJlfVl_400x400.jpg'
+    companyName: 'Business College Helsinki',
+    companyLogo: 'https://pbs.twimg.com/profile_images/989034832935243782/zqwJlfVl_400x400.jpg'
   },
   {
     id: 'a87afasdf655afd',
@@ -64,8 +64,8 @@ export const jobList = [
       'lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
     location: 'Helsinki, Finland',
     techs: ['Vue', 'JavaScript', 'Node', 'Express', 'UX Design', 'UI Design'],
-    name: 'Red Bull',
-    logo: 'https://logo-logos.com/wp-content/uploads/2017/07/red-bull-logo.png'
+    companyName: 'Red Bull',
+    companyLogo: 'https://logo-logos.com/wp-content/uploads/2017/07/red-bull-logo.png'
   },
   {
     id: 'adflkj2459fd',
@@ -77,8 +77,8 @@ export const jobList = [
       'lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
     location: 'Helsinki, Finland',
     techs: ['React', 'TypeScript', 'Node', 'Express', 'UI Design'],
-    name: 'Nokia',
-    logo: 'https://1000logos.net/wp-content/uploads/2017/03/Nokia-Logo.png'
+    companyName: 'Nokia',
+    companyLogo: 'https://1000logos.net/wp-content/uploads/2017/03/Nokia-Logo.png'
   },
   {
     id: 'ad3456gfd',
@@ -90,8 +90,8 @@ export const jobList = [
       'lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
     location: 'Helsinki, Finland',
     techs: ['Docker', 'AWS', 'Node', 'Express', 'MongoDB'],
-    name: 'Apple',
-    logo: 'https://muropaketti.com/wp-content/uploads/2017/11/apple-logo-black.png'
+    companyName: 'Apple',
+    companyLogo: 'https://muropaketti.com/wp-content/uploads/2017/11/apple-logo-black.png'
   }
 ];
 
@@ -108,10 +108,10 @@ export const talentList = [
     linkedin: 'https://www.linkedin.com/feed/',
     about:
       'orem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
-    seniority: 'Junior',
+    level: 'Junior',
     type: ['Full-time', 'Part-time'],
     techs: ['React', 'JavaScript', 'Node', 'Express', 'UX Design', 'UI Design'],
-    image:
+    photo:
       'https://avatars.githubusercontent.com/u/38856325?s=400&u=fab689158a188b966fdea8e88ceb5a9b95251a8b&v=4'
   },
   {
@@ -126,10 +126,10 @@ export const talentList = [
     linkedin: 'https://www.linkedin.com/feed/',
     about:
       'orem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
-    seniority: 'Junior',
+    level: 'Junior',
     type: ['Full-time', 'Part-time'],
     techs: ['React', 'JavaScript', 'Node', 'Express', 'UX Design', 'UI Design'],
-    image:
+    photo:
       'https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg'
   },
   {
@@ -144,10 +144,10 @@ export const talentList = [
     linkedin: 'https://www.linkedin.com/feed/',
     about:
       'orem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
-    seniority: 'Junior',
+    level: 'Junior',
     type: ['Full-time', 'Part-time'],
     techs: ['React', 'JavaScript', 'Node', 'Express', 'UX Design', 'UI Design'],
-    image: 'https://cdnimpuls.com/v.xing.al/media3/-640-0-5da5c77d6cf38.jpg'
+    photo: 'https://cdnimpuls.com/v.xing.al/media3/-640-0-5da5c77d6cf38.jpg'
   },
   {
     id: '345jklasdfttrree',
@@ -161,10 +161,10 @@ export const talentList = [
     linkedin: 'https://www.linkedin.com/feed/',
     about:
       'orem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
-    seniority: 'Junior',
+    level: 'Junior',
     type: ['Full-time', 'Part-time'],
     techs: ['React', 'JavaScript', 'Node', 'Express', 'UX Design', 'UI Design'],
-    image: 'https://mb.cision.com/Public/14029/3257020/9b83902ef9f956e8_400x400ar.jpg'
+    photo: 'https://mb.cision.com/Public/14029/3257020/9b83902ef9f956e8_400x400ar.jpg'
   },
   {
     id: 'lalg45sdyetr',
@@ -178,16 +178,17 @@ export const talentList = [
     linkedin: 'https://www.linkedin.com/feed/',
     about:
       'orem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
-    seniority: 'Junior',
+    level: 'Junior',
     type: ['Full-time', 'Part-time'],
     techs: ['React', 'JavaScript', 'Node', 'Express', 'UX Design', 'UI Design'],
-    image:
+    photo:
       'https://pyxis.nymag.com/v1/imgs/210/d16/dea3c5c74efa65069b35d6b9a1629bdfa0-milana-vayntrub.rsquare.w330.jpg'
   }
 ];
 
 export const talentMatches = [
   {
+    jobId: '',
     title: 'Full Stack Developer',
     level: 'Junior',
     location: 'Helsinki, Finland',
@@ -195,6 +196,7 @@ export const talentMatches = [
     logo: 'https://pbs.twimg.com/profile_images/989034832935243782/zqwJlfVl_400x400.jpg'
   },
   {
+    jobId: '',
     title: 'Front-end Developer',
     level: 'Mid-senior',
     location: 'Helsinki, Finland',
@@ -202,6 +204,7 @@ export const talentMatches = [
     logo: 'https://logo-logos.com/wp-content/uploads/2017/07/red-bull-logo.png'
   },
   {
+    jobId: '',
     title: 'Full Stack Developer',
     level: 'Junior',
     location: 'Helsinki, Finland',
@@ -209,6 +212,7 @@ export const talentMatches = [
     logo: 'https://1000logos.net/wp-content/uploads/2017/03/Nokia-Logo.png'
   },
   {
+    jobId: '',
     title: 'Back-end Developer',
     level: 'Junior',
     location: 'Espoo, Finland',
@@ -219,6 +223,7 @@ export const talentMatches = [
 
 export const companyMatches = [
   {
+    talentId: '',
     firstName: 'Chiranjibi',
     lastName: 'Chiranjibi',
     title: 'Full-stack developer',
@@ -228,6 +233,7 @@ export const companyMatches = [
       'https://avatars.githubusercontent.com/u/38856325?s=400&u=fab689158a188b966fdea8e88ceb5a9b95251a8b&v=4'
   },
   {
+    talentId: '',
     firstName: 'Mani',
     lastName: 'Chapagain',
     title: 'Front-end developer',
@@ -237,6 +243,7 @@ export const companyMatches = [
       'https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg'
   },
   {
+    talentId: '',
     firstName: 'Sharada',
     lastName: 'Gauchan',
     title: 'Back-end developer',
@@ -245,6 +252,7 @@ export const companyMatches = [
     photo: 'https://cdnimpuls.com/v.xing.al/media3/-640-0-5da5c77d6cf38.jpg'
   },
   {
+    talentId: '',
     firstName: 'James',
     lastName: 'Rosh',
     title: 'Back-end developer',

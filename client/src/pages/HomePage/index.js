@@ -11,7 +11,7 @@ import { jobList, talentList, talentMatches, companyMatches } from '../../Utils/
 import './HomePage.scss';
 
 const HomePage = () => {
-  const [userType, setUserType] = useState('company');
+  const [userType, setUserType] = useState('talent');
   const [currentItem, setCurrentItem] = useState(0);
   const [page, setPage] = useState('job/talent');
 
@@ -69,7 +69,7 @@ const HomePage = () => {
         <div className="homepage__main">
           <FaArrowLeft onClick={handleLeftArrow} className="homepage__arrow" />
           {userType === 'talent' && (
-            <JobCard className="homepage__arrow" company={jobList[currentItem]} />
+            <JobCard className="homepage__arrow" job={jobList[currentItem]} />
           )}
           {userType === 'company' && (
             <TalentCard className="homepage__arrow" talent={talentList[currentItem]} />
@@ -83,9 +83,13 @@ const HomePage = () => {
           <h1>Your Matches </h1>
           <div>
             {userType === 'talent' &&
-              talentMatches.map((item, index) => <MatchedJob match={item} key={index} />)}
+              talentMatches.map((item, index) => (
+                <MatchedJob setPage={setPage} match={item} key={index} />
+              ))}
             {userType === 'company' &&
-              companyMatches.map((item, index) => <MatchedTalent match={item} key={index} />)}
+              companyMatches.map((item, index) => (
+                <MatchedTalent setPage={setPage} match={item} key={index} />
+              ))}
           </div>
         </div>
       )}

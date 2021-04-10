@@ -15,10 +15,13 @@ import './ProfileSetupPage.scss';
 const ProfileSetupPage = ({ match }) => {
   const history = useHistory();
   const type = match.params.type;
-  const [image, setImage] = useState(
+  const [photo, setPhoto] = useState(
     'https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.png'
   );
-  const [seniority, setSeniority] = useState('');
+  const [logo, setLogo] = useState(
+    'https://muropaketti.com/wp-content/uploads/2017/11/apple-logo-black.png'
+  );
+  const [level, setLevel] = useState('');
   const [typeList, setTypeList] = useState([]);
   const [techList, setTechList] = useState([]);
   const [fields, setFields] = useForm({
@@ -65,7 +68,7 @@ const ProfileSetupPage = ({ match }) => {
       {type === 'talent' && (
         <div className="profile-setup__content">
           <div className="profile-setup__data">
-            <img className=" profile-setup__image" src={image} />
+            <img className=" profile-setup__image" src={photo} />
             <div className="profile-setup__info-div">
               <p className="profile-setup__text profile-setup__text--big">Chiranjibi Chapagain</p>
               <p className="profile-setup__text profile-setup__text--small">
@@ -73,7 +76,7 @@ const ProfileSetupPage = ({ match }) => {
               </p>
               <p className="profile-setup__text">Upload new image to change profile picture</p>
               <div className="profile-setup__text">
-                <ImageUpload setImage={setImage} />
+                <ImageUpload setImage={setPhoto} />
               </div>
             </div>
           </div>
@@ -123,7 +126,7 @@ const ProfileSetupPage = ({ match }) => {
               handleInputChange={setFields}
             />
             <InputSelect
-              handleInputChange={(e) => setSeniority(e.target.value)}
+              handleInputChange={(e) => setLevel(e.target.value)}
               placeholder="Select seniority"
               options={['Junior', 'Mid-Senior', 'Senior', 'Internship']}
             />
@@ -154,7 +157,7 @@ const ProfileSetupPage = ({ match }) => {
       {type === 'company' && (
         <div className="profile-setup__content">
           <div className="profile-setup__data">
-            <img className=" profile-setup__image" src={image} />
+            <img className=" profile-setup__image" src={logo} />
             <div className="profile-setup__info-div">
               <p className="profile-setup__text profile-setup__text--big">
                 Business College Helsinki
@@ -164,7 +167,7 @@ const ProfileSetupPage = ({ match }) => {
               </p>
               <p className="profile-setup__text">Upload new image to change profile picture</p>
               <div className="profile-setup__text">
-                <ImageUpload setImage={setImage} />
+                <ImageUpload setImage={setLogo} />
               </div>
             </div>
           </div>
