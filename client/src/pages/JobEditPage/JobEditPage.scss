@@ -1,7 +1,7 @@
 @import '../../scss/config';
 @import '../../scss/mixins';
 
-.profile-edit {
+.job-edit {
   @include pageBase;
   display: flex;
   flex-direction: column;
@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
   }
+
   &__label {
     margin: 0;
     font-size: $t-small;
@@ -33,24 +34,6 @@
     margin-bottom: 20px;
   }
 
-  &__error {
-    margin: 0;
-    color: #be4040;
-  }
-
-  &__error-hidden {
-    margin: 0;
-    opacity: 0;
-  }
-
-  &__image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: $r-medium;
-    margin: 20px 20px 20px 0px;
-  }
-
   &__btn-div {
     width: 100%;
     margin-top: 30px;
@@ -58,7 +41,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .profile-edit {
+  .job-edit {
     &__form {
       width: 50%;
     }
@@ -66,14 +49,13 @@
 }
 
 @media screen and (max-width: 768px) {
-  .profile-edit {
+  .job-edit {
     &__heading {
       font-size: $t-big;
     }
     &__form {
       width: 100%;
     }
-
     &__label {
       font-size: $t-xl;
     }
@@ -81,7 +63,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .profile-edit {
+  .job-edit {
     @include pageBaseSmall;
     &__heading {
       font-size: 6vw;

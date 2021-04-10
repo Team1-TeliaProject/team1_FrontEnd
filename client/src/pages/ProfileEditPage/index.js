@@ -85,6 +85,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
       <h3 className="profile-edit__heading">UPDATE YOUR PROFILE</h3>
       {type === 'talent' && (
         <form className="profile-edit__form">
+          <p className="profile-edit__label">First Name</p>
           <Input
             type="text"
             placeholder="First Name"
@@ -92,6 +93,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             value={firstName}
             handleInputChange={setFields}
           />
+          <p className="profile-edit__label">Last Name</p>
           <Input
             type="text"
             placeholder="Last Name"
@@ -99,6 +101,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             value={lastName}
             handleInputChange={setFields}
           />
+          <p className="profile-edit__label">Email Address</p>
           <Input
             type="email"
             placeholder="Email Address"
@@ -106,6 +109,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             value={email}
             handleInputChange={setFields}
           />
+          <p className="profile-edit__label">Phone Number</p>
           <Input
             type="phone"
             placeholder="Phone Number"
@@ -113,6 +117,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             value={phone}
             handleInputChange={setFields}
           />
+          <p className="profile-edit__label">Location</p>
           <Input
             type="text"
             placeholder="City, Country you live-in"
@@ -120,7 +125,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             value={location}
             handleInputChange={setFields}
           />
-
+          <p className="profile-edit__label">Professional Ttile</p>
           <Input
             type="text"
             placeholder="Title, e.g, Full-Stack developer"
@@ -128,6 +133,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             value={title}
             handleInputChange={setFields}
           />
+          <p className="profile-edit__label">GitHub Link</p>
           <Input
             type="text"
             placeholder="Your GitHub link"
@@ -135,7 +141,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             value={github}
             handleInputChange={setFields}
           />
-
+          <p className="profile-edit__label">LinedIn Link</p>
           <Input
             type="text"
             placeholder="Your LinkedIn link"
@@ -143,6 +149,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             value={linkedin}
             handleInputChange={setFields}
           />
+          <p className="profile-edit__label">Profile Description</p>
           <Textarea
             maxLength={300}
             placeholder="Describe yourself. Max.300 characters"
@@ -150,12 +157,13 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             value={tabout}
             handleInputChange={setFields}
           />
+          <p className="profile-edit__label">Seniority Level</p>
           <InputSelect
             handleInputChange={(e) => setSeniority(e.target.value)}
             placeholder="Select seniority"
             options={['Junior', 'Mid-Senior', 'Senior', 'Internship']}
           />
-
+          <p className="profile-edit__label">Job Type</p>
           <Select
             placeholder="select job-type"
             onChange={handleChangeType}
@@ -164,6 +172,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             name="type"
             options={typeOptions}
           />
+          <p className="profile-edit__label">Tech Stack</p>
           <Select
             defaultValue={defaultTechs}
             placeholder="select techs"
@@ -185,6 +194,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
       )}
       {type === 'company' && (
         <form className="profile-edit__form">
+          <p className="profile-edit__label">Company Name</p>
           <Input
             type="text"
             placeholder="Company Name"
@@ -192,7 +202,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             value={companyName}
             handleInputChange={setFields}
           />
-
+          <p className="profile-edit__label">Email Address</p>
           <Input
             type="email"
             placeholder="Email Address"
@@ -200,7 +210,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             value={cemail}
             handleInputChange={setFields}
           />
-
+          <p className="profile-edit__label">Company Location</p>
           <Input
             type="text"
             placeholder="City, Country you are located"
@@ -208,6 +218,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             value={clocation}
             handleInputChange={setFields}
           />
+          <p className="profile-edit__label">Website</p>
           <Input
             type="text"
             placeholder="Company website"
@@ -215,6 +226,7 @@ const ProfileEditPage = ({ match, type = 'company' }) => {
             value={website}
             handleInputChange={setFields}
           />
+          <p className="profile-edit__label">About Company</p>
           <Textarea
             maxLength={300}
             placeholder="Company info Max.300 characters"

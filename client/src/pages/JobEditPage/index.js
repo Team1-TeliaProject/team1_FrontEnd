@@ -7,29 +7,32 @@ import InputSelect from '../../Components/InputSelect';
 import Textarea from '../../Components/Textarea';
 import Button from '../../Components/Button';
 import { useForm } from '../../hooks/useForm';
+import { Job } from '../../Utils/dummyData';
 import { techOptions } from '../../Utils/selectOptions';
 
-import './JobCreationPage.scss';
+import './JobEditPage.scss';
 
-const JobCreationPage = () => {
+const JobEditPage = () => {
   const history = useHistory();
-  const [seniority, setSeniority] = useState('');
-  const [type, setType] = useState([]);
+  const [seniority, setSeniority] = useState(Job.level);
+  const [type, setType] = useState(Job.type);
   const [techList, setTechList] = useState([]);
   const [fields, setFields] = useForm({
-    title: '',
-    deadline: '',
-    location: '',
-    description: ''
+    title: Job.title,
+    deadline: Job.deadline,
+    location: Job.location,
+    description: Job.description
   });
 
   const { title, deadline, location, description } = fields;
 
-  console.log('check', title, deadline, location, description);
+  const defaultTechs = Job.techs.map((item) => {
+    return { label: item, value: item };
+  });
 
-  const createAccount = (e) => {
+  const updateJob = (e) => {
     e.preventDefault();
-    console.log('created!!');
+    console.log('updated!!');
   };
 
   const selectStyles = {
@@ -42,10 +45,11 @@ const JobCreationPage = () => {
   };
 
   return (
-    <div className="job-create">
-      <h3 className="job-create__heading">ADD A NEW ROLE</h3>
+    <div className="job-edit">
+      <h3 className="job-edit__heading">EDIT JOB DETAILS</h3>
 
-      <form className="job-create__form">
+      <form className="job-edit__form">
+        <p className="job-edit__label">Job title</p>
         <Input
           type="text"
           placeholder="Job Title"
@@ -53,6 +57,7 @@ const JobCreationPage = () => {
           value={title}
           handleInputChange={setFields}
         />
+        <p className="job-edit__label">Deadline</p>
         <Input
           type="text"
           placeholder="Deadline"
@@ -61,6 +66,7 @@ const JobCreationPage = () => {
           handleInputChange={setFields}
           handleFocus={(e) => (e.target.type = 'date')}
         />
+        <p className="job-edit__label">Location</p>
         <Input
           type="text"
           placeholder="City, Country role based on"
@@ -68,6 +74,7 @@ const JobCreationPage = () => {
           value={location}
           handleInputChange={setFields}
         />
+        <p className="job-edit__label">Job Description</p>
         <Textarea
           maxLength={300}
           placeholder="Job Description"
@@ -75,17 +82,21 @@ const JobCreationPage = () => {
           value={description}
           handleInputChange={setFields}
         />
+        <p className="job-edit__label">Seniority Level</p>
         <InputSelect
           handleInputChange={(e) => setSeniority(e.target.value)}
           placeholder="Select seniority"
           options={['Junior', 'Mid-Senior', 'Senior', 'Internship']}
         />
+        <p className="job-edit__label">Job Type</p>
         <InputSelect
           handleInputChange={(e) => setType(e.target.value)}
           placeholder="Select Job-type"
           options={['Full-time', 'Part-time']}
         />
+        <p className="job-edit__label">Tech Stack</p>
         <Select
+          defaultValue={defaultTechs}
           placeholder="select techs"
           onChange={handleChangeTech}
           styles={selectStyles}
@@ -94,12 +105,12 @@ const JobCreationPage = () => {
           options={techOptions}
         />
 
-        <div className="job-create__btn-div">
-          <Button modifier="dark" text="Create" handleClick={createAccount} />
+        <div className="job-edit__btn-div">
+          <Button modifier="dark" text="Update" handleClick={updateJob} />
         </div>
       </form>
     </div>
   );
 };
 
-export default JobCreationPage;
+export default JobEditPage;

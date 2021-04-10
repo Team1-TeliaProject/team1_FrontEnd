@@ -24,6 +24,18 @@ export const companyProfile = {
   location: 'Helsinki, Finland',
   website: 'https://www.bc.fi/',
   about:
-    'orem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
+    'lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
   image: 'https://pbs.twimg.com/profile_images/989034832935243782/zqwJlfVl_400x400.jpg'
+};
+
+export const Job = {
+  id: 'adf87af675afd',
+  title: 'Full-Stack Web Developer',
+  type: 'Full-time',
+  level: 'Junior',
+  deadline: '04/21/2021',
+  description:
+    'lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
+  location: 'Helsinki, Finland',
+  techs: ['React', 'JavaScript', 'Node', 'Express', 'UX Design', 'UI Design']
 };
