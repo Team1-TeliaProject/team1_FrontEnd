@@ -25,6 +25,11 @@
     }
   }
 
+  &__hr {
+    margin: 0 0 30px;
+    border-top: 2px solid rgb(1, 70, 75);
+  }
+
   &__main {
     width: 80%;
     margin: 0 auto;
