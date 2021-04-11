@@ -19,7 +19,7 @@ export const talentProfile = {
 
 export const companyProfile = {
   id: 'asf87a76dfa',
-  companyName: 'Business College Helsinki',
+  companyName: 'Business College',
   email: 'info@businesscollege.com',
   location: 'Helsinki, Finland',
   website: 'https://www.bc.fi/',
@@ -51,7 +51,7 @@ export const jobList = [
       'lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis consectetur elit, sit amet sollicitudin ipsum dapibus quis. Phasellus aliquet, enim vitae aliquet efficitur, lorem nunc sodales lorem, in commodo lacus odio eu ex. ',
     location: 'Helsinki, Finland',
     techs: ['React', 'JavaScript', 'Node', 'Express', 'UX Design', 'UI Design'],
-    companyName: 'Business College Helsinki',
+    companyName: 'Business College',
     companyLogo: 'https://pbs.twimg.com/profile_images/989034832935243782/zqwJlfVl_400x400.jpg'
   },
   {
@@ -192,7 +192,7 @@ export const talentMatches = [
     title: 'Full Stack Developer',
     level: 'Junior',
     location: 'Helsinki, Finland',
-    companyName: 'Business College Helsinki',
+    companyName: 'Business College',
     logo: 'https://pbs.twimg.com/profile_images/989034832935243782/zqwJlfVl_400x400.jpg'
   },
   {
@@ -216,7 +216,7 @@ export const talentMatches = [
     title: 'Back-end Developer',
     level: 'Junior',
     location: 'Espoo, Finland',
-    companyName: 'Business College Helsinki',
+    companyName: 'Business College',
     logo: 'https://muropaketti.com/wp-content/uploads/2017/11/apple-logo-black.png'
   }
 ];

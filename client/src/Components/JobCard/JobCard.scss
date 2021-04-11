@@ -4,7 +4,7 @@
 .jobcard {
   width: 100%;
   background-color: $light;
-  margin: 0 15px;
+  margin: 0 25px;
   box-shadow: $sh-big;
   border-radius: $r-big;
 
@@ -15,25 +15,34 @@
     align-items: center;
   }
 
+  &__head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__job-info {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
   &__avatar {
     height: 150px;
     width: 150px;
     object-fit: cover;
     border-radius: 50%;
     background-color: $white;
+    margin-right: 20px;
     box-shadow: 0px 0px 3px rgba(97, 97, 97, 0.829);
   }
   &__company {
-    margin-top: 10px;
+    margin: 10px 0px 0px;
     font-size: $t-medium;
+    font-weight: bold;
     color: $black;
-  }
-  &__head {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
   }
 
   &__skills {
@@ -45,6 +54,9 @@
     margin: 0;
 
     &--position {
+      width: 100%;
+      margin-top: 20px;
+      text-align: left;
       font-weight: bold;
       font-size: $t-small;
     }
@@ -81,7 +93,7 @@
   }
 
   &__icons {
-    padding: 2rem;
+    padding: 1.2rem 1rem;
     display: flex;
     border-radius: 0px 0px 6px 6px;
     justify-content: space-around;

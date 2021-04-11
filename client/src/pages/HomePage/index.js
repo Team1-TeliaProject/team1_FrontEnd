@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import Jobcard from '../../Components/JobCard';
 
 import JobCard from '../../Components/JobCard';
 import TalentCard from '../../Components/TalentCard';
 import MatchedJob from '../../Components/MatchedJob';
 import MatchedTalent from '../../Components/MatchedTalent';
-import { jobList, talentList, talentMatches, companyMatches } from '../../Utils/dummyData';
+import { jobList, talentList, talentMatches, companyMatches, chats } from '../../Utils/dummyData';
 
 import './HomePage.scss';
+import Messages from '../../Components/Messages';
 
 const HomePage = () => {
-  const [userType, setUserType] = useState('talent');
+  const [userType, setUserType] = useState('company');
   const [currentItem, setCurrentItem] = useState(0);
   const [page, setPage] = useState('job/talent');
+  const [chat, setChat] = useState('person1');
 
   const handleRightArrow = () => {
     if (userType === 'talent') {
@@ -94,7 +95,29 @@ const HomePage = () => {
         </div>
       )}
 
-      {page === 'messages' && <h1>Here comes messages</h1>}
+      {page === 'messages' && (
+        <div className="homepage__message">
+          <div className="homepage__message-sidebar">
+            <p>Conversations</p>
+            {['person1', 'person2', 'person3', 'person4'].map((item, index) => (
+              <div
+                className={
+                  chat === item
+                    ? 'homepage__sidebar-item homepage__sidebar-item--highlight'
+                    : 'homepage__sidebar-item'
+                }
+                onClick={() => setChat(item)}
+                key={index}
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+          <div className="homepage__message-main">
+            <Messages chats={chats} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
