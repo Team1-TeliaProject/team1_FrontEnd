@@ -261,3 +261,26 @@ export const companyMatches = [
     photo: 'https://mb.cision.com/Public/14029/3257020/9b83902ef9f956e8_400x400ar.jpg'
   }
 ];
+
+export const chats = [
+  {
+    userId: 'abc123',
+    time: '12:50',
+    message: 'Hello How  are you?'
+  },
+  {
+    userId: 'def456',
+    time: '12:51',
+    message: 'Hi there! i am fine thanks. how are you doing?'
+  },
+  {
+    userId: 'abc123',
+    time: '12:52',
+    message: 'All great! thanks, when shall we meet?'
+  },
+  {
+    userId: 'def456',
+    time: '12:53',
+    message: 'Perfect! see you at 15:00?'
+  }
+];
