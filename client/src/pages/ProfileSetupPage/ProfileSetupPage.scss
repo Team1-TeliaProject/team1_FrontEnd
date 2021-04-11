@@ -14,7 +14,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+  }
+
+  &__data {
+    border-radius: $r-medium;
+    display: flex;
+    justify-content: center;
   }
 
   &__image {
@@ -26,14 +33,10 @@
     background-color: $white;
   }
 
-  &__data {
-    background-color: $light;
-    border-radius: $r-medium;
-    display: flex;
-    justify-content: center;
-  }
-
   &__info-div {
+    border-radius: 0 6px 6px 0;
+    padding: 0 0 0 15px;
+    background-color: $light;
     display: flex;
     flex-direction: column;
   }
@@ -70,6 +73,7 @@
     width: 50%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
 
   &__heading {

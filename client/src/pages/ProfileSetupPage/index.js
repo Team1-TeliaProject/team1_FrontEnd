@@ -149,7 +149,7 @@ const ProfileSetupPage = ({ match }) => {
             />
 
             <div className="profile-setup__btn-div">
-              <Button modifier="dark" text="Update" handleClick={createAccount} />
+              <Button modifier="dark" text="Update" handleClick={setUpProfile} />
             </div>
           </form>
         </div>
