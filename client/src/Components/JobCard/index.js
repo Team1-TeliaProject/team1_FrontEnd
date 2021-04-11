@@ -8,12 +8,14 @@ const Jobcard = ({ job, handleSuperLike, handlelike }) => {
   return (
     <section className="jobcard">
       <div className="jobcard__main">
-        <img className="jobcard__avatar" src={job.companyLogo} alt="company logo" />
-        <h2 className="jobcard__company">{job.companyName}</h2>
         <div className="jobcard__head">
-          <p className="jobcard__text jobcard__text--position">{job.title}</p>
-          <p className="jobcard__text jobcard__text--location">{job.location}</p>
+          <img className="jobcard__avatar" src={job.companyLogo} alt="company logo" />
+          <div className="jobcard__job-info">
+            <h2 className="jobcard__company">{job.companyName}</h2>
+            <p className="jobcard__text jobcard__text--location">{job.location}</p>
+          </div>
         </div>
+        <p className="jobcard__text jobcard__text--position">{job.title}</p>
         <p className="jobcard__text jobcard__text--seniority">
           {job.level}, &nbsp;
           {job.type}
