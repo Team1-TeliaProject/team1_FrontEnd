@@ -61,10 +61,7 @@ const ProfileSetupPage = ({ match }) => {
   return (
     <div className="profile-setup">
       <h3 className="profile-setup__heading">SETUP YOUR PROFILE</h3>
-      <p className="profile-setup__text profile-setup__text--msg">
-        Hi! We are glad you are here! <br /> Please help us providing you a personalized user
-        experience by filling up more information{' '}
-      </p>
+
       {type === 'talent' && (
         <div className="profile-setup__content">
           <div className="profile-setup__data">
