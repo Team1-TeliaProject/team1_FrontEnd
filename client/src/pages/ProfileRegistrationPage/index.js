@@ -165,7 +165,7 @@ const ProfileRegistration = ({ match }) => {
             <Button
               modifier="dark"
               text="Setup Profile"
-              handleClick={() => `/profilesetup/${type}`}
+              handleClick={() => history.push(`/profilesetup/${type}`)}
             />
           </div>
         </div>
