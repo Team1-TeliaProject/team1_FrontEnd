@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Modal from 'react-modal';
 
 import Input from '../../Components/Input';
 import Button from '../../Components/Button';
@@ -10,6 +11,7 @@ import './ProfileRegistration.scss';
 const ProfileRegistration = ({ match }) => {
   const history = useHistory();
   const type = match.params.type;
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [error, setError] = useState('error');
   const [fields, setFields] = useForm({
     firstName: '',
@@ -32,8 +34,18 @@ const ProfileRegistration = ({ match }) => {
       if (password !== passwordRe) {
         setError('Password not matched');
       } else {
-        history.push(`/profilesetup/${type}`);
+        setIsModalOpen(true);
       }
+    }
+  };
+  const customStyles = {
+    content: {
+      background: '#3aafa9',
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      transform: 'translate(-50%, -50%)'
     }
   };
 
@@ -137,6 +149,27 @@ const ProfileRegistration = ({ match }) => {
           </div>
         </form>
       )}
+      <Modal isOpen={isModalOpen} style={customStyles}>
+        <div onClick={() => setIsModalOpen(false)} className="close">
+          X
+        </div>
+        <div className="registration-modal">
+          <h1 className="registration-modal__title">REGISTRATION SUCCESSFULL!</h1>
+          <p className="registration-modal__text">
+            <b>Hi! We are glad you are here!</b> <br /> Please help us providing you a personalized
+            user experience by setting up your profile.{' '}
+          </p>
+          <div className="registration-modal__btn-div">
+            <Button modifier="light" text="Later" handleClick={() => history.push('/')} />
+            <span className="registration-modal__btn-seperator"></span>
+            <Button
+              modifier="dark"
+              text="Setup Profile"
+              handleClick={() => `/profilesetup/${type}`}
+            />
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };
