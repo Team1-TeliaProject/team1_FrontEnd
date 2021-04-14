@@ -35,8 +35,8 @@ const ApplicantProfilePage = ({ modifier }) => {
       <div className="employee__main">
         <img className="employee__image" src={applicant.photo} alt="profile picture" />
         <div className="employee__content">
-          <h2>
-            {applicant.firstname} {applicant.lastname}
+          <h2 className="employee__text">
+            {applicant.firstName} {applicant.lastName}
           </h2>
           <p className="employee-text-type"> {applicant.location}</p>
           <p className="employee__text">{applicant.title}</p>

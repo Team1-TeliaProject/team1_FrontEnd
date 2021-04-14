@@ -10,8 +10,8 @@
   margin: 5rem auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
   .employee__image {
     width: 200px;
     height: auto;
@@ -60,20 +60,15 @@
   }
 }
 
-@include breakpoint(800px) {
-  .employee__main {
-    flex-direction: row;
-    align-items: flex-start;
-    min-height: 100vh;
-  }
-}
 @media screen and (max-width: 768px) {
   .employee__main {
+    flex-direction: column;
+    align-items: flex-start;
     margin: 2rem auto;
     margin-bottom: 8rem;
     .employee__image {
       width: 120px;
-      margin: 0 auto;
+      position: relative;
       padding-bottom: 1rem;
     }
     .employee__content {
