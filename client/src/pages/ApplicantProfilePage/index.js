@@ -59,7 +59,7 @@ const ApplicantProfilePage = ({ modifier }) => {
             <AiFillLinkedin onClick={handleLinkedin} className="employee__icons--icons" />
           </div>
           <div className="employee__btn-div">
-            <Button text="Edit Profile" modifier="md" />
+            <Button text="Edit Profile" modifier="light" />
           </div>
         </div>
       </div>
