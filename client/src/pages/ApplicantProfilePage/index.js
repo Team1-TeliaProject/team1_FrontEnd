@@ -40,14 +40,18 @@ const ApplicantProfilePage = ({ modifier }) => {
           </h2>
           <p> {applicant.location}</p>
           <p className="employee__text">{applicant.title}</p>
-          <p>
+          <p className="employee-text-type">
             {applicant.level}, {applicant.type}
           </p>
           <p>
             <p className="employee__about">About me</p>
-            {applicant.about}
+            <p className="employee-about-desc">{applicant.about}</p>
           </p>
-          <p>{applicant.techs}</p>
+          <p className="employee-text-techs">
+            {applicant.techs.map((item, idx) => (
+              <span key={idx}>{`${item}, `}</span>
+            ))}
+          </p>
 
           <div className="employee__icons">
             <AiFillGithub onClick={handleGithub} className="employee__icons--icons" />
