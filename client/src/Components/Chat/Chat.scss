@@ -1,0 +1,54 @@
+@import '../../scss/config';
+@import '../../scss/mixins';
+
+.chat {
+  width: 90%;
+  &__time {
+    width: 100%;
+    margin: 0;
+    text-align: right;
+    padding-right: 25px;
+    color: $white;
+  }
+
+  &__message-div {
+    width: 100%;
+    margin: 0px 0px 30px 0px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+
+    &--in {
+      margin-left: 15px;
+    }
+  }
+  &__message {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1em;
+    color: $black;
+
+    &--in {
+      background-color: rgb(206, 206, 206);
+      border-radius: 4px 4px 4px 15px;
+    }
+    &--out {
+      text-align: right;
+      background-color: rgb(139, 255, 154);
+      border-radius: 4px 15px 4px 4px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .chat {
+    width: 98%;
+  }
+}
