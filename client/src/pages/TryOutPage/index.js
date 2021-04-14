@@ -1,5 +1,4 @@
 import React from 'react';
-import Messages from '../../Components/Messages';
 
 import './TryOutPage.scss';
 

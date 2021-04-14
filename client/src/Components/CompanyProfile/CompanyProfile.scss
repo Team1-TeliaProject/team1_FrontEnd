@@ -1,0 +1,63 @@
+@import '../../scss/config';
+@import '../../scss/mixins';
+
+.profile {
+    
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 2px solid $primary;
+    display: flex;
+    min-width: 300px;
+    max-width: 500px;
+    .profile__box {
+        width: 20%;
+        background-color: $primary;
+    }
+    .profile__content {
+        width: 80%;
+        display: flex;
+        padding: 1rem;
+        justify-content: space-around;
+    }
+}
+@media screen and (max-width: 768px) {
+    .profile {
+        display: flex;
+        flex-direction: column;
+        .profile__box{
+            height: 50px;
+            width: 100%;
+        }
+    }
+    
+}
+// .profile {
+//     background-color: $primary;
+//     width: 50%;
+//     margin: 0 auto;
+//     border-radius: 5px;
+//     border: 2px solid $primary;
+//     display: flex;
+//     flex-direction: row;
+//     max-width: 500px;
+//     min-width: 300px;
+//     .profile__box{
+//         width: 20%;
+//     }
+//     .profile__content {
+//         background-color: $light;
+//         width: 80%;
+//         display: flex;
+//         padding: 1rem;
+//         justify-content: space-between;
+        
+//     }
+// }
+// @media screen and (max-width: 768px) {
+//     .profile {
+//         display: flex;
+//         flex-direction: column;
+        
+//     }
+//   }
