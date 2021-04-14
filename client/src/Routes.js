@@ -11,6 +11,7 @@ import ProfileEditPage from './pages/ProfileEditPage';
 import JobCreationPage from './pages/JobCreationPage';
 import JobEditPage from './pages/JobEditPage';
 import ApplicantProfilePage from './pages/ApplicantProfilePage';
+import EmployerProfilePage from './pages/EmployerProfilePage';
 
 const Routes = () => (
   <Switch>
@@ -26,6 +27,7 @@ const Routes = () => (
     <Route exact path="/forgotpassword" component={JobEditPage} />
     <Route exact path="/chnagepassword" component={JobEditPage} />
     <Route exact path="/applicantprofile" component={ApplicantProfilePage} />
+    <Route exact path="/employerprofile" component={EmployerProfilePage} />
   </Switch>
 );
 

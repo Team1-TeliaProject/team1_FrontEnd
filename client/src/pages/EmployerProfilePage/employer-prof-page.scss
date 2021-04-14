@@ -1,0 +1,112 @@
+@import '../../scss/config';
+@import '../../scss/mixins';
+
+//mobile first
+.employer {
+  width: 100%;
+}
+.employer__main {
+  width: 80vw;
+  margin: 5rem auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
+  .employer__image {
+    width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+    vertical-align: top;
+  }
+  .employer__content {
+    padding: 0 2rem 2rem 2rem;
+  }
+  .employer__btn-div {
+    display: flex;
+    // padding-left: 70%;
+    justify-content: space-around;
+    font-size: $t-small;
+    margin-top: 5%;
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+  .employer__text {
+    padding-top: 1rem;
+    margin: 0;
+    font-size: $t-medium;
+    font-weight: bold;
+  }
+  .employer-text-type {
+    font-size: $t-medium;
+  }
+  .employer__about {
+    font-size: $t-small;
+    font-weight: bold;
+  }
+  .employee-about-desc {
+    font-size: $t-small;
+  }
+  .employer-text-techs {
+    font-size: $t-medium;
+    font-weight: bold;
+  }
+
+  .employee__icons {
+    &--icons {
+      height: 4rem;
+      width: 4rem;
+      padding-right: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .employer__main {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 2rem auto;
+    margin-bottom: 8rem;
+    .employer__image {
+      width: 120px;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    .employer__content {
+      padding: 0;
+    }
+    .employer__text {
+      padding-top: 0;
+      font-size: $t-medium;
+      font-weight: bold;
+    }
+    .employer__about {
+      font-size: $t-medium;
+    }
+    .employer-about-desc {
+      font-size: $t-medium;
+    }
+    .employer-text-techs {
+      font-size: $t-medium;
+      font-weight: bold;
+    }
+    .employer__icons {
+      &--icons {
+        height: 2.5rem;
+        width: 2.5rem;
+        padding-right: 1rem;
+      }
+    }
+    .employer__btn-div {
+      padding-left: 50%;
+      font-size: $t-medium;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .employer__main {
+    width: 90vw;
+    .employer__image {
+      width: 100px;
+    }
+  }
+}
