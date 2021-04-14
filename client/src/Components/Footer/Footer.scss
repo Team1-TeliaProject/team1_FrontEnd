@@ -2,19 +2,50 @@
 
 .footer {
   width: 100vw;
-  padding: 10px 50px;
-  box-sizing: border-box;
   height: 100px;
+  box-sizing: border-box;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   background-color: $primary;
   position: fixed;
   bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
   &__link {
     text-decoration: none;
     font-size: $t-small;
     color: $light;
+    transition: 0.3s ease-in-out;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    &__link {
+      font-size: $t-medium;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer {
+    &__link {
+      font-size: $t-xl;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    &__link {
+      font-size: $t-xl;
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .footer {
+    &__link {
+      font-size: 5vw;
+    }
   }
 }

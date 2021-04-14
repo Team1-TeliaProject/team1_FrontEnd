@@ -10,7 +10,19 @@
     }
   }
 }
+
 @mixin pageBase {
   width: 80vw;
+  margin: 15px auto;
+}
+
+@mixin flexAbslouteCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin pageBaseSmall {
+  width: 95vw;
   margin: 15px auto;
 }

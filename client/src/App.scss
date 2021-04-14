@@ -1,4 +1,3 @@
-
 @import './scss/config';
 @import './scss/mixins';
 
@@ -9,11 +8,8 @@ body {
 }
 
 .app {
-  width: 100vw;
-  background-color: $light;
-
-  &--landing {
-    background-color: $primary;
-  }
+  max-width: 100vw;
+  background-color: $primary;
+  box-sizing: border-box;
+  overflow: hidden;
 }
-

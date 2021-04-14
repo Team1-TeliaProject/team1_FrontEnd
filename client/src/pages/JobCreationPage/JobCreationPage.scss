@@ -1,0 +1,63 @@
+@import '../../scss/config';
+@import '../../scss/mixins';
+
+.job-create {
+  @include pageBase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 200px;
+  background: url('../../Assets/background2.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: contain;
+
+  &__form {
+    padding: 0, 5%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__heading {
+    font-size: $t-medium;
+    font-family: $nunito;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  &__btn-div {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .job-create {
+    &__form {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .job-create {
+    &__heading {
+      font-size: $t-big;
+    }
+    &__form {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .job-create {
+    @include pageBaseSmall;
+    &__heading {
+      font-size: 6vw;
+    }
+  }
+}
