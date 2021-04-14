@@ -38,7 +38,7 @@ const ApplicantProfilePage = ({ modifier }) => {
           <h2>
             {applicant.firstname} {applicant.lastname}
           </h2>
-          <p> {applicant.location}</p>
+          <p className="employee-text-type"> {applicant.location}</p>
           <p className="employee__text">{applicant.title}</p>
           <p className="employee-text-type">
             {applicant.level}, {applicant.type}
