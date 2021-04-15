@@ -3,28 +3,31 @@
 
 .profile {
     
-    width: 50%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 2rem auto;
     border-radius: 5px;
     border: 2px solid $primary;
     display: flex;
     min-width: 300px;
-    max-width: 500px;
     .profile__box {
-        width: 20%;
+        width: 10%;
         background-color: $primary;
     }
     .profile__content {
         width: 80%;
         display: flex;
-        padding: 1rem;
-        justify-content: space-around;
+        padding-top: 1rem;
+        margin: 0 3rem;
+        section {
+            padding-right: 3rem;
+        }
     }
 }
 @media screen and (max-width: 768px) {
     .profile {
         display: flex;
         flex-direction: column;
+        margin: 1rem 0;
         .profile__box{
             height: 50px;
             width: 100%;

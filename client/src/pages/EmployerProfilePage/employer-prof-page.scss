@@ -17,18 +17,30 @@
     height: auto;
     margin-bottom: 1rem;
     vertical-align: top;
+    border-radius: 50%;
   }
   .employer__content {
     padding: 0 2rem 2rem 2rem;
+    .employer__information{
+      font-weight: bold;
+    }
+  }
+  .employer__job-div{
+      display: block;
+      align-items: flex-start;
   }
   .employer__btn-div {
     display: flex;
-    // padding-left: 70%;
     justify-content: space-around;
     font-size: $t-small;
     margin-top: 5%;
     width: 100%;
     padding-bottom: 1rem;
+    .button {
+      width: 300px;
+      margin: 0 15px;
+      display: block;
+    }
   }
   .employer__text {
     padding-top: 1rem;
@@ -97,14 +109,18 @@
       }
     }
     .employer__btn-div {
-      padding-left: 50%;
       font-size: $t-medium;
+      width: 100%;
+      .button {
+        margin: .5rem;
+      }
     }
   }
 }
 @media screen and (max-width: 600px) {
   .employer__main {
     width: 90vw;
+    
     .employer__image {
       width: 100px;
     }
