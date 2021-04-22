@@ -24,8 +24,6 @@ const ProfileRegistration = ({ match }) => {
 
   const { firstName, lastName, companyName, email, password, passwordRe } = fields;
 
-  console.log('check', password, passwordRe, error);
-
   const createAccount = (e) => {
     e.preventDefault();
     if ((!firstName && !companyName) || !email || !password) {
@@ -40,7 +38,7 @@ const ProfileRegistration = ({ match }) => {
   };
   const customStyles = {
     content: {
-      background: '#3aafa9',
+      background: '#17252a',
       top: '50%',
       left: '50%',
       right: 'auto',
@@ -99,7 +97,7 @@ const ProfileRegistration = ({ match }) => {
             handleInputChange={setFields}
           />
           <div className="profile-registration__btn-div">
-            <Button modifier="dark" text="Create" handleClick={createAccount} />
+            <Button modifier="light" text="Create" handleClick={createAccount} />
           </div>
         </form>
       )}
@@ -145,7 +143,7 @@ const ProfileRegistration = ({ match }) => {
             handleInputChange={setFields}
           />
           <div className="profile-registration__btn-div">
-            <Button modifier="dark" text="Create" handleClick={createAccount} />
+            <Button modifier="light" text="Create" handleClick={createAccount} />
           </div>
         </form>
       )}
@@ -160,10 +158,12 @@ const ProfileRegistration = ({ match }) => {
             user experience by setting up your profile.{' '}
           </p>
           <div className="registration-modal__btn-div">
-            <Button modifier="light" text="Later" handleClick={() => history.push('/')} />
+            <p className="registration-modal__skip" onClick={() => history.push('/')}>
+              skip
+            </p>
             <span className="registration-modal__btn-seperator"></span>
             <Button
-              modifier="dark"
+              modifier="light"
               text="Setup Profile"
               handleClick={() => history.push(`/profilesetup/${type}`)}
             />

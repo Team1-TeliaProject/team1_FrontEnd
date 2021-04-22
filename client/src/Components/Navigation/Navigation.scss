@@ -2,33 +2,70 @@
 
 .nav {
   width: 100vw;
-  height: 100px;
+  height: 85px;
   box-sizing: border-box;
-  padding: 10px 50px;
+  padding: 5px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: rgba(23, 37, 42, 0.7);
+  position: fixed;
 
   &__logo {
     width: 15em;
+    cursor: pointer;
   }
 
   &__profile-div {
-    width: 130px;
-    height: 100%;
+    width: 170px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  &__user-div {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__profile-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  &__profile-name {
+    color: $white;
+    margin: 0;
+    font-size: $t-m-s;
+  }
+
+  &__dropdown-div {
+    border-radius: 6px;
+    background-color: $light;
+    position: absolute;
+    top: 90px;
+    right: 30px;
+
+    &--close {
+      display: none;
+    }
   }
 }
 
 .close {
   font-family: $nunito;
-  color: $dark;
+  color: #c4c4c4;
   cursor: pointer;
 }
 
-.content {
+.login-content {
   width: 30vw;
   padding: 20px 50px;
   display: flex;
@@ -36,7 +73,7 @@
   align-items: center;
 
   &__title {
-    color: $light;
+    color: #c4c4c4;
     margin: 20px 0;
   }
 
@@ -50,7 +87,7 @@
     margin-top: 10px;
     font-size: 1em;
     text-align: center;
-    color: $light;
+    color: $white;
   }
 
   &__text-link {
@@ -58,18 +95,18 @@
     margin-top: 10px;
     font-size: 1em;
     text-align: center;
-    color: rgb(55, 0, 255);
+    color: rgb(129, 205, 255);
     cursor: pointer;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .content {
+  .login-content {
     width: 50vw;
   }
 }
 @media screen and (max-width: 768px) {
-  .content {
+  .login-content {
     width: 80vw;
 
     &__text {
@@ -89,7 +126,7 @@
       width: 8em;
     }
   }
-  .content {
+  .login-content {
     width: 90vw;
     &__text {
       size: 6vw;

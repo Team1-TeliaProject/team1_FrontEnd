@@ -50,7 +50,7 @@ const JobDetailsPage = () => {
               </p>
             </div>
             <h4 className="job-details__text job-details__text--desc">Description</h4>
-            <h4 className="job-details__text job-details__text">{job.description}</h4>
+            <h4 className="job-details__text ">{job.description}</h4>
             <div className="job-details__techs">
               {job.stack.map((item, index) => (
                 <span key={index}>{`${item}, `}</span>

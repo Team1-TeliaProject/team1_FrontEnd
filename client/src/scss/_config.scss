@@ -4,11 +4,11 @@
 
 // colors
 
-$primary: #3aafa9;
-$dark: #113838;
+$primary: #17252a;
+$secondary: #3aafa9;
 $light: #def2f1;
-$black: #17252a;
-$white: #feffff;
+$black: #333;
+$white: #f2f2f2;
 
 //Fonts
 $nunito: 'Nunito', sans-serif;
@@ -20,12 +20,19 @@ $r-big: 12px;
 
 //texts size
 
-$t-x-s: 1vw;
-$t-m-s: 1.3vw;
-$t-small: 1.5vw;
-$t-medium: 2vw;
-$t-big: 3vw;
-$t-xl: 4vw;
+$t-x-s: 0.8rem;
+$t-m-s: 1rem;
+$t-small: 1.5rem;
+$t-medium: 1.8rem;
+$t-big: 2rem;
+$t-xl: 2.2rem;
+
+// $t-x-s: 1vw;
+// $t-m-s: 1.3vw;
+// $t-small: 1.5vw;
+// $t-medium: 2vw;
+// $t-big: 3vw;
+// $t-xl: 4vw;
 
 //Shadow
 
