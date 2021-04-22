@@ -98,20 +98,22 @@ const HomePage = () => {
       {page === 'messages' && (
         <div className="homepage__message">
           <div className="homepage__message-sidebar">
-            <p>Conversations</p>
-            {['person1', 'person2', 'person3', 'person4'].map((item, index) => (
-              <div
-                className={
-                  chat === item
-                    ? 'homepage__sidebar-item homepage__sidebar-item--highlight'
-                    : 'homepage__sidebar-item'
-                }
-                onClick={() => setChat(item)}
-                key={index}
-              >
-                {item}
-              </div>
-            ))}
+            <p className="homepage__chat-title">Chat List</p>
+            {['person1', 'person2', 'person3', 'person4', 'person 5', 'person,6', 'person7'].map(
+              (item, index) => (
+                <div
+                  className={
+                    chat === item
+                      ? 'homepage__sidebar-item homepage__sidebar-item--highlight'
+                      : 'homepage__sidebar-item'
+                  }
+                  onClick={() => setChat(item)}
+                  key={index}
+                >
+                  {item}
+                </div>
+              )
+            )}
           </div>
           <div className="homepage__message-main">
             <Messages chats={chats} />

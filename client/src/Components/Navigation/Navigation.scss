@@ -8,6 +8,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  // background-color: rgba(255, 0, 0, 0.726);
+  background-color: rgba(23, 37, 42, 0.7);
+  position: fixed;
 
   &__logo {
     width: 15em;

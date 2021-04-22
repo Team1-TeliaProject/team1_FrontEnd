@@ -3,6 +3,7 @@
 
 .landing-page {
   @include pageBase;
+  height: 100vh;
   padding-bottom: 200px;
   display: flex;
   flex-direction: column;

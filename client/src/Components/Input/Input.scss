@@ -10,16 +10,11 @@
   font-size: $t-m-s;
   box-sizing: border-box;
   color: $black;
+  outline: none;
 }
 
 @media screen and (max-width: 768px) {
   .input {
-    font-size: $t-big;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .input {
-    font-size: $t-xl;
+    height: 55px;
   }
 }

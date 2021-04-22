@@ -11,41 +11,30 @@
   background-color: $primary;
   position: fixed;
   bottom: 0;
+  border-top: 1.5px solid $light;
 
   &__link {
     text-decoration: none;
     font-size: $t-small;
     color: $light;
     transition: 0.3s ease-in-out;
+
+    &:hover {
+      color: $white;
+      text-decoration: none;
+      transform: scale(1.2);
+    }
   }
 }
 
 @media screen and (max-width: 1024px) {
   .footer {
-    &__link {
-      font-size: $t-medium;
-    }
-  }
-}
-@media screen and (max-width: 768px) {
-  .footer {
-    &__link {
-      font-size: $t-xl;
-    }
+    justify-content: space-between;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .footer {
-    &__link {
-      font-size: $t-xl;
-    }
-  }
-}
-@media screen and (max-width: 400px) {
-  .footer {
-    &__link {
-      font-size: 5vw;
-    }
+    padding: 10px 20px;
   }
 }

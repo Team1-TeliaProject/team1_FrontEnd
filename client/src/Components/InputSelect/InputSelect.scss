@@ -12,15 +12,3 @@
   background-color: $white;
   box-sizing: border-box;
 }
-
-@media screen and (max-width: 768px) {
-  .select {
-    font-size: $t-big;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .select {
-    font-size: $t-xl;
-  }
-}
