@@ -188,6 +188,7 @@ export const talentList = [
 
 export const talentMatches = [
   {
+    id: 'adfgj4rteagd9a',
     jobId: '',
     title: 'Full Stack Developer',
     level: 'Junior',
@@ -196,6 +197,7 @@ export const talentMatches = [
     logo: 'https://pbs.twimg.com/profile_images/989034832935243782/zqwJlfVl_400x400.jpg'
   },
   {
+    id: 'dgsxcbc3g7agd9a',
     jobId: '',
     title: 'Front-end Developer',
     level: 'Mid-senior',
@@ -204,6 +206,7 @@ export const talentMatches = [
     logo: 'https://logo-logos.com/wp-content/uploads/2017/07/red-bull-logo.png'
   },
   {
+    id: 'asd34566ertred9a',
     jobId: '',
     title: 'Full Stack Developer',
     level: 'Junior',
@@ -212,6 +215,7 @@ export const talentMatches = [
     logo: 'https://1000logos.net/wp-content/uploads/2017/03/Nokia-Logo.png'
   },
   {
+    id: 'aasfddfdfdddd7agd9a',
     jobId: '',
     title: 'Back-end Developer',
     level: 'Junior',
@@ -223,6 +227,7 @@ export const talentMatches = [
 
 export const companyMatches = [
   {
+    id: 'asdga87g7agd9a',
     talentId: '',
     firstName: 'Chiranjibi',
     lastName: 'Chiranjibi',
@@ -233,6 +238,7 @@ export const companyMatches = [
       'https://avatars.githubusercontent.com/u/38856325?s=400&u=fab689158a188b966fdea8e88ceb5a9b95251a8b&v=4'
   },
   {
+    id: 'asdga87asdf7agd9a',
     talentId: '',
     firstName: 'Mani',
     lastName: 'Chapagain',
@@ -243,6 +249,7 @@ export const companyMatches = [
       'https://www.mantruckandbus.com/fileadmin/media/bilder/02_19/219_05_busbusiness_interviewHeader_1485x1254.jpg'
   },
   {
+    id: 'asdf3547g7agd9a',
     talentId: '',
     firstName: 'Sharada',
     lastName: 'Gauchan',
@@ -252,6 +259,7 @@ export const companyMatches = [
     photo: 'https://cdnimpuls.com/v.xing.al/media3/-640-0-5da5c77d6cf38.jpg'
   },
   {
+    id: 'lkj890agd9a',
     talentId: '',
     firstName: 'James',
     lastName: 'Rosh',

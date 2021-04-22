@@ -88,6 +88,15 @@
     font-weight: bold;
     color: $black;
   }
+
+  &__matches {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -98,6 +107,11 @@
     &__main {
       margin-top: 80px;
       width: 80%;
+    }
+
+    &__matches {
+      width: 90%;
+      margin-top: 20px;
     }
   }
 }
@@ -119,6 +133,11 @@
     &__main {
       margin-top: 0px;
       width: 100%;
+    }
+
+    &__matches {
+      width: 95%;
+      margin-top: 0px;
     }
 
     &__arrow {

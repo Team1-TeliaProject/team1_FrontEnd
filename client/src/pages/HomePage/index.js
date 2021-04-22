@@ -3,15 +3,14 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 import JobCard from '../../Components/JobCard';
 import TalentCard from '../../Components/TalentCard';
-import MatchedJob from '../../Components/MatchedJob';
-import MatchedTalent from '../../Components/MatchedTalent';
+import Match from '../../Components/Match';
 import { jobList, talentList, talentMatches, companyMatches, chats } from '../../Utils/dummyData';
 
 import './HomePage.scss';
 import Messages from '../../Components/Messages';
 
 const HomePage = () => {
-  const [userType, setUserType] = useState('company');
+  const [userType, setUserType] = useState('talent');
   const [currentItem, setCurrentItem] = useState(0);
   const [page, setPage] = useState('job/talent');
   const [chat, setChat] = useState('person1');
@@ -30,6 +29,8 @@ const HomePage = () => {
       setCurrentItem(currentItem === 0 ? jobList.length - 1 : currentItem - 1);
     }
   };
+
+  console.log('xx---', page);
 
   return (
     <div className="homepage">
@@ -81,15 +82,14 @@ const HomePage = () => {
 
       {page === 'matches' && (
         <div className="homepage__matches">
-          <h1>Your Matches </h1>
-          <div>
+          <div className="homepage__match-list">
             {userType === 'talent' &&
-              talentMatches.map((item, index) => (
-                <MatchedJob setPage={setPage} match={item} key={index} />
+              talentMatches.map((match) => (
+                <Match setpage={setPage} type={userType} data={match} key={match.id} />
               ))}
             {userType === 'company' &&
-              companyMatches.map((item, index) => (
-                <MatchedTalent setPage={setPage} match={item} key={index} />
+              companyMatches.map((match) => (
+                <Match setpage={setPage} type={userType} data={match} key={match.id} />
               ))}
           </div>
         </div>

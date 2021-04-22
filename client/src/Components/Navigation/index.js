@@ -27,7 +27,7 @@ function Navigation() {
 
   const customStyles = {
     content: {
-      background: '#3aafa9',
+      background: '#17252a',
       top: '50%',
       left: '50%',
       right: 'auto',
@@ -56,8 +56,8 @@ function Navigation() {
         <div onClick={() => setIsModalOpen(false)} className="close">
           X
         </div>
-        <div className="content">
-          <h1 className="content__title">LOG IN</h1>
+        <div className="login-content">
+          <h1 className="login-content__title">LOG IN</h1>
           <Input
             id="username"
             value={username}
@@ -72,12 +72,12 @@ function Navigation() {
             type="password"
             placeholder="Password"
           />
-          <div className="content__btn-div">
-            <Button modifier="dark" text="Login" handleClick={handleLogin} />
+          <div className="login-content__btn-div">
+            <Button modifier="light" text="Login" handleClick={handleLogin} />
           </div>
-          <p className="content__text">
+          <p className="login-content__text">
             Forgot password?{' '}
-            <span onClick={toForgotPassword} className="content__text-link ">
+            <span onClick={toForgotPassword} className="login-content__text-link ">
               Reset
             </span>
           </p>
