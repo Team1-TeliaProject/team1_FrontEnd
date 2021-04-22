@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { FaThumbsUp } from 'react-icons/fa';
-// import { AiFillLike } from 'react-icons/ai';
 
 import './JobCard.scss';
 

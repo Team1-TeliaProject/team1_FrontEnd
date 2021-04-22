@@ -11,7 +11,7 @@ import './HomePage.scss';
 import Messages from '../../Components/Messages';
 
 const HomePage = () => {
-  const [userType, setUserType] = useState('talent');
+  const [userType, setUserType] = useState('company');
   const [currentItem, setCurrentItem] = useState(0);
   const [page, setPage] = useState('job/talent');
   const [chat, setChat] = useState('person1');

@@ -4,14 +4,14 @@
 .homepage {
   @include pageBase;
   height: 100vh;
-  margin-top: 120px;
+  margin-top: 90px;
   display: flex;
   flex-direction: column;
   padding: 0 150px 200px;
 
   &__nav {
     width: 100%;
-    margin: 10px auto;
+    margin: 5px auto;
     display: flex;
     justify-content: space-around;
   }
@@ -31,12 +31,12 @@
   }
 
   &__hr {
-    margin: 0 0 30px;
+    margin: 0 0 20px;
     border-top: 2px solid $white;
   }
 
   &__main {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -96,7 +96,7 @@
     margin-top: 170px;
 
     &__main {
-      margin-top: 50px;
+      margin-top: 80px;
       width: 80%;
     }
   }

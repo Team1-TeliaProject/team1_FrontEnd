@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaHeart } from 'react-icons/fa';
-import { BiLike } from 'react-icons/bi';
+import { FaThumbsUp } from 'react-icons/fa';
 
 import './TalentCard.scss';
 
@@ -31,7 +31,7 @@ const TalentCard = ({ talent, handleSuperLike, handlelike }) => {
       </div>
       <div className="talent-card__icons">
         <FaHeart onClick={handleSuperLike} className="talent-card__icon " />
-        <BiLike onClick={handlelike} className="talent-card__icon " />
+        <FaThumbsUp onClick={handlelike} className="talent-card__icon " />
       </div>
     </section>
   );
