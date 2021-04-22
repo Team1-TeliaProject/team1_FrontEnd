@@ -10,6 +10,7 @@ import ProfileSetupPage from './pages/ProfileSetupPage';
 import ProfileEditPage from './pages/ProfileEditPage';
 import JobCreationPage from './pages/JobCreationPage';
 import JobEditPage from './pages/JobEditPage';
+import ProfilePage from './pages/ProfilePage';
 
 const Routes = () => (
   <Switch>
@@ -19,11 +20,12 @@ const Routes = () => (
     <Route exact path="/job/:id/details" component={JobDetailsPage} />
     <Route exact path="/registration/:type" component={ProfileRegistration} />
     <Route exact path="/profilesetup/:type" component={ProfileSetupPage} />
-    <Route exact path="/profile/edit" component={ProfileEditPage} />
+    <Route exact path="/profile/:id/edit" component={ProfileEditPage} />
     <Route exact path="/profile/vacancy/addnew" component={JobCreationPage} />
     <Route exact path="/profile/vacancy/edit" component={JobEditPage} />
     <Route exact path="/forgotpassword" component={JobEditPage} />
-    <Route exact path="/chnagepassword" component={JobEditPage} />
+    <Route exact path="/changepassword" component={JobEditPage} />
+    <Route exact path="/profilepage/:id" component={ProfilePage} />
   </Switch>
 );
 

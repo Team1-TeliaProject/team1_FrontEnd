@@ -4,14 +4,18 @@ import Modal from 'react-modal';
 
 import Button from '../Button';
 import Input from '../Input';
+import ProfileDropdown from '../ProfileDropdown';
 import { useForm } from '../../hooks/useForm';
 import logo from '../../Assets/final_logo.svg';
 
 import './Navigation.scss';
+import { logUser } from '../../services/login';
 
+Modal.setAppElement('#root');
 function Navigation() {
   const history = useHistory();
-  const [isUserLogged, setIsUserLogged] = useState(false);
+  const [user, setUser] = useState(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toForgotPassword = () => {
@@ -19,11 +23,11 @@ function Navigation() {
   };
 
   const [fields, setFields] = useForm({
-    username: '',
+    email: '',
     password: ''
   });
 
-  const { username, password } = fields;
+  const { email, password } = fields;
 
   const customStyles = {
     content: {
@@ -38,16 +42,38 @@ function Navigation() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setIsModalOpen(false);
-    setIsUserLogged(true);
+
+    const credentials = { email, password };
+    logUser(credentials).then((response) => {
+      if (response.data) {
+        setIsModalOpen(false);
+        setUser(response.data);
+        localStorage.setItem('duuni-app', JSON.stringify(response.data));
+      }
+    });
   };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    setUser(null);
+    localStorage.removeItem('duuni-app');
+  };
+
+  console.log('xxx--', isDropdownOpen);
 
   return (
     <div className="nav">
-      <img className="nav__logo" src={logo} alt="logo" onClick={() => console.log('xxx')} />
+      <img className="nav__logo" src={logo} alt="logo" onClick={() => history.push('/')} />
       <div className="nav__profile-div">
-        {isUserLogged ? (
-          <h2>User Profile</h2>
+        {user ? (
+          <div className="nav__user-div">
+            <img
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="nav__profile-photo"
+              src={user.userInfo.photo}
+            />
+            {/* <h2 className="nav__profile-name">{user.userInfo.firstName}</h2> */}
+          </div>
         ) : (
           <Button text="Login" modifier="nav" handleClick={() => setIsModalOpen(true)} />
         )}
@@ -59,11 +85,11 @@ function Navigation() {
         <div className="login-content">
           <h1 className="login-content__title">LOG IN</h1>
           <Input
-            id="username"
-            value={username}
+            id="email"
+            value={email}
             handleInputChange={setFields}
-            type="text"
-            placeholder="Username"
+            type="email"
+            placeholder="Email"
           />
           <Input
             id="password"
@@ -83,6 +109,17 @@ function Navigation() {
           </p>
         </div>
       </Modal>
+      <div
+        className={
+          isDropdownOpen ? 'nav__dropdown-div' : 'nav__dropdown-div nav__dropdown-div--close'
+        }
+      >
+        <ProfileDropdown
+          setIsModalOpen={setIsDropdownOpen}
+          handleExit={handleLogout}
+          handleEdit={() => history.push(`/profilepage/${user.userInfo.userId}`)}
+        />
+      </div>
     </div>
   );
 }

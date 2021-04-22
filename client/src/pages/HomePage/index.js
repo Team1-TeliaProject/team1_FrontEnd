@@ -30,8 +30,6 @@ const HomePage = () => {
     }
   };
 
-  console.log('xx---', page);
-
   return (
     <div className="homepage">
       <div className="homepage__nav">

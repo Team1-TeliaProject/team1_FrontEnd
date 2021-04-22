@@ -71,7 +71,7 @@ const ProfileSetupPage = ({ match }) => {
               <p className="profile-setup__text profile-setup__text--small">
                 chiranjibichapagain@gmail.com
               </p>
-              <p className="profile-setup__text">Upload new image to change profile picture</p>
+              <p className="profile-setup__text">Update Profile Picture</p>
               <div className="profile-setup__text">
                 <ImageUpload setImage={setPhoto} />
               </div>
@@ -146,7 +146,7 @@ const ProfileSetupPage = ({ match }) => {
             />
 
             <div className="profile-setup__btn-div">
-              <Button modifier="dark" text="Update" handleClick={setUpProfile} />
+              <Button modifier="light" text="Update" handleClick={setUpProfile} />
             </div>
           </form>
         </div>
@@ -162,8 +162,8 @@ const ProfileSetupPage = ({ match }) => {
               <p className="profile-setup__text profile-setup__text--small">
                 info@businesscollege.com
               </p>
-              <p className="profile-setup__text">Upload new image to change profile picture</p>
-              <div className="profile-setup__text">
+              <p className="profile-setup__text">Update Profile Picture</p>
+              <div className="profile-setup__upload">
                 <ImageUpload setImage={setLogo} />
               </div>
             </div>
@@ -191,7 +191,7 @@ const ProfileSetupPage = ({ match }) => {
               handleInputChange={setFields}
             />
             <div className="profile-setup__btn-div">
-              <Button modifier="dark" text="Update" handleClick={setUpProfile} />
+              <Button modifier="light" text="Update" handleClick={setUpProfile} />
             </div>
           </form>
         </div>
