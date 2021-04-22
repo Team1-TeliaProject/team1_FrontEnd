@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import Button from '../Button';
 import Input from '../Input';
 import { useForm } from '../../hooks/useForm';
-import whiteLogo from '../../Assets/DuuniClick_logo__white.svg';
+import logo from '../../Assets/final_logo.svg';
 
 import './Navigation.scss';
 
@@ -44,7 +44,7 @@ function Navigation() {
 
   return (
     <div className="nav">
-      <img className="nav__logo" src={whiteLogo} alt="logo" onClick={() => console.log('xxx')} />
+      <img className="nav__logo" src={logo} alt="logo" onClick={() => console.log('xxx')} />
       <div className="nav__profile-div">
         {isUserLogged ? (
           <h2>User Profile</h2>

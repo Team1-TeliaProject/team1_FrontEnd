@@ -10,9 +10,9 @@
   align-items: center;
 
   &__heading {
-    font-size: $t-big;
+    font-size: $t-xl;
     color: $light;
-    margin: 100px 0 50px 0px;
+    margin: 100px 0 40px 0px;
   }
 
   &__text {
@@ -20,10 +20,11 @@
     text-align: center;
     color: $white;
     font-family: $nunito;
-    font-size: $t-small;
+    font-size: $t-medium;
   }
 
   &__btn-div {
+    margin-top: 15px;
     width: 20%;
     height: 120px;
     display: flex;
@@ -36,9 +37,9 @@
   .landing-page {
     height: 100vh;
 
-    &__heading {
-      font-size: $t-xl;
-    }
+    // &__heading {
+    //   font-size: $t-xl;
+    // }
 
     &__btn-div {
       width: 40%;
@@ -52,7 +53,7 @@
 @media screen and (max-width: 768px) {
   .landing-page {
     &__btn-div {
-      width: 60%;
+      width: 90%;
     }
   }
 }
@@ -61,7 +62,7 @@
   .landing-page {
     @include pageBaseSmall;
     &__heading {
-      font-size: 5vw;
+      // font-size: 5vw;
       text-align: center;
     }
   }
@@ -72,7 +73,7 @@
     @include pageBaseSmall;
 
     &__heading {
-      font-size: 5.5vw;
+      // font-size: 5.5vw;
       font-weight: bold;
       text-align: center;
     }

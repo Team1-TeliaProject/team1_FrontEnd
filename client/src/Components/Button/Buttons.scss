@@ -14,13 +14,14 @@
     font-size: $t-small;
     border-radius: $r-medium;
     color: $white;
-    background-color: $dark;
+    background-color: $light;
     font-weight: 500;
     border: none;
   }
   &--dark:hover {
     background-color: rgba(0, 0, 0, 0);
-    border: 1.5px solid $black;
+    border: 1.5px solid $light;
+    color: $white;
   }
   &--light {
     font-size: $t-small;
@@ -31,62 +32,37 @@
     border: none;
   }
   &--light:hover {
-    color: $black;
+    color: $white;
     background-color: rgba(0, 0, 0, 0);
     border: 1.5px solid $white;
   }
 
   &--nav {
-    font-size: $t-medium;
-    text-transform: uppercase;
+    font-size: $t-small;
     border-radius: $r-small;
     color: $black;
     background-color: $light;
-    font-weight: bold;
-    border: 0.05em solid $black;
+    font-weight: 500;
+    border: none;
   }
   &--nav:hover {
-    border: 0.05em solid $black;
-    background-color: $black;
     color: $white;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1.5px solid $white;
   }
 }
 
 @media screen and (max-width: 768px) {
   .button {
-    height: 45px;
-    &--nav {
-      font-size: $t-big;
-    }
-    &--light {
-      font-size: $t-big;
-    }
-    &--dark {
-      font-size: $t-xl;
-    }
+    height: 55px;
   }
 }
 
 @media screen and (max-width: 600px) {
   .button {
-    &--nav {
-      font-size: $t-xl;
-    }
-    &--light {
-      font-size: $t-xl;
-    }
-    &--dark {
-      font-size: 5vw;
-    }
   }
 }
 @media screen and (max-width: 400px) {
   .button {
-    &--dark {
-      font-size: 6.5vw;
-    }
-    &--light {
-      font-size: 6.5vw;
-    }
   }
 }

@@ -14,8 +14,8 @@ const Landingpage = () => {
 
   return (
     <div className="landing-page">
-      <h1 className="landing-page__heading">A PLACE TO MEET YOUR FUTURE</h1>
-      <p className="landing-page__text">Choose your path of match-making</p>
+      {/* <h1 className="landing-page__heading">A PLACE TO MEET YOUR FUTURE</h1>
+      <p className="landing-page__text">Choose your path to professional match-making</p> */}
       <div className="landing-page__btn-div">
         <Button
           handleClick={() => toRegistrationForm('talent')}
