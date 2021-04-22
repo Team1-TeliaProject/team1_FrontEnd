@@ -3,8 +3,7 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 import JobCard from '../../Components/JobCard';
 import TalentCard from '../../Components/TalentCard';
-import MatchedJob from '../../Components/MatchedJob';
-import MatchedTalent from '../../Components/MatchedTalent';
+import Match from '../../Components/Match';
 import { jobList, talentList, talentMatches, companyMatches, chats } from '../../Utils/dummyData';
 
 import './HomePage.scss';
@@ -81,15 +80,14 @@ const HomePage = () => {
 
       {page === 'matches' && (
         <div className="homepage__matches">
-          <h1>Your Matches </h1>
-          <div>
+          <div className="homepage__match-list">
             {userType === 'talent' &&
-              talentMatches.map((item, index) => (
-                <MatchedJob setPage={setPage} match={item} key={index} />
+              talentMatches.map((match) => (
+                <Match setpage={setPage} type={userType} data={match} key={match.id} />
               ))}
             {userType === 'company' &&
-              companyMatches.map((item, index) => (
-                <MatchedTalent setPage={setPage} match={item} key={index} />
+              companyMatches.map((match) => (
+                <Match setpage={setPage} type={userType} data={match} key={match.id} />
               ))}
           </div>
         </div>
@@ -98,20 +96,22 @@ const HomePage = () => {
       {page === 'messages' && (
         <div className="homepage__message">
           <div className="homepage__message-sidebar">
-            <p>Conversations</p>
-            {['person1', 'person2', 'person3', 'person4'].map((item, index) => (
-              <div
-                className={
-                  chat === item
-                    ? 'homepage__sidebar-item homepage__sidebar-item--highlight'
-                    : 'homepage__sidebar-item'
-                }
-                onClick={() => setChat(item)}
-                key={index}
-              >
-                {item}
-              </div>
-            ))}
+            <p className="homepage__chat-title">Chat List</p>
+            {['person1', 'person2', 'person3', 'person4', 'person 5', 'person,6', 'person7'].map(
+              (item, index) => (
+                <div
+                  className={
+                    chat === item
+                      ? 'homepage__sidebar-item homepage__sidebar-item--highlight'
+                      : 'homepage__sidebar-item'
+                  }
+                  onClick={() => setChat(item)}
+                  key={index}
+                >
+                  {item}
+                </div>
+              )
+            )}
           </div>
           <div className="homepage__message-main">
             <Messages chats={chats} />

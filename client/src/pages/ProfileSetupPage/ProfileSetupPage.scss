@@ -3,39 +3,35 @@
 
 .profile-setup {
   @include pageBase;
-  padding-bottom: 200px;
-  background: url('../../Assets/background2.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: contain;
+  min-height: 100vh;
+  padding: 100px 0;
 
   &__content {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
   }
 
   &__data {
+    width: 60%;
     border-radius: $r-medium;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   &__image {
-    width: 200px;
+    width: 30%;
     height: 200px;
     border-radius: 6px 0px 0px 6px;
-    margin-right: 20px;
     object-fit: cover;
     background-color: $white;
   }
 
   &__info-div {
+    width: 65%;
     border-radius: 0 6px 6px 0;
-    padding: 0 0 0 15px;
+    padding: 10px;
     background-color: $light;
     display: flex;
     flex-direction: column;
@@ -70,13 +66,14 @@
 
   &__form {
     margin-top: 50px;
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
   &__heading {
+    color: $white;
     text-align: center;
     font-size: $t-medium;
     font-family: $nunito;
@@ -97,33 +94,35 @@
 
 @media screen and (max-width: 1024px) {
   .profile-setup {
+    margin-top: 50px;
+    &__data {
+      width: 80%;
+    }
+
     &__form {
-      width: 50%;
+      width: 80%;
     }
   }
 }
 
 @media screen and (max-width: 768px) {
   .profile-setup {
+    @include pageBaseSmall;
     &__heading {
       font-size: $t-big;
     }
 
-    &__data {
-      width: 100%;
-      flex-direction: column;
-      align-items: center;
-      background-color: rgba(255, 255, 255, 0);
-    }
-    &__info-div {
-      background-color: $light;
-      width: 100%;
-      padding: 0px 15px;
-      border-radius: $r-medium;
-    }
-
     &__text {
-      font-size: $t-big;
+      font-size: $t-small;
+      margin-bottom: 5px;
+
+      &--small {
+        font-size: $t-m-s;
+      }
+
+      &--big {
+        margin: 0;
+      }
 
       &--msg {
         width: 95%;
@@ -135,17 +134,41 @@
       margin-bottom: 10px;
     }
 
+    &__info-div {
+      height: 200px;
+      padding: 5px 10px;
+      justify-content: center;
+    }
+
+    &__data {
+      width: 100%;
+    }
+
     &__form {
       width: 100%;
     }
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 450px) {
   .profile-setup {
-    @include pageBaseSmall;
     &__heading {
-      font-size: 6vw;
+      font-size: $t-medium;
+    }
+    &__data {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__info-div {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    &__image {
+      height: 100px;
+      width: 100px;
+      border-radius: 6px;
     }
   }
 }

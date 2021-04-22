@@ -3,15 +3,11 @@
 
 .profile-registration {
   @include pageBase;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 200px;
-  background: url('../../Assets/background2.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: contain;
+  padding: 50px 0 100px;
 
   &__form {
     padding: 0, 5%;
@@ -19,9 +15,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 60px;
   }
 
   &__heading {
+    color: $white;
     font-size: $t-medium;
     font-family: $nunito;
     letter-spacing: 2px;
@@ -46,31 +44,39 @@
 }
 .close {
   font-family: $nunito;
-  color: $dark;
+  color: #c4c4c4;
   cursor: pointer;
 }
 
 .registration-modal {
-  width: 40vw;
   padding: 20px 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   &__title {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: $white;
+    text-align: center;
+    font-size: $t-medium;
+    color: #c4c4c4;
     margin: 20px 0;
   }
 
   &__btn-div {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     margin-top: 20px;
   }
+
+  &__skip {
+    margin: 0;
+    font-size: $t-small;
+    color: #def2f1;
+    cursor: pointer;
+  }
   &__btn-seperator {
-    width: 40px;
+    width: 150px;
   }
 
   &__text {
@@ -79,6 +85,15 @@
     font-size: 1em;
     text-align: center;
     color: $white;
+  }
+
+  &__text-link {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 1em;
+    text-align: center;
+    color: rgb(129, 205, 255);
+    cursor: pointer;
   }
 }
 
@@ -106,6 +121,9 @@
     &__title {
       font-size: 1em;
     }
+    &__btn-seperator {
+      width: 100px;
+    }
   }
 }
 
@@ -114,6 +132,15 @@
     @include pageBaseSmall;
     &__heading {
       font-size: 6vw;
+    }
+  }
+  .registration-modal {
+    width: 90vw;
+    &__text {
+      size: 6vw;
+    }
+    &__text-link {
+      size: 6vw;
     }
   }
 }

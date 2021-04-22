@@ -3,6 +3,7 @@
 
 .chat {
   width: 90%;
+
   &__time {
     width: 100%;
     margin: 0;
@@ -32,23 +33,18 @@
   &__message {
     width: 100%;
     padding: 15px 20px;
-    font-size: 1em;
-    color: $black;
+    font-size: $t-small;
+    color: black;
 
     &--in {
-      background-color: rgb(206, 206, 206);
+      background-color: #00b2ff;
+      // background-color: #34b7f1;
       border-radius: 4px 4px 4px 15px;
     }
     &--out {
       text-align: right;
-      background-color: rgb(139, 255, 154);
+      background-color: $white;
       border-radius: 4px 15px 4px 4px;
     }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .chat {
-    width: 98%;
   }
 }
