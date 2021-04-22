@@ -3,10 +3,11 @@
 
 .jobcard {
   width: 100%;
-  background-color: $light;
+  background-color: white;
   margin: 0 25px;
   box-shadow: $sh-big;
   border-radius: $r-big;
+  // box-sizing: border-box;
 
   &__main {
     padding: 15px 20px;
@@ -30,8 +31,8 @@
   }
 
   &__avatar {
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
     object-fit: cover;
     border-radius: 50%;
     background-color: $white;
@@ -39,6 +40,7 @@
     box-shadow: 0px 0px 3px rgba(97, 97, 97, 0.829);
   }
   &__company {
+    width: 60%;
     margin: 10px 0px 0px;
     font-size: $t-medium;
     font-weight: bold;
@@ -48,6 +50,8 @@
   &__skills {
     width: 100%;
     display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   &__text {
@@ -60,21 +64,25 @@
       font-weight: bold;
       font-size: $t-small;
     }
+
     &--location {
       font-size: $t-m-s;
     }
+
     &--seniority {
       width: 100%;
       text-align: start;
       font-size: $t-m-s;
       padding-bottom: 1rem;
     }
+
     &--skill {
-      font-size: $t-x-s;
+      font-size: $t-m-s;
       font-weight: bold;
       color: $black;
       font-style: italic;
     }
+
     &--description {
       max-height: 150px;
       overflow-y: auto;
@@ -97,7 +105,7 @@
     display: flex;
     border-radius: 0px 0px 6px 6px;
     justify-content: space-around;
-    background-color: $secondary;
+    background-color: $white;
   }
 
   &__icon {
@@ -112,60 +120,47 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
-}
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .jobcard {
-    &__avatar {
-      width: 120px;
-      height: 120px;
+    &__main {
+      padding: 20px 30px;
+    }
+
+    &__text {
+      &--description {
+        padding: 0 15px;
+      }
     }
   }
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 450px) {
   .jobcard {
     margin: 0 5px;
-    &__company {
-      font-size: 5.5vw;
+    &__main {
+      padding: 10px 15px;
+    }
+    &__avatar {
+      width: 60px;
+      height: 60px;
+    }
+    &__skills {
+      margin-bottom: 10px;
     }
 
-    &__deadline {
-      font-size: $t-xl;
+    &__company {
+      width: 100%;
+      font-size: $t-m-s;
     }
 
     &__text {
       &--position {
-        font-size: $t-xl;
+        font-size: $t-m-s;
       }
-      &--location {
-        font-size: $t-big;
-      }
-      &--seniority {
-        font-size: $t-big;
-      }
+
       &--skill {
-        font-size: $t-medium;
+        font-size: $t-x-s;
       }
-      &--description {
-        font-size: $t-big;
-      }
-    }
-    &__icons {
-      padding: 1.5rem 2rem;
-      justify-content: space-between;
-    }
-
-    &__icon {
-      font-size: 10vw;
-    }
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .jobcard {
-    &__avatar {
-      width: 100px;
-      height: 100px;
     }
   }
 }
