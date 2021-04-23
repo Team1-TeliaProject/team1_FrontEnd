@@ -14,6 +14,8 @@ const ProfileRegistration = ({ match }) => {
   const type = match.params.type;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [error, setError] = useState('error');
+  const [user, setUser] = useState(null);
+
   const [fields, setFields] = useForm({
     firstName: '',
     lastName: '',
@@ -37,7 +39,7 @@ const ProfileRegistration = ({ match }) => {
         registerTalent(userInfo)
           .then((response) => {
             if (response.data) {
-              console.log('talent--', response.data);
+              setUser(response.data);
               setIsModalOpen(true);
             }
           })
@@ -61,12 +63,12 @@ const ProfileRegistration = ({ match }) => {
         registerCompany(userInfo)
           .then((response) => {
             if (response.data) {
-              console.log('company--', response.data);
+              setUser(response.data);
               setIsModalOpen(true);
             }
           })
           .catch((error) => {
-            console.log(error.response);
+            console.log(error.response.data);
           });
       }
     }
@@ -82,6 +84,8 @@ const ProfileRegistration = ({ match }) => {
       transform: 'translate(-50%, -50%)'
     }
   };
+
+  console.log('test--', user);
 
   return (
     <div className="profile-registration">
@@ -201,7 +205,7 @@ const ProfileRegistration = ({ match }) => {
             <Button
               modifier="light"
               text="Setup Profile"
-              handleClick={() => history.push(`/profilesetup/${type}`)}
+              handleClick={() => history.push(`/profilesetup/${type}/${user.id}`)}
             />
           </div>
         </div>
