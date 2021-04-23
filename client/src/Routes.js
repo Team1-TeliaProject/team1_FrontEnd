@@ -16,8 +16,8 @@ import ProfilePage from './pages/ProfilePage';
 
 const Routes = () => (
   <Switch>
-    <Route exact path="/" component={HomePage} />
-    <Route exact path="/welcomepage" component={LandingPage} />
+    <Route exact path="/home" component={HomePage} />
+    <Route exact path="/" component={LandingPage} />
     <Route exact path="/tryout" component={TryOutPage} />
     <Route exact path="/job/:id/details" component={JobDetailsPage} />
     <Route exact path="/registration/:type" component={ProfileRegistration} />
