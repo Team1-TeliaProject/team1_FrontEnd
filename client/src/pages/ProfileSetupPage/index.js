@@ -11,10 +11,15 @@ import ImageUpload from '../../Components/ImageUpload';
 import { typeOptions, techOptions } from '../../Utils/selectOptions';
 
 import './ProfileSetupPage.scss';
+import { editCompany, editTalent } from '../../services/userService';
 
 const ProfileSetupPage = ({ match }) => {
   const history = useHistory();
   const type = match.params.type;
+  const id = match.params.id;
+
+  console.log('id--', id);
+
   const [photo, setPhoto] = useState(
     'https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.png'
   );
@@ -36,11 +41,6 @@ const ProfileSetupPage = ({ match }) => {
 
   const { phone, location, title, github, linkedin, about, website } = fields;
 
-  const createAccount = (e) => {
-    e.preventDefault();
-    console.log('created!!');
-  };
-
   const selectStyles = {
     control: (styles) => ({ ...styles, height: '48px', marginBottom: '10px', marginTop: '10px' })
   };
@@ -54,8 +54,51 @@ const ProfileSetupPage = ({ match }) => {
     const techs = options.map((opt) => opt.value);
     setTechList(techs);
   };
-  const setUpProfile = () => {
-    history.push('/');
+
+  const setUpTalent = (e) => {
+    e.preventDefault();
+    const updates = {
+      phone,
+      location,
+      title,
+      github,
+      linkedin,
+      about,
+      level,
+      type: typeList,
+      techs: techList,
+      photo
+    };
+
+    editTalent(updates, id)
+      .then((response) => {
+        if (response.data) {
+          history.push('/');
+        }
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+  };
+
+  const setUpCompany = (e) => {
+    e.preventDefault();
+    const updates = {
+      location,
+      about,
+      website,
+      logo
+    };
+
+    editCompany(updates, id)
+      .then((response) => {
+        if (response.data) {
+          history.push('/');
+        }
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
   };
 
   return (
@@ -146,7 +189,7 @@ const ProfileSetupPage = ({ match }) => {
             />
 
             <div className="profile-setup__btn-div">
-              <Button modifier="light" text="Update" handleClick={setUpProfile} />
+              <Button modifier="light" text="Update" handleClick={setUpTalent} />
             </div>
           </form>
         </div>
@@ -191,7 +234,7 @@ const ProfileSetupPage = ({ match }) => {
               handleInputChange={setFields}
             />
             <div className="profile-setup__btn-div">
-              <Button modifier="light" text="Update" handleClick={setUpProfile} />
+              <Button modifier="light" text="Update" handleClick={setUpCompany} />
             </div>
           </form>
         </div>

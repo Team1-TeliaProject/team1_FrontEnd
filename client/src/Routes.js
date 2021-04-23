@@ -21,7 +21,7 @@ const Routes = () => (
     <Route exact path="/tryout" component={TryOutPage} />
     <Route exact path="/job/:id/details" component={JobDetailsPage} />
     <Route exact path="/registration/:type" component={ProfileRegistration} />
-    <Route exact path="/profilesetup/:type" component={ProfileSetupPage} />
+    <Route exact path="/profilesetup/:type/:id" component={ProfileSetupPage} />
     <Route exact path="/profile/:id/edit" component={ProfileEditPage} />
     <Route exact path="/profile/vacancy/addnew" component={JobCreationPage} />
     <Route exact path="/profile/vacancy/edit" component={JobEditPage} />
