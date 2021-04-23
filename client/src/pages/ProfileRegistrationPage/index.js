@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import Input from '../../Components/Input';
 import Button from '../../Components/Button';
 import { useForm } from '../../hooks/useForm';
+import { registerCompany, registerTalent } from '../../services/userService';
 
 import './ProfileRegistration.scss';
 
@@ -24,18 +25,53 @@ const ProfileRegistration = ({ match }) => {
 
   const { firstName, lastName, companyName, email, password, passwordRe } = fields;
 
-  const createAccount = (e) => {
+  const createTalentAccount = (e) => {
     e.preventDefault();
-    if ((!firstName && !companyName) || !email || !password) {
+    if (!firstName || !lastName || !email || !password) {
       setError('All fields are required');
     } else {
       if (password !== passwordRe) {
         setError('Password not matched');
       } else {
-        setIsModalOpen(true);
+        const userInfo = { firstName, lastName, email, password };
+        registerTalent(userInfo)
+          .then((response) => {
+            if (response.data) {
+              console.log('talent--', response.data);
+              setIsModalOpen(true);
+            }
+          })
+          .catch((error) => {
+            console.log(error.response);
+          });
       }
     }
   };
+
+  const createCompanyAccount = (e) => {
+    e.preventDefault();
+    if (!companyName || !email || !password) {
+      setError('All fields are required');
+    } else {
+      if (password !== passwordRe) {
+        setError('Password not matched');
+      } else {
+        const userInfo = { name: companyName, email, password };
+
+        registerCompany(userInfo)
+          .then((response) => {
+            if (response.data) {
+              console.log('company--', response.data);
+              setIsModalOpen(true);
+            }
+          })
+          .catch((error) => {
+            console.log(error.response);
+          });
+      }
+    }
+  };
+
   const customStyles = {
     content: {
       background: '#17252a',
@@ -97,7 +133,7 @@ const ProfileRegistration = ({ match }) => {
             handleInputChange={setFields}
           />
           <div className="profile-registration__btn-div">
-            <Button modifier="light" text="Create" handleClick={createAccount} />
+            <Button modifier="light" text="Create" handleClick={createTalentAccount} />
           </div>
         </form>
       )}
@@ -143,7 +179,7 @@ const ProfileRegistration = ({ match }) => {
             handleInputChange={setFields}
           />
           <div className="profile-registration__btn-div">
-            <Button modifier="light" text="Create" handleClick={createAccount} />
+            <Button modifier="light" text="Create" handleClick={createCompanyAccount} />
           </div>
         </form>
       )}
