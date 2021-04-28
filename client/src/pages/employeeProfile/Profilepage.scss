@@ -52,10 +52,23 @@
       font-weight: bold;
     }
 
+    &--title {
+      font-size: $t-small;
+      font-weight: bold;
+    }
+
+    &--level {
+      font-size: $t-m-s;
+    }
+
     &--about {
       font-size: $t-m-s;
       margin-bottom: 20px;
     }
+  }
+
+  &__type {
+    margin-bottom: 15px;
   }
 
   &__icon {

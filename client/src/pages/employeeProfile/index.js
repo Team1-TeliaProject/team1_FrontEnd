@@ -39,20 +39,34 @@ const EmployeeProfile = ({ match }) => {
             {user.firstName} {user.lastName}
           </h2>
           <div className="employee__contact">
-            <p className="employee__text employee__text--email">{user.email}</p>
-            {user.phone && <p className="employee__text employee__text--phone">{user.phone}</p>}
+            <p className="employee__text employee__text--email">Email: {user.email}</p>
+            {user.phone && (
+              <p className="employee__text employee__text--phone">Phone: {user.phone}</p>
+            )}
           </div>
 
           {user.location && (
             <p className="employee__text employee__text--location"> {user.location}</p>
           )}
-          {user.title && <p className="employee__text employee__text--title">{user.title}</p>}
-          <p className="employee__text employee__text--level">
-            {user.level} &nbsp; {user.type}
-          </p>
+
+          {user.title && (
+            <p className="employee__text employee__text--title">
+              {user.title} | {user.level}{' '}
+            </p>
+          )}
+
+          <div className="employee__type">
+            {user.type &&
+              user.type.map((item, index) => (
+                <span key={index} className="employee__text employee__text--level">
+                  {item} &nbsp;
+                </span>
+              ))}
+          </div>
+
           {user.about && (
             <div>
-              <p className="employee__text">About me</p>
+              <p className="employee__text">About</p>
               <p className="employee__text employee__text--about">{user.about}</p>
             </div>
           )}
