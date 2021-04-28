@@ -49,6 +49,7 @@ function Navigation() {
         setIsModalOpen(false);
         setUser(response.data);
         localStorage.setItem('duuni-app', JSON.stringify(response.data));
+        history.push('/home');
       }
     });
   };
@@ -57,9 +58,9 @@ function Navigation() {
     e.preventDefault();
     setUser(null);
     localStorage.removeItem('duuni-app');
+    setIsDropdownOpen(false);
+    history.push('/');
   };
-
-  console.log('xxx--', isDropdownOpen);
 
   return (
     <div className="nav">
