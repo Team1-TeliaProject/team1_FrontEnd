@@ -198,7 +198,7 @@ const ProfileRegistration = ({ match }) => {
             user experience by setting up your profile.{' '}
           </p>
           <div className="registration-modal__btn-div">
-            <p className="registration-modal__skip" onClick={() => history.push('/')}>
+            <p className="registration-modal__skip" onClick={() => history.push('/home')}>
               skip
             </p>
             <span className="registration-modal__btn-seperator"></span>

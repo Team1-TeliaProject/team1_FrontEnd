@@ -21,7 +21,7 @@ const ProfileSetupPage = ({ match }) => {
   console.log('id--', id);
 
   const [photo, setPhoto] = useState(
-    'https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.png'
+    'https://www.clipartkey.com/mpngs/m/236-2364608_medal-clipart-lace-blue-leaf-round-logo.png'
   );
   const [logo, setLogo] = useState(
     'https://muropaketti.com/wp-content/uploads/2017/11/apple-logo-black.png'
@@ -73,7 +73,7 @@ const ProfileSetupPage = ({ match }) => {
     editTalent(updates, id)
       .then((response) => {
         if (response.data) {
-          history.push('/');
+          history.push('/home');
         }
       })
       .catch((error) => {
@@ -93,7 +93,7 @@ const ProfileSetupPage = ({ match }) => {
     editCompany(updates, id)
       .then((response) => {
         if (response.data) {
-          history.push('/');
+          history.push('/home');
         }
       })
       .catch((error) => {
