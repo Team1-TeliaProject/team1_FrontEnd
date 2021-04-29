@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const baseUrlTalent = 'http://localhost:5000/api/talents';
 const baseurlCompany = 'http://localhost:5000/api/companies';
+const baseurlJobs = 'http://localhost:5000/api/jobs';
 
 //talents services
 
@@ -21,6 +22,10 @@ export const updateTalent = (id, updates) => {
   return axios.put(`${baseUrlTalent}/${id}`, updates);
 };
 
+export const getTalents = () => {
+  return axios.get(baseUrlTalent);
+};
+
 //companies services
 export const registerCompany = async (userInfo) => {
   return await axios.post(`${baseurlCompany}/register`, userInfo);
@@ -36,4 +41,9 @@ export const getOneCompany = (id) => {
 
 export const updateCompany = (id, updates) => {
   return axios.put(`${baseurlCompany}/${id}`, updates);
+};
+
+//extracting Jobs
+export const getOneJob = async (id) => {
+  return await axios.get(`${baseurlJobs}/${id}`);
 };

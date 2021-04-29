@@ -4,7 +4,8 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import JobCard from '../../Components/JobCard';
 import TalentCard from '../../Components/TalentCard';
 import Match from '../../Components/Match';
-import { jobList, talentList, talentMatches, companyMatches, chats } from '../../Utils/dummyData';
+import { jobList, talentMatches, companyMatches, chats } from '../../Utils/dummyData';
+import { useFilter } from '../../Utils/filterTalent';
 
 import './HomePage.scss';
 import Messages from '../../Components/Messages';
@@ -14,6 +15,7 @@ const HomePage = () => {
   const [currentItem, setCurrentItem] = useState(0);
   const [page, setPage] = useState('job/talent');
   const [chat, setChat] = useState('person1');
+  const [talentList] = useFilter(`607ff8b0bdf4856ef06039aa`); //TODO pass id dynamically based on job
 
   const handleRightArrow = () => {
     if (userType === 'talent') {
@@ -26,7 +28,7 @@ const HomePage = () => {
     if (userType === 'talent') {
       setCurrentItem(currentItem === 0 ? jobList.length - 1 : currentItem - 1);
     } else {
-      setCurrentItem(currentItem === 0 ? jobList.length - 1 : currentItem - 1);
+      setCurrentItem(currentItem === 0 ? talentList.length - 1 : currentItem - 1);
     }
   };
 
