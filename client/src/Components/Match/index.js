@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { FaCommentDots } from 'react-icons/fa';
-import { FaInfoCircle } from 'react-icons/fa';
+import { FaCommentDots, FaInfoCircle } from 'react-icons/fa';
 
 import './Match.scss';
 

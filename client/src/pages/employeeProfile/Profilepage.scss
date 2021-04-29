@@ -1,0 +1,96 @@
+@import '../../scss/config';
+@import '../../scss/mixins';
+
+.employee {
+  @include pageBase;
+  margin-top: 100px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  &__profile-div {
+    width: 300px;
+    height: 300px;
+    margin-right: 3rem;
+  }
+
+  &__image {
+    width: 300px;
+    height: 300px;
+    border-radius: $r-medium;
+    object-fit: contain;
+  }
+
+  &__content {
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.616);
+    padding: 15px;
+    border-radius: $r-big;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__contact {
+    display: flex;
+  }
+
+  &__text {
+    color: $primary;
+    margin: 0;
+    font-size: $t-medium;
+
+    &--email,
+    &--phone {
+      font-size: $t-x-s;
+      margin-right: 10px;
+    }
+
+    &--location {
+      margin: 10px 0;
+      font-size: $t-m-s;
+      font-weight: bold;
+    }
+
+    &--title {
+      font-size: $t-small;
+      font-weight: bold;
+    }
+
+    &--level {
+      font-size: $t-m-s;
+    }
+
+    &--about {
+      font-size: $t-m-s;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__type {
+    margin-bottom: 15px;
+  }
+
+  &__icon {
+    font-size: $t-xl;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__btn-div {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .employee {
+  }
+}

@@ -1,11 +1,12 @@
 import React from 'react';
 
 import './Input.scss';
-const Input = ({ handleInputChange, placeholder, type, id, value, handleFocus }) => {
+const Input = ({ handleInputChange, placeholder, type, id, value, handleFocus, defaultValue }) => {
   return (
     <input
       required
       id={id}
+      defaultValue={defaultValue}
       value={value}
       onChange={handleInputChange}
       onFocus={handleFocus}

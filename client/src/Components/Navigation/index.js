@@ -7,6 +7,7 @@ import Input from '../Input';
 import ProfileDropdown from '../ProfileDropdown';
 import { useForm } from '../../hooks/useForm';
 import logo from '../../Assets/final_logo.svg';
+import profilePic from '../../Assets/proifle.jpeg';
 
 import './Navigation.scss';
 import { logUser } from '../../services/login';
@@ -62,6 +63,17 @@ function Navigation() {
     history.push('/');
   };
 
+  const handleProfile = () => {
+    console.log('try--', user.userInfo.userType);
+    if (user.userInfo.userType === 'talent') {
+      history.push(`/employeeProfile/${user.userInfo.userId}`);
+      setIsDropdownOpen(false);
+    } else {
+      history.push(`/companyProfile/${user.userInfo.userId}`);
+      setIsDropdownOpen(false);
+    }
+  };
+
   return (
     <div className="nav">
       <img className="nav__logo" src={logo} alt="logo" onClick={() => history.push('/')} />
@@ -71,7 +83,7 @@ function Navigation() {
             <img
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               className="nav__profile-photo"
-              src={user.userInfo.photo}
+              src={user.userInfo.photo ? user.userInfo.photo : profilePic}
             />
             {/* <h2 className="nav__profile-name">{user.userInfo.firstName}</h2> */}
           </div>
@@ -118,7 +130,7 @@ function Navigation() {
         <ProfileDropdown
           setIsModalOpen={setIsDropdownOpen}
           handleExit={handleLogout}
-          handleEdit={() => history.push(`/profilepage/${user.userInfo.userId}`)}
+          handleEdit={handleProfile}
         />
       </div>
     </div>

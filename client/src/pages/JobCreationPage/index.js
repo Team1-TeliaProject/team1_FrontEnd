@@ -10,9 +10,11 @@ import { useForm } from '../../hooks/useForm';
 import { techOptions } from '../../Utils/selectOptions';
 
 import './JobCreationPage.scss';
+import { createJob } from '../../services/jobService';
 
-const JobCreationPage = () => {
+const JobCreationPage = ({ match }) => {
   const history = useHistory();
+  const { id } = match.params;
   const [level, setLevel] = useState('');
   const [type, setType] = useState([]);
   const [techList, setTechList] = useState([]);
@@ -25,11 +27,24 @@ const JobCreationPage = () => {
 
   const { title, deadline, location, description } = fields;
 
-  console.log('check', title, deadline, location, description);
-
-  const createAccount = (e) => {
+  const addNewJob = (e) => {
     e.preventDefault();
-    console.log('created!!');
+    const job = {
+      company: id,
+      title,
+      deadline,
+      location,
+      description,
+      level,
+      type,
+      techs: techList
+    };
+
+    createJob(job).then((response) => {
+      if (response.data) {
+        history.push(`/companyProfile/${id}`);
+      }
+    });
   };
 
   const selectStyles = {
@@ -95,7 +110,7 @@ const JobCreationPage = () => {
         />
 
         <div className="job-create__btn-div">
-          <Button modifier="dark" text="Create" handleClick={createAccount} />
+          <Button modifier="light" text="Create" handleClick={addNewJob} />
         </div>
       </form>
     </div>
