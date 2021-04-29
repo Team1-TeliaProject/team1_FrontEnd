@@ -6,6 +6,7 @@ import profilePic from '../../Assets/proifle.jpeg';
 import './JobCard.scss';
 
 const Jobcard = ({ job, handleSuperLike, handlelike }) => {
+  console.log('testing jobCard', job);
   return (
     <section className="jobcard">
       <div className="jobcard__main">

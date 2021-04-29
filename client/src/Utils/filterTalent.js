@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getOneJob } from '../services/jobService';
 import { getTalents } from '../services/userService';
 import { getOneTalent } from '../services/userService';
-import { getAllJobs } from '../services/userService';
+import { getAllJobs } from '../services/jobService';
 
 import { filterTalent } from './filter';
 

@@ -16,12 +16,12 @@ export const filterTalent = async (datapool, search) => {
           num++;
         }
       }
-      if (num > search.length * 0.2) {
+      if (num > search.length * 0.1) {
         num = 0;
         found.push(item);
       }
     });
-
+    console.log('tesing ****--', found);
     return found;
   }
   return null;

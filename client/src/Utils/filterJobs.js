@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getOneTalent } from '../services/userService';
-import { getAllJobs } from '../services/userService';
+import { getAllJobs } from '../services/jobService';
 
 import { filterTalent } from './filter';
 
