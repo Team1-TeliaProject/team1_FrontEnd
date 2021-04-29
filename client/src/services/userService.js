@@ -44,6 +44,10 @@ export const updateCompany = (id, updates) => {
 };
 
 //extracting Jobs
+export const getAllJobs = async () => {
+  return await axios.get(baseurlJobs);
+};
+
 export const getOneJob = async (id) => {
   return await axios.get(`${baseurlJobs}/${id}`);
 };

@@ -1,41 +1,47 @@
 import { useState, useEffect } from 'react';
 import { getOneJob } from '../services/jobService';
 import { getTalents } from '../services/userService';
+import { getOneTalent } from '../services/userService';
+import { getAllJobs } from '../services/userService';
 
-export const useFilter = (id) => {
+import { filterTalent } from './filter';
+
+export const useFilter = (id, userType) => {
   const [user, setUser] = useState([]);
-  const [talentList, setTalentList] = useState([]);
-  const [job, setJob] = useState([]);
+  const [jobs, setJobs] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
 
   const fetchUser = async () => {
-    await getOneJob(id).then((res) => {
-      if (res.data) {
-        setJob(res.data.result.techs);
-      }
-    });
-    await getTalents().then((response) => {
-      if (response.data) {
-        setUser(response.data);
-        const found = [];
-        let num = 0;
-        user.map((item) => {
-          const data = item.techs;
-          for (let i = 0; i < data.length; i++) {
-            if (job.includes(data[i])) {
-              num++;
-            }
-          }
-          if (num > job.length * 0.5) {
-            num = 0;
-            found.push(item);
-          }
-        });
-        setTalentList(found);
-      }
-    });
+    if (userType === 'company') {
+      await getOneJob(id).then((res) => {
+        if (res.data) {
+          setJobs(res.data.result.techs);
+        }
+      });
+      await getTalents().then((response) => {
+        if (response.data) {
+          setUser(response.data);
+        }
+      });
+      const data = await filterTalent(user, jobs);
+      setFilteredList(data);
+    } else {
+      await getOneTalent(id).then((res) => {
+        if (res.data) {
+          setUser(res.data.techs);
+        }
+      });
+      await getAllJobs().then((response) => {
+        if (response.data) {
+          setJobs(response.data);
+        }
+      });
+      const data = await filterTalent(jobs, user);
+      setFilteredList(data);
+    }
   };
   useEffect(() => {
     fetchUser();
-  }, [id]);
-  return [talentList];
+  }, []);
+  return [filteredList];
 };
