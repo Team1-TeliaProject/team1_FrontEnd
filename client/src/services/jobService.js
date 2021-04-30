@@ -14,10 +14,6 @@ export const getOneJob = async (jobId) => {
   return await axios.get(`${baseUrl}/${jobId}`);
 };
 
-export const getAllJobs = async () => {
-  return await axios.get(baseUrl);
-};
-
 export const getJobsByCompany = async (companyId) => {
   return await axios.get(`${baseUrl}/byCompany/${companyId}`);
 };
