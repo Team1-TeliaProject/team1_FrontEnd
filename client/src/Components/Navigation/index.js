@@ -42,12 +42,10 @@ function Navigation() {
   };
 
   const handleLogin = (e) => {
-    console.log('clicked');
     e.preventDefault();
     const credentials = { email, password };
     logUser(credentials).then((response) => {
       if (response.data) {
-        console.log('navv--', response.data);
         setIsModalOpen(false);
         setUser(response.data);
         localStorage.setItem('duuni-app', JSON.stringify(response.data));
@@ -85,6 +83,9 @@ function Navigation() {
               className="nav__profile-photo"
               src={user.userInfo.photo ? user.userInfo.photo : profilePic}
             />
+            <span className="nav__profile-name">
+              {user.userInfo.name ? user.userInfo.name : ''}
+            </span>
           </div>
         ) : (
           <Button text="Login" modifier="nav" handleClick={() => setIsModalOpen(true)} />

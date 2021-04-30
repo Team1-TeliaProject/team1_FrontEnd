@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 import JobCard from '../../Components/JobCard';
@@ -11,12 +12,25 @@ import Messages from '../../Components/Messages';
 import { useData } from '../../hooks/useData';
 
 const HomePage = () => {
-  const [userInfo] = useState(JSON.parse(localStorage.getItem('duuni-app')).userInfo);
+  const history = useHistory();
+  const [userInfo, setUserInfo] = useState('');
   const [currentItem, setCurrentItem] = useState(0);
   const [page, setPage] = useState('job/talent');
   const [chat, setChat] = useState('person1');
   const [status, setStatus] = useState('');
-  const [data] = useData(userInfo.userType, status);
+  const [data] = useData(userInfo, status);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('duuni-app'));
+    if (user) {
+      setUserInfo(user.userInfo);
+    } else {
+      history.push('/landingPage');
+      setUserInfo('');
+    }
+  }, []);
+
+  // console.log('data--count', data);
 
   const handleRightArrow = () => {
     if (userInfo.userType === 'talent') {
@@ -80,6 +94,7 @@ const HomePage = () => {
               <JobCard
                 setStatus={setStatus}
                 userId={userInfo.userId}
+                userType={userInfo.userType}
                 className="homepage__arrow"
                 job={data[currentItem]}
               />
@@ -88,6 +103,7 @@ const HomePage = () => {
               <TalentCard
                 setStatus={setStatus}
                 userId={userInfo.userId}
+                userType={userInfo.userType}
                 className="homepage__arrow"
                 talent={data[currentItem]}
               />

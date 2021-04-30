@@ -1,21 +1,34 @@
 import React from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { FaThumbsUp } from 'react-icons/fa';
+import { useMatch } from '../../hooks/useMatch';
 import { likeTalent, superlikeTalent } from '../../services/userService';
 
 import './TalentCard.scss';
 
-const TalentCard = ({ talent, userId, setStatus }) => {
+const TalentCard = ({ talent, userId, userType, setStatus }) => {
+  const [isMatched, setIsLiked] = useMatch(userId, userType, talent);
   const handleLike = () => {
-    likeTalent(userId, talent.id).then((response) => {
-      if (response.data) {
-        console.log('resss--', response.data);
-        setStatus('liked');
-        setTimeout(() => {
-          setStatus('');
-        }, 500);
-      }
-    });
+    setIsLiked(true);
+    if (isMatched) {
+      window.alert('MATCHED!!!');
+    }
+    setTimeout(() => {
+      setIsLiked(false);
+    }, 500);
+    // likeTalent(userId, talent.id).then((response) => {
+    //   if (response.data) {
+    //     console.log('resss--', response.data);
+    //     setStatus('liked');
+    //     setTimeout(() => {
+    //       setStatus('');
+    //     }, 500);
+    //     setIsLiked(true);
+    //     if (isMatched) {
+    //       window.alert('MATCHED!!!');
+    //     }
+    //   }
+    // });
   };
 
   const handleSuperLike = () => {

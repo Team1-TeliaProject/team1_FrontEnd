@@ -88,7 +88,7 @@ const ProfileEditPage = ({ match }) => {
         })
         .catch((error) => setError(error.response.data));
     } else {
-      const updates = { name: companyName, email, location, website, about, logo };
+      const updates = { name: companyName, email, location, website, about, logo, techs: techList };
       updateCompany(id, updates)
         .then((response) => {
           if (response.data.result) {
@@ -268,6 +268,17 @@ const ProfileEditPage = ({ match }) => {
               defaultValue={user.about}
               handleInputChange={setFields}
             />
+            <p className="profile-edit__label">Tech Stack</p>
+            <Select
+              defaultValue={defaultTechs}
+              placeholder="select techs"
+              onChange={handleChangeTech}
+              styles={selectStyles}
+              isMulti
+              name="tech"
+              options={techOptions}
+            />
+
             <div className="profile-edit__image-div">
               <img className="profile-edit__image" src={logo} alt="profile" />
               <ImageUpload setImage={setLogo} />

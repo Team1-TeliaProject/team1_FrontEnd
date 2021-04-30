@@ -1,22 +1,35 @@
 import React from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { FaThumbsUp } from 'react-icons/fa';
+import { useMatch } from '../../hooks/useMatch';
 import { likeJob, superlikeJob } from '../../services/userService';
+import { checkMatch } from '../../Utils/checkMatch';
 
 import './JobCard.scss';
 
-const Jobcard = ({ job, userId, setStatus }) => {
+const Jobcard = ({ job, userId, userType, setStatus }) => {
+  const [isMatched] = useMatch(userId, userType, job.company);
+
   const handleLike = () => {
-    likeJob(userId, job.id).then((response) => {
-      if (response.data) {
-        console.log('resss--', response.data);
-        setStatus('liked');
-        setTimeout(() => {
-          setStatus('');
-        }, 500);
-      }
-    });
+    if (isMatched) {
+      window.alert('MATCHED!!!');
+    }
+    // likeJob(userId, job.id).then((response) => {
+    //   if (response.data) {
+    //     console.log('resss--', response.data);
+    //     setStatus('liked');
+    //     setTimeout(() => {
+    //       setStatus('');
+    //     }, 500);
+
+    //     if (checkMatch(userId, job.company)) {
+    //       window.alert('matched!!!');
+    //     }
+    //   }
+    // });
   };
+
+  // console.log('check-match', checkMatch(userId, job.company));
 
   const handleSuperLike = () => {
     superlikeJob(userId, job.id).then((response) => {
