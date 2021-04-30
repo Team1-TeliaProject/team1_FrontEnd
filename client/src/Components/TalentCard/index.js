@@ -1,15 +1,40 @@
 import React from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { FaThumbsUp } from 'react-icons/fa';
+import { likeTalent, superlikeTalent } from '../../services/userService';
 
 import './TalentCard.scss';
 
-const TalentCard = ({ talent, handleSuperLike, handlelike }) => {
+const TalentCard = ({ talent, userId, setStatus }) => {
+  const handleLike = () => {
+    likeTalent(userId, talent.id).then((response) => {
+      if (response.data) {
+        console.log('resss--', response.data);
+        setStatus('liked');
+        setTimeout(() => {
+          setStatus('');
+        }, 500);
+      }
+    });
+  };
+
+  const handleSuperLike = () => {
+    superlikeTalent(userId, talent.id).then((response) => {
+      if (response.data) {
+        console.log('resss--', response.data);
+        setStatus('liked');
+        setTimeout(() => {
+          setStatus('');
+        }, 500);
+      }
+    });
+  };
+
   return (
     <section className="talent-card">
       <div className="talent-card__main">
         <div className="talent-card__head">
-          <img className="talent-card__avatar" src={talent.photo} alt="talent logo" />
+          <img className="talent-card__avatar" src={talent.photo} alt="talent profile" />
           <div className="talent-card__talent-info">
             <h2 className="talent-card__name">{`${talent.firstName} ${talent.lastName}`}</h2>
             <p className="talent-card__text talent-card__text--location">{talent.location}</p>
@@ -31,7 +56,7 @@ const TalentCard = ({ talent, handleSuperLike, handlelike }) => {
       </div>
       <div className="talent-card__icons">
         <FaHeart onClick={handleSuperLike} className="talent-card__icon " />
-        <FaThumbsUp onClick={handlelike} className="talent-card__icon " />
+        <FaThumbsUp onClick={handleLike} className="talent-card__icon " />
       </div>
     </section>
   );

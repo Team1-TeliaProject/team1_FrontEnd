@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 import JobCard from '../../Components/JobCard';
@@ -8,25 +8,29 @@ import { jobList, talentList, talentMatches, companyMatches, chats } from '../..
 
 import './HomePage.scss';
 import Messages from '../../Components/Messages';
+import { useData } from '../../hooks/useData';
 
 const HomePage = () => {
-  const [userType, setUserType] = useState('talent');
+  const [userInfo] = useState(JSON.parse(localStorage.getItem('duuni-app')).userInfo);
   const [currentItem, setCurrentItem] = useState(0);
   const [page, setPage] = useState('job/talent');
   const [chat, setChat] = useState('person1');
+  const [status, setStatus] = useState('');
+  const [data] = useData(userInfo.userType, status);
 
   const handleRightArrow = () => {
-    if (userType === 'talent') {
-      setCurrentItem(currentItem === jobList.length - 1 ? 0 : currentItem + 1);
+    if (userInfo.userType === 'talent') {
+      setCurrentItem(currentItem === data.length - 1 ? 0 : currentItem + 1);
     } else {
-      setCurrentItem(currentItem === talentList.length - 1 ? 0 : currentItem + 1);
+      setCurrentItem(currentItem === data.length - 1 ? 0 : currentItem + 1);
     }
   };
+
   const handleLeftArrow = () => {
-    if (userType === 'talent') {
-      setCurrentItem(currentItem === 0 ? jobList.length - 1 : currentItem - 1);
+    if (userInfo.userType === 'talent') {
+      setCurrentItem(currentItem === 0 ? data.length - 1 : currentItem - 1);
     } else {
-      setCurrentItem(currentItem === 0 ? jobList.length - 1 : currentItem - 1);
+      setCurrentItem(currentItem === 0 ? data.length - 1 : currentItem - 1);
     }
   };
 
@@ -41,7 +45,7 @@ const HomePage = () => {
               : 'homepage__nav-items homepage__nav-items--dim'
           }
         >
-          {userType === 'talent' ? 'Jobs' : 'Talents'}
+          {userInfo && userInfo.userType === 'talent' ? 'Jobs' : 'Talents'}
         </span>
         <span
           onClick={() => setPage('matches')}
@@ -65,33 +69,65 @@ const HomePage = () => {
         </span>
       </div>
       <hr className="homepage__hr" />
-      {page === 'job/talent' && (
-        <div className="homepage__main">
-          <FaArrowLeft onClick={handleLeftArrow} className="homepage__arrow" />
-          {userType === 'talent' && (
-            <JobCard className="homepage__arrow" job={jobList[currentItem]} />
-          )}
-          {userType === 'company' && (
-            <TalentCard className="homepage__arrow" talent={talentList[currentItem]} />
-          )}
-          <FaArrowRight onClick={handleRightArrow} FaArrowLeft className="homepage__arrow" />
-        </div>
-      )}
+
+      {/* job/talent cards------ */}
+
+      {page === 'job/talent' &&
+        (data.length > 0 && userInfo ? (
+          <div className="homepage__main">
+            <FaArrowLeft onClick={handleLeftArrow} className="homepage__arrow" />
+            {userInfo.userType === 'talent' && (
+              <JobCard
+                setStatus={setStatus}
+                userId={userInfo.userId}
+                className="homepage__arrow"
+                job={data[currentItem]}
+              />
+            )}
+            {userInfo.userType === 'company' && (
+              <TalentCard
+                setStatus={setStatus}
+                userId={userInfo.userId}
+                className="homepage__arrow"
+                talent={data[currentItem]}
+              />
+            )}
+            <FaArrowRight onClick={handleRightArrow} FaArrowLeft className="homepage__arrow" />
+          </div>
+        ) : (
+          <h3 style={{ color: 'white' }}>no</h3>
+        ))}
+
+      {/* Mathces--------------- */}
 
       {page === 'matches' && (
         <div className="homepage__matches">
           <div className="homepage__match-list">
-            {userType === 'talent' &&
+            {userInfo &&
+              userInfo.userType === 'talent' &&
               talentMatches.map((match) => (
-                <Match setpage={setPage} type={userType} data={match} key={match.id} />
+                <Match
+                  setpage={setPage}
+                  type={userInfo && userInfo.userType}
+                  data={match}
+                  key={match.id}
+                />
               ))}
-            {userType === 'company' &&
+            {userInfo &&
+              userInfo.userType === 'company' &&
               companyMatches.map((match) => (
-                <Match setpage={setPage} type={userType} data={match} key={match.id} />
+                <Match
+                  setpage={setPage}
+                  type={userInfo && userInfo.userType}
+                  data={match}
+                  key={match.id}
+                />
               ))}
           </div>
         </div>
       )}
+
+      {/* Messages */}
 
       {page === 'messages' && (
         <div className="homepage__message">

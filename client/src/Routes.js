@@ -13,10 +13,12 @@ import JobEditPage from './pages/JobEditPage';
 import EmployeeProfile from './pages/employeeProfile';
 import CompanyProfile from './pages/CompanyProfile';
 
+import ProtectedRoute from './Utils/ProtectedRoute';
+
 const Routes = () => (
   <Switch>
-    <Route exact path="/home" component={HomePage} />
-    <Route exact path="/" component={LandingPage} />
+    <ProtectedRoute exact path="/" component={HomePage} />
+    <Route exact path="/landingPage" component={LandingPage} />
     <Route exact path="/tryout" component={TryOutPage} />
     <Route exact path="/job/:id/details" component={JobDetailsPage} />
     <Route exact path="/registration/:type" component={ProfileRegistration} />
