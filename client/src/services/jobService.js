@@ -2,6 +2,10 @@ import axios from 'axios';
 
 const baseUrl = 'http://localhost:5000/api/jobs';
 
+export const getAllJobs = async () => {
+  return await axios.get(baseUrl);
+};
+
 export const createJob = async (job) => {
   return await axios.post(baseUrl, job);
 };

@@ -21,6 +21,10 @@ export const updateTalent = (id, updates) => {
   return axios.put(`${baseUrlTalent}/${id}`, updates);
 };
 
+export const getTalents = () => {
+  return axios.get(baseUrlTalent);
+};
+
 //companies services
 export const registerCompany = async (userInfo) => {
   return await axios.post(`${baseurlCompany}/register`, userInfo);
