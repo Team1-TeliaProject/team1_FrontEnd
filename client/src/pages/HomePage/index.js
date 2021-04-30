@@ -4,19 +4,19 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import JobCard from '../../Components/JobCard';
 import TalentCard from '../../Components/TalentCard';
 import Match from '../../Components/Match';
-import { talentMatches, companyMatches, chats } from '../../Utils/dummyData';
+import { jobList, talentMatches, companyMatches, chats } from '../../Utils/dummyData';
 import { useFilter } from '../../Utils/filterTalent';
-import { useJobsFilter } from '../../Utils/filterJobs';
+
 import './HomePage.scss';
 import Messages from '../../Components/Messages';
 
 const HomePage = () => {
-  const [userType, setUserType] = useState('talent');
+  const [userType, setUserType] = useState('company');
   const [currentItem, setCurrentItem] = useState(0);
   const [page, setPage] = useState('job/talent');
   const [chat, setChat] = useState('person1');
   const [talentList] = useFilter('607ff8b0bdf4856ef06039aa', 'company'); //TODO pass id, and userType dynamically based on job
-  const [jobList] = useJobsFilter('608a8686891cf0048db17407', 'talent'); ////TODO pass id and userType dynamically based on userId
+  //const [jobList] = useFilter('608a8686891cf0048db17407', 'talent'); ////TODO pass id and userType dynamically based on userId
   const handleRightArrow = () => {
     if (userType === 'talent') {
       setCurrentItem(currentItem === jobList.length - 1 ? 0 : currentItem + 1);

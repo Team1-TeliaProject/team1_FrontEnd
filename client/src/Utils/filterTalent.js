@@ -4,18 +4,19 @@ import { getTalents } from '../services/userService';
 import { getOneTalent } from '../services/userService';
 import { getAllJobs } from '../services/jobService';
 
-import { filterTalent } from './filter';
+import { filter } from './filter';
 
 export const useFilter = (id, userType) => {
   const [user, setUser] = useState([]);
   const [jobs, setJobs] = useState([]);
-  const [filteredList, setFilteredList] = useState([]);
-
+  const [talentList, setTalentList] = useState([]);
+  const [jobList, SetJobsList] = useState([]);
   const fetchUser = async () => {
     if (userType === 'company') {
       await getOneJob(id).then((res) => {
         if (res.data) {
-          setJobs(res.data.result.techs);
+          console.log('loggin from hook---', res.data);
+          setJobs(res.data.techs);
         }
       });
       await getTalents().then((response) => {
@@ -23,8 +24,8 @@ export const useFilter = (id, userType) => {
           setUser(response.data);
         }
       });
-      const data = await filterTalent(user, jobs);
-      setFilteredList(data);
+      const data = await filter(user, jobs);
+      setTalentList(data);
     } else {
       await getOneTalent(id).then((res) => {
         if (res.data) {
@@ -36,12 +37,12 @@ export const useFilter = (id, userType) => {
           setJobs(response.data);
         }
       });
-      const data = await filterTalent(jobs, user);
-      setFilteredList(data);
+      const data = await filter(jobs, user);
+      SetJobsList(data);
     }
   };
   useEffect(() => {
     fetchUser();
   }, []);
-  return [filteredList];
+  return [talentList, jobList];
 };

@@ -1,4 +1,4 @@
-export const filterTalent = async (datapool, search) => {
+export const filter = async (datapool, search) => {
   // Takes two parameter
   /**
    * paramter datapool is array of data
@@ -16,12 +16,12 @@ export const filterTalent = async (datapool, search) => {
           num++;
         }
       }
-      if (num > search.length * 0.1) {
+      if (num > search.length * 0.5) {
         num = 0;
         found.push(item);
       }
     });
-    console.log('tesing ****--', found);
+    console.log('returned from filter----', found);
     return found;
   }
   return null;
