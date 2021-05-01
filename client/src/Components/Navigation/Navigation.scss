@@ -24,12 +24,13 @@
   }
 
   &__user-div {
-    width: 70px;
+    width: 90px;
     height: 70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
 
   &__profile-photo {
@@ -37,12 +38,11 @@
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
-    cursor: pointer;
   }
 
   &__profile-name {
     color: $white;
-    margin-top: 5px;
+    margin-top: 3px;
   }
 
   &__dropdown-div {

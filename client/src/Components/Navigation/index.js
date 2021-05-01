@@ -77,9 +77,8 @@ function Navigation() {
       <img className="nav__logo" src={logo} alt="logo" onClick={() => history.push('/')} />
       <div className="nav__profile-div">
         {user ? (
-          <div className="nav__user-div">
+          <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="nav__user-div">
             <img
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               className="nav__profile-photo"
               src={user.userInfo.photo ? user.userInfo.photo : profilePic}
             />
