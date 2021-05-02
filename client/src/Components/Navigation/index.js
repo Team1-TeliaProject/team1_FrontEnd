@@ -103,6 +103,7 @@ function Navigation() {
             handleInputChange={setFields}
             type="email"
             placeholder="Email"
+            label="Email"
           />
           <Input
             id="password"
@@ -110,6 +111,7 @@ function Navigation() {
             handleInputChange={setFields}
             type="password"
             placeholder="Password"
+            label="Password"
           />
           <div className="login-content__btn-div">
             <Button modifier="light" text="Login" handleClick={handleLogin} />

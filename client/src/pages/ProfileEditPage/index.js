@@ -119,83 +119,85 @@ const ProfileEditPage = ({ match }) => {
         <h3 className="profile-edit__heading">UPDATE YOUR PROFILE</h3>
         {type === 'talent' && (
           <form className="profile-edit__form">
-            <p className="profile-edit__label">First Name</p>
             <Input
               type="text"
               placeholder="First Name"
               id="firstName"
               defaultValue={user.firstName}
               handleInputChange={setFields}
+              label="First Name"
             />
-            <p className="profile-edit__label">Last Name</p>
             <Input
               type="text"
               placeholder="Last Name"
               id="lastName"
               defaultValue={user.lastName}
               handleInputChange={setFields}
-            />
-            <p className="profile-edit__label">Email Address</p>
+              label="Last Name"
+            />          
             <Input
               type="email"
               placeholder="Email Address"
               id="email"
               defaultValue={user.email}
               handleInputChange={setFields}
-            />
-            <p className="profile-edit__label">Phone Number</p>
+              label="Email Address"
+            />      
             <Input
               type="phone"
               placeholder="Phone Number"
               id="phone"
               defaultValue={user.phone}
               handleInputChange={setFields}
-            />
-            <p className="profile-edit__label">Location</p>
+              label="Phone Number"
+            />    
             <Input
               type="text"
               placeholder="City, Country you live-in"
               id="location"
               defaultValue={user.location}
               handleInputChange={setFields}
-            />
-            <p className="profile-edit__label">Professional Ttile</p>
+              label="Location"
+            /> 
             <Input
               type="text"
               placeholder="Title, e.g, Full-Stack developer"
               id="title"
               defaultValue={user.title}
               handleInputChange={setFields}
-            />
-            <p className="profile-edit__label">GitHub Link</p>
+              label="Title"
+            /> 
             <Input
               type="text"
               placeholder="Your GitHub link"
               id="github"
               defaultValue={user.github}
               handleInputChange={setFields}
+              label="Your Github Link"
             />
-            <p className="profile-edit__label">LinedIn Link</p>
             <Input
               type="text"
               placeholder="Your LinkedIn link"
               id="linkedin"
               defaultValue={user.linkedin}
               handleInputChange={setFields}
-            />
-            <p className="profile-edit__label">Profile Description</p>
+              label="Your LinkedIn Link"
+            /> 
             <Textarea
               maxLength={300}
               placeholder="Describe yourself. Max.300 characters"
               id="about"
               defaultValue={user.about}
               handleInputChange={setFields}
+              label="Describe Yourself"
             />
-            <p className="profile-edit__label">Seniority Level</p>
             <InputSelect
               handleInputChange={(e) => setLevel(e.target.value)}
               placeholder="Select seniority"
               options={['Junior', 'Mid-Senior', 'Senior', 'Internship']}
+              id={id}
+              label="Level"
+              
             />
             <p className="profile-edit__label">Job Type</p>
             <Select
@@ -214,7 +216,7 @@ const ProfileEditPage = ({ match }) => {
               styles={selectStyles}
               isMulti
               name="tech"
-              options={techOptions}
+              options={techOptions}  
             />
             <div className="profile-edit__image-div">
               <img className="profile-edit__image" src={photo} alt="profile" />
@@ -227,46 +229,46 @@ const ProfileEditPage = ({ match }) => {
           </form>
         )}
         {type === 'company' && (
-          <form className="profile-edit__form">
-            <p className="profile-edit__label">Company Name</p>
+          <form className="profile-edit__form">          
             <Input
               type="text"
               placeholder="Company Name"
               id="companyName"
               defaultValue={user.name}
               handleInputChange={setFields}
-            />
-            <p className="profile-edit__label">Email Address</p>
+              label="Company Name"
+            />     
             <Input
               type="email"
               placeholder="Email Address"
               id="email"
               defaultValue={user.email}
               handleInputChange={setFields}
-            />
-            <p className="profile-edit__label">Company Location</p>
+              label="Email Address"
+            />   
             <Input
               type="text"
               placeholder="City, Country you are located"
               id="location"
               defaultValue={user.location}
               handleInputChange={setFields}
-            />
-            <p className="profile-edit__label">Website</p>
+              label="Location"
+            />    
             <Input
               type="text"
               placeholder="Company website"
               id="website"
               defaultValue={user.website}
               handleInputChange={setFields}
-            />
-            <p className="profile-edit__label">About Company</p>
+              label="Company Website"
+            />    
             <Textarea
               maxLength={300}
               placeholder="Company info Max.300 characters"
               id="about"
               defaultValue={user.about}
               handleInputChange={setFields}
+              label="About Company"
             />
             <div className="profile-edit__image-div">
               <img className="profile-edit__image" src={logo} alt="profile" />

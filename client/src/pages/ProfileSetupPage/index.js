@@ -103,7 +103,7 @@ const ProfileSetupPage = ({ match }) => {
 
   return (
     <div className="profile-setup">
-      <h3 className="profile-setup__heading">SETUP YOUR PROFILE</h3>
+      <h3 className="profile-setup__heading">SET UP YOUR PROFILE</h3>
 
       {type === 'talent' && (
         <div className="profile-setup__content">
@@ -127,6 +127,7 @@ const ProfileSetupPage = ({ match }) => {
               id="phone"
               value={phone}
               handleInputChange={setFields}
+              label="Phone"
             />
             <Input
               type="text"
@@ -134,14 +135,15 @@ const ProfileSetupPage = ({ match }) => {
               id="location"
               value={location}
               handleInputChange={setFields}
+              label="Location"
             />
-
             <Input
               type="text"
               placeholder="Title, e.g, Full-Stack developer"
               id="title"
               value={title}
               handleInputChange={setFields}
+              label="Title"
             />
             <Input
               type="text"
@@ -149,14 +151,15 @@ const ProfileSetupPage = ({ match }) => {
               id="github"
               value={github}
               handleInputChange={setFields}
+              label="Github Link"
             />
-
             <Input
               type="text"
               placeholder="Your LinkedIn link"
               id="linkedin"
               value={linkedin}
               handleInputChange={setFields}
+              label="LinkedIn Link"
             />
             <Textarea
               maxLength={300}
@@ -164,11 +167,14 @@ const ProfileSetupPage = ({ match }) => {
               id="about"
               value={about}
               handleInputChange={setFields}
+              label="About"
             />
             <InputSelect
               handleInputChange={(e) => setLevel(e.target.value)}
               placeholder="Select seniority"
               options={['Junior', 'Mid-Senior', 'Senior', 'Internship']}
+              id={id}
+              label={'Level'}
             />
 
             <Select
@@ -218,6 +224,7 @@ const ProfileSetupPage = ({ match }) => {
               id="location"
               value={location}
               handleInputChange={setFields}
+              label="Location"
             />
             <Input
               type="text"
@@ -225,6 +232,7 @@ const ProfileSetupPage = ({ match }) => {
               id="website"
               value={website}
               handleInputChange={setFields}
+              label="Company Website"
             />
             <Textarea
               maxLength={300}
@@ -232,6 +240,7 @@ const ProfileSetupPage = ({ match }) => {
               id="about"
               value={about}
               handleInputChange={setFields}
+              label="About Company"
             />
             <div className="profile-setup__btn-div">
               <Button modifier="light" text="Update" handleClick={setUpCompany} />
