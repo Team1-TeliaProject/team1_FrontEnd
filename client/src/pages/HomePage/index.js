@@ -34,8 +34,6 @@ const HomePage = () => {
     }
   }, []);
 
-  // console.log('data--count', data);
-
   const handleRightArrow = () => {
     if (userInfo.userType === 'talent') {
       setCurrentItem(currentItem === data.length - 1 ? 0 : currentItem + 1);

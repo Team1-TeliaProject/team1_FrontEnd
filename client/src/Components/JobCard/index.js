@@ -4,65 +4,100 @@ import Modal from 'react-modal';
 import Button from '../Button';
 import { FaHeart } from 'react-icons/fa';
 import { FaThumbsUp } from 'react-icons/fa';
-import { useMatch } from '../../hooks/useMatch';
-import { likeJob, superlikeJob } from '../../services/userService';
+import { getOneTalent, likeJob, superlikeJob } from '../../services/userService';
 import { createMatch } from '../../services/matchService';
+import { checkMatch } from '../../Utils/checkMatch';
 
 import './JobCard.scss';
 
 Modal.setAppElement('#root');
 const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
-  const [isMatched, isSuperMatched, setIsLiked] = useMatch(userId, userType, job.company);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [matchType, setMatchType] = useState('');
 
-  const handleLike = () => {
-    likeJob(userId, job.id).then((response) => {
+  const handleLike = async () => {
+    likeJob(userId, job.id).then(async (response) => {
       if (response.data) {
+        console.log(response.data);
         setStatus('liked');
         setTimeout(() => {
           setStatus('');
         }, 500);
-        setIsLiked(true);
+
+        const { data } = await getOneTalent(userId);
+
+        const isMatched = checkMatch(
+          userId,
+          userType,
+          job.company,
+          data.likes,
+          data.superLikes,
+          null,
+          job.id
+        );
+        if (isMatched === 'match') {
+          const matchInfo = { companyId: job.company.id, talentId: userId, type: 'match' };
+          createMatch(matchInfo).then((response) => {
+            if (response.data) {
+              setMatchType('match');
+              setIsModalOpen(true);
+            }
+          });
+        }
+
+        if (isMatched === 'supermatch') {
+          const matchInfo = { companyId: job.company.id, talentId: userId, type: 'supermatch' };
+          createMatch(matchInfo).then((response) => {
+            if (response.data) {
+              setMatchType('super-match');
+              setIsModalOpen(true);
+            }
+          });
+        }
       }
     });
-
-    if (isMatched) {
-      const matchInfo = { companyId: job.company.id, talentId: userId, type: 'match' };
-      console.log('match-info', matchInfo);
-      createMatch(matchInfo).then((response) => {
-        if (response.data) {
-          setMatchType('match');
-          setIsModalOpen(true);
-        }
-      });
-    }
-
-    if (isSuperMatched) {
-      const matchInfo = { companyId: job.company.id, talentId: userId, type: 'supermatch' };
-      console.log('match-info', matchInfo);
-      createMatch(matchInfo).then((response) => {
-        if (response.data) {
-          setMatchType('super-match');
-          setIsModalOpen(true);
-        }
-      });
-    }
-    setTimeout(() => {
-      setIsLiked(false);
-    }, 500);
   };
 
-  // console.log('check-match', checkMatch(userId, job.company));
-
   const handleSuperLike = () => {
-    superlikeJob(userId, job.id).then((response) => {
+    superlikeJob(userId, job.id).then(async (response) => {
       if (response.data) {
-        console.log('resss--', response.data);
-        setStatus('superliked');
+        console.log(response.data);
+        setStatus('liked');
         setTimeout(() => {
           setStatus('');
         }, 500);
+
+        const { data } = await getOneTalent(userId);
+
+        const isMatched = checkMatch(
+          userId,
+          userType,
+          job.company,
+          data.likes,
+          data.superLikes,
+          null,
+          job.id
+        );
+
+        if (isMatched === 'match') {
+          const matchInfo = { companyId: job.company.id, talentId: userId, type: 'match' };
+          createMatch(matchInfo).then((response) => {
+            if (response.data) {
+              setMatchType('match');
+              setIsModalOpen(true);
+            }
+          });
+        }
+
+        if (isMatched === 'supermatch') {
+          const matchInfo = { companyId: job.company.id, talentId: userId, type: 'supermatch' };
+          createMatch(matchInfo).then((response) => {
+            if (response.data) {
+              setMatchType('super-match');
+              setIsModalOpen(true);
+            }
+          });
+        }
       }
     });
   };

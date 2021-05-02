@@ -51,7 +51,7 @@ export const useData = (userInfo, status) => {
     getUserData();
     const fData = filter(data, search);
     const filtered = excludeLiked(fData, [...likes, ...superlikes]);
-    setFinalData(filtered);
+    setFinalData(fData);
   }, [userInfo, status]);
 
   return [finalData];

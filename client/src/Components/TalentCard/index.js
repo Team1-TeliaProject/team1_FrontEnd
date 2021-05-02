@@ -1,91 +1,105 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { FaHeart, FaThumbsUp } from 'react-icons/fa';
 
 import Button from '../Button';
-import { useMatch } from '../../hooks/useMatch';
+import { useMatchInfo } from '../../hooks/useMatchData';
 import { createMatch } from '../../services/matchService';
-import { likeTalent, superlikeTalent } from '../../services/userService';
+import { getOneCompany, likeTalent, superlikeTalent } from '../../services/userService';
+import { checkMatch } from '../../Utils/checkMatch';
 
 import './TalentCard.scss';
 Modal.setAppElement('#root');
 const TalentCard = ({ talent, userId, userType, setStatus, setPage }) => {
-  const [isMatched, isSuperMatched, setIsLiked] = useMatch(userId, userType, talent);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [matchType, setMatchType] = useState('');
 
-  const handleLike = () => {
-    likeTalent(userId, talent.id).then((response) => {
+  const handleLike = async () => {
+    likeTalent(userId, talent.id).then(async (response) => {
       if (response.data) {
         setStatus('liked');
         setTimeout(() => {
           setStatus('');
         }, 500);
-        setIsLiked(true);
+
+        const { data } = await getOneCompany(userId);
+
+        const isMatched = checkMatch(
+          userId,
+          userType,
+          talent,
+          data.likes,
+          data.superLikes,
+          data.jobs,
+          null
+        );
+
+        if (isMatched === 'match') {
+          console.log('it is a match');
+          const matchInfo = { companyId: userId, talentId: talent.id, type: 'match' };
+          createMatch(matchInfo).then((response) => {
+            if (response.data) {
+              setMatchType('match');
+              setIsModalOpen(true);
+            }
+          });
+        }
+
+        if (isMatched === 'supermatch') {
+          const matchInfo = { companyId: userId, talentId: talent.id, type: 'supermatch' };
+          console.log('match-info', matchInfo);
+          createMatch(matchInfo).then((response) => {
+            if (response.data) {
+              setMatchType('super-match');
+              setIsModalOpen(true);
+            }
+          });
+        }
       }
     });
-
-    if (isMatched) {
-      const matchInfo = { companyId: userId, talentId: talent.id, type: 'match' };
-      console.log('match-info', matchInfo);
-      createMatch(matchInfo).then((response) => {
-        if (response.data) {
-          setMatchType('match');
-          setIsModalOpen(true);
-        }
-      });
-    }
-
-    if (isSuperMatched) {
-      const matchInfo = { companyId: userId, talentId: talent.id, type: 'supermatch' };
-      console.log('match-info', matchInfo);
-      createMatch(matchInfo).then((response) => {
-        if (response.data) {
-          setMatchType('super-match');
-          setIsModalOpen(true);
-        }
-      });
-    }
-    setTimeout(() => {
-      setIsLiked(false);
-    }, 500);
   };
 
   const handleSuperLike = () => {
-    superlikeTalent(userId, talent.id).then((response) => {
+    superlikeTalent(userId, talent.id).then(async (response) => {
       if (response.data) {
         setStatus('liked');
         setTimeout(() => {
           setStatus('');
         }, 500);
-        setIsLiked(true);
+
+        const { data } = await getOneCompany(userId);
+
+        const isMatched = checkMatch(
+          userId,
+          userType,
+          talent,
+          data.likes,
+          data.superLikes,
+          data.jobs
+        );
+
+        if (isMatched === 'match') {
+          console.log('it is a match');
+          const matchInfo = { companyId: userId, talentId: talent.id, type: 'match' };
+          createMatch(matchInfo).then((response) => {
+            if (response.data) {
+              setMatchType('match');
+              setIsModalOpen(true);
+            }
+          });
+        }
+        if (isMatched === 'supermatch') {
+          const matchInfo = { companyId: userId, talentId: talent.id, type: 'supermatch' };
+          console.log('match-info', matchInfo);
+          createMatch(matchInfo).then((response) => {
+            if (response.data) {
+              setMatchType('super-match');
+              setIsModalOpen(true);
+            }
+          });
+        }
       }
     });
-
-    if (isMatched) {
-      const matchInfo = { companyId: userId, talentId: talent.id, type: 'match' };
-      console.log('match-info', matchInfo);
-      createMatch(matchInfo).then((response) => {
-        if (response.data) {
-          setMatchType('match');
-          setIsModalOpen(true);
-        }
-      });
-    }
-
-    if (isSuperMatched) {
-      const matchInfo = { companyId: userId, talentId: talent.id, type: 'supermatch' };
-      console.log('match-info', matchInfo);
-      createMatch(matchInfo).then((response) => {
-        if (response.data) {
-          setMatchType('super-match');
-          setIsModalOpen(true);
-        }
-      });
-    }
-    setTimeout(() => {
-      setIsLiked(false);
-    }, 500);
   };
 
   const customStyles = {

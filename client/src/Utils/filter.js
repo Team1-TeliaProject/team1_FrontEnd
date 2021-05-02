@@ -20,6 +20,5 @@ export const filter = (datapool, search) => {
 };
 
 export const excludeLiked = (dataPool, likeList) => {
-  console.log('in Filter--', dataPool, likeList);
   return dataPool.filter((job) => !likeList.includes(job.id));
 };
