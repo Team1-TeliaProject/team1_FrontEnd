@@ -22,7 +22,7 @@ const EmployeeProfile = ({ match }) => {
     });
   }, []);
 
-  console.log('logger', logger);
+  console.log('logger', user);
 
   return (
     user && (

@@ -4,7 +4,7 @@
 .homepage {
   @include pageBase;
   height: 100vh;
-  margin-top: 90px;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   padding: 0 150px 300px;
