@@ -8,6 +8,14 @@ import './Match.scss';
 const MatchedJob = ({ data, type, setPage }) => {
   const history = useHistory();
 
+  const getDetails = () => {
+    if (type === 'talent') {
+      history.push(`/companyProfile/${data.id}`);
+    } else {
+      history.push(`/employeeProfile/${data.id}`);
+    }
+  };
+
   return (
     <div className="match">
       <div className="match__item">
@@ -15,20 +23,17 @@ const MatchedJob = ({ data, type, setPage }) => {
       </div>
       <div className="match__item match__item--text">
         <h3 className="match__bold-text">
-          {type == 'talent' ? data.title : `${data.firstName} ${data.lastName}`}
+          {type == 'talent' ? data.name : `${data.firstName} ${data.lastName}`}
         </h3>
-        <p className="match__normal-text">{type == 'talent' ? data.companyName : data.title}</p>
+        <p className="match__normal-text">{type == 'talent' ? data.website : data.title}</p>
       </div>
       <div className="match__item match__item--text">
         <p className="match__normal-text">{data.location}</p>
-        <p className="match__normal-text">{data.level}</p>
+        <p className="match__normal-text">{type == 'talent' ? data.email : data.level}</p>
       </div>
       <div className="match__item match__item--icons">
         <FaCommentDots className="match__icon" />
-        <FaInfoCircle
-          onClick={() => history.push(`/job/${data.id}/details`)}
-          className="match__icon"
-        />
+        <FaInfoCircle onClick={getDetails} className="match__icon" />
       </div>
     </div>
   );

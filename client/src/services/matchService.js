@@ -6,6 +6,6 @@ export const createMatch = async (matchInfo) => {
   return await axios.post(baseUrl, matchInfo);
 };
 
-export const getMatches = async (id) => {
-  return await axios.get(`${baseUrl}/${id}`);
+export const getMatches = async (type, id) => {
+  return await axios.get(`${baseUrl}/${type}/${id}`);
 };

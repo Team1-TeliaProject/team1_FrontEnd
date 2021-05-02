@@ -10,6 +10,7 @@ import { jobList, talentList, talentMatches, companyMatches, chats } from '../..
 import './HomePage.scss';
 import Messages from '../../Components/Messages';
 import { useData } from '../../hooks/useData';
+import { useMatchData } from '../../hooks/useMatchData';
 
 const HomePage = () => {
   const history = useHistory();
@@ -19,6 +20,7 @@ const HomePage = () => {
   const [chat, setChat] = useState('person1');
   const [status, setStatus] = useState('');
   const [data] = useData(userInfo, status);
+  const [matchData] = useMatchData(userInfo.userType, userInfo.userId);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('duuni-app'));
@@ -125,21 +127,21 @@ const HomePage = () => {
           <div className="homepage__match-list">
             {userInfo &&
               userInfo.userType === 'talent' &&
-              talentMatches.map((match) => (
+              matchData.map((match) => (
                 <Match
                   setpage={setPage}
                   type={userInfo && userInfo.userType}
-                  data={match}
+                  data={match.company}
                   key={match.id}
                 />
               ))}
             {userInfo &&
               userInfo.userType === 'company' &&
-              companyMatches.map((match) => (
+              matchData.map((match) => (
                 <Match
                   setpage={setPage}
                   type={userInfo && userInfo.userType}
-                  data={match}
+                  data={match.talent}
                   key={match.id}
                 />
               ))}
