@@ -11,7 +11,7 @@ export const filter = (datapool, search) => {
   };
 
   const filteredData = datapool.filter((item) => {
-    if (removeDuplicates(item.techs, search).length > 0.5 * item.techs.length) {
+    if (removeDuplicates(item.techs, search).length > 0 * item.techs.length) {
       return item;
     }
   });

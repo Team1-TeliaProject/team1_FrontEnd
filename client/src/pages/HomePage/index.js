@@ -24,6 +24,10 @@ const HomePage = () => {
     const user = JSON.parse(localStorage.getItem('duuni-app'));
     if (user) {
       setUserInfo(user.userInfo);
+      setStatus('render');
+      setTimeout(() => {
+        setStatus('');
+      }, 500);
     } else {
       history.push('/landingPage');
       setUserInfo('');
@@ -92,6 +96,7 @@ const HomePage = () => {
             <FaArrowLeft onClick={handleLeftArrow} className="homepage__arrow" />
             {userInfo.userType === 'talent' && (
               <JobCard
+                setPage={setPage}
                 setStatus={setStatus}
                 userId={userInfo.userId}
                 userType={userInfo.userType}
@@ -101,6 +106,7 @@ const HomePage = () => {
             )}
             {userInfo.userType === 'company' && (
               <TalentCard
+                setPage={setPage}
                 setStatus={setStatus}
                 userId={userInfo.userId}
                 userType={userInfo.userType}

@@ -120,6 +120,33 @@
   }
 }
 
+.close {
+  font-family: $nunito;
+  color: #c4c4c4;
+  cursor: pointer;
+}
+
+.TC-content {
+  width: 30vw;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    color: #c4c4c4;
+    margin: 20px 0;
+  }
+
+  &__text {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 1em;
+    text-align: center;
+    color: $white;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .talent-card {
     &__main {
@@ -130,6 +157,31 @@
       &--description {
         padding: 0 15px;
       }
+    }
+  }
+  .TC-content {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .TC-content {
+    width: 80vw;
+
+    &__text {
+      size: $t-xl;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .TC-content {
+    width: 90vw;
+    &__text {
+      size: 6vw;
+    }
+    &__text-link {
+      size: 6vw;
     }
   }
 }

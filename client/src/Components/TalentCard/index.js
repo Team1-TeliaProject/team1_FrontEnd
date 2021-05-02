@@ -1,46 +1,102 @@
-import React from 'react';
-import { FaHeart } from 'react-icons/fa';
-import { FaThumbsUp } from 'react-icons/fa';
+import React, { useState } from 'react';
+import Modal from 'react-modal';
+import { FaHeart, FaThumbsUp } from 'react-icons/fa';
+
+import Button from '../Button';
 import { useMatch } from '../../hooks/useMatch';
+import { createMatch } from '../../services/matchService';
 import { likeTalent, superlikeTalent } from '../../services/userService';
 
 import './TalentCard.scss';
+Modal.setAppElement('#root');
+const TalentCard = ({ talent, userId, userType, setStatus, setPage }) => {
+  const [isMatched, isSuperMatched, setIsLiked] = useMatch(userId, userType, talent);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [matchType, setMatchType] = useState('');
 
-const TalentCard = ({ talent, userId, userType, setStatus }) => {
-  const [isMatched, setIsLiked] = useMatch(userId, userType, talent);
   const handleLike = () => {
-    setIsLiked(true);
+    likeTalent(userId, talent.id).then((response) => {
+      if (response.data) {
+        setStatus('liked');
+        setTimeout(() => {
+          setStatus('');
+        }, 500);
+        setIsLiked(true);
+      }
+    });
+
     if (isMatched) {
-      window.alert('MATCHED!!!');
+      const matchInfo = { companyId: userId, talentId: talent.id, type: 'match' };
+      console.log('match-info', matchInfo);
+      createMatch(matchInfo).then((response) => {
+        if (response.data) {
+          setMatchType('match');
+          setIsModalOpen(true);
+        }
+      });
+    }
+
+    if (isSuperMatched) {
+      const matchInfo = { companyId: userId, talentId: talent.id, type: 'supermatch' };
+      console.log('match-info', matchInfo);
+      createMatch(matchInfo).then((response) => {
+        if (response.data) {
+          setMatchType('super-match');
+          setIsModalOpen(true);
+        }
+      });
     }
     setTimeout(() => {
       setIsLiked(false);
     }, 500);
-    // likeTalent(userId, talent.id).then((response) => {
-    //   if (response.data) {
-    //     console.log('resss--', response.data);
-    //     setStatus('liked');
-    //     setTimeout(() => {
-    //       setStatus('');
-    //     }, 500);
-    //     setIsLiked(true);
-    //     if (isMatched) {
-    //       window.alert('MATCHED!!!');
-    //     }
-    //   }
-    // });
   };
 
   const handleSuperLike = () => {
     superlikeTalent(userId, talent.id).then((response) => {
       if (response.data) {
-        console.log('resss--', response.data);
         setStatus('liked');
         setTimeout(() => {
           setStatus('');
         }, 500);
+        setIsLiked(true);
       }
     });
+
+    if (isMatched) {
+      const matchInfo = { companyId: userId, talentId: talent.id, type: 'match' };
+      console.log('match-info', matchInfo);
+      createMatch(matchInfo).then((response) => {
+        if (response.data) {
+          setMatchType('match');
+          setIsModalOpen(true);
+        }
+      });
+    }
+
+    if (isSuperMatched) {
+      const matchInfo = { companyId: userId, talentId: talent.id, type: 'supermatch' };
+      console.log('match-info', matchInfo);
+      createMatch(matchInfo).then((response) => {
+        if (response.data) {
+          setMatchType('super-match');
+          setIsModalOpen(true);
+        }
+      });
+    }
+    setTimeout(() => {
+      setIsLiked(false);
+    }, 500);
+  };
+
+  const customStyles = {
+    content: {
+      background: '#17252a',
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      transform: 'translate(-50%, -50%)'
+    }
   };
 
   return (
@@ -71,6 +127,24 @@ const TalentCard = ({ talent, userId, userType, setStatus }) => {
         <FaHeart onClick={handleSuperLike} className="talent-card__icon " />
         <FaThumbsUp onClick={handleLike} className="talent-card__icon " />
       </div>
+      <Modal isOpen={isModalOpen} style={customStyles}>
+        <div onClick={() => setIsModalOpen(false)} className="close">
+          X
+        </div>
+        <div className="TC-content">
+          <h1 className="TC-content__title">{`It's a ${matchType}`}</h1>
+          <p className="TC-content__text">
+            {`Congratulations!! it is a ${matchType}. You can now start conversation`}
+          </p>
+          <div className="TC-content__btn-div">
+            <Button
+              modifier="light"
+              text="Start Conversation"
+              handleClick={() => setPage('messages')}
+            />
+          </div>
+        </div>
+      </Modal>
     </section>
   );
 };

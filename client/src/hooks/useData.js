@@ -8,6 +8,7 @@ export const useData = (userInfo, status) => {
   const [search, setSearch] = useState([]);
   const [likes, setLikes] = useState([]);
   const [superlikes, setSuperlikes] = useState('');
+  const [finalData, setFinalData] = useState([]);
 
   const getUserData = () => {
     if (userInfo.userType === 'talent') {
@@ -21,7 +22,7 @@ export const useData = (userInfo, status) => {
     } else {
       getOneCompany(userInfo.userId).then((response) => {
         if (response.data) {
-          setSearch(['JavaScript', 'TypeScript', 'HTML', 'CSS', 'React']);
+          setSearch(response.data.techs);
           setLikes(response.data.likes);
           setSuperlikes(response.data.superLikes);
         }
@@ -45,14 +46,13 @@ export const useData = (userInfo, status) => {
     }
   };
 
-  const fData = filter(data, search);
-
-  // const filtered = excludeLiked(fData, [...likes, ...superlikes]);
-
   useEffect(() => {
-    getUserData();
     getData();
+    getUserData();
+    const fData = filter(data, search);
+    const filtered = excludeLiked(fData, [...likes, ...superlikes]);
+    setFinalData(filtered);
   }, [userInfo, status]);
 
-  return [fData];
+  return [finalData];
 };
