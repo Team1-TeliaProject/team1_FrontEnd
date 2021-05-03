@@ -22,8 +22,6 @@ const EmployeeProfile = ({ match }) => {
     });
   }, []);
 
-  console.log('logger', user);
-
   return (
     user && (
       <div className="employee">

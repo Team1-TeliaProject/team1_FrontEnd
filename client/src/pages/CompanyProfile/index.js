@@ -3,11 +3,11 @@ import { useHistory } from 'react-router-dom';
 
 import Button from '../../Components/Button';
 import profilePic from '../../Assets/proifle.jpeg';
-
-import './CompanyProfile.scss';
+import Job from '../../Components/Job';
 import { getOneCompany } from '../../services/userService';
 import { getJobsByCompany } from '../../services/jobService';
-import Job from '../../Components/Job';
+
+import './CompanyProfile.scss';
 const CompanyProfile = ({ match }) => {
   const id = match.params.id;
   const history = useHistory();
@@ -35,7 +35,7 @@ const CompanyProfile = ({ match }) => {
         <div className="company__profile-div">
           <img
             className="company__image"
-            src={user.photo ? user.photo : profilePic}
+            src={user.logo ? user.logo : profilePic}
             alt="profile picture"
           />
         </div>
