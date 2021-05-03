@@ -11,7 +11,7 @@ import { checkMatch } from '../../Utils/checkMatch';
 import './JobCard.scss';
 
 Modal.setAppElement('#root');
-const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
+const Jobcard = ({ job, userId, userType, setStatus, setPage, setIsMatched }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [matchType, setMatchType] = useState('');
 
@@ -41,6 +41,7 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
             if (response.data) {
               setMatchType('match');
               setIsModalOpen(true);
+              setIsMatched(true);
             }
           });
         }
@@ -51,6 +52,7 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
             if (response.data) {
               setMatchType('super-match');
               setIsModalOpen(true);
+              setIsMatched(true);
             }
           });
         }
@@ -85,6 +87,7 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
             if (response.data) {
               setMatchType('match');
               setIsModalOpen(true);
+              setIsMatched(true);
             }
           });
         }
@@ -95,6 +98,7 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
             if (response.data) {
               setMatchType('super-match');
               setIsModalOpen(true);
+              setIsMatched(true);
             }
           });
         }

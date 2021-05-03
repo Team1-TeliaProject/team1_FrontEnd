@@ -11,6 +11,12 @@
   border-radius: $r-medium;
   margin: 10px 0;
 
+  &--super {
+    background-image: url('../../Assets/love.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
   &__item {
     margin-right: 15px;
     height: 100%;
@@ -64,10 +70,12 @@
 @media screen and (max-width: 450px) {
   .match {
     height: 120px;
+    position: relative;
 
     &__image {
       height: 120px;
     }
+
     &__item {
       &--text {
         padding: 5px 0;

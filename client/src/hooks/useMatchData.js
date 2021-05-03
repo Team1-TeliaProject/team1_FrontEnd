@@ -3,6 +3,7 @@ import { getMatches } from '../services/matchService';
 
 export const useMatchData = (userType, userId) => {
   const [matchData, setMatchData] = useState([]);
+  const [isMatched, setIsMatched] = useState(false);
 
   const fetchData = async () => {
     await getMatches(userType, userId).then((response) => {
@@ -12,7 +13,7 @@ export const useMatchData = (userType, userId) => {
 
   useEffect(() => {
     fetchData();
-  }, [userId]);
+  }, [userId, isMatched]);
 
-  return [matchData];
+  return [matchData, setIsMatched];
 };

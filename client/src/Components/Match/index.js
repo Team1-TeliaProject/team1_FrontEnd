@@ -5,7 +5,7 @@ import { FaCommentDots, FaInfoCircle } from 'react-icons/fa';
 
 import './Match.scss';
 
-const MatchedJob = ({ data, type }) => {
+const MatchedJob = ({ data, type, matchType }) => {
   const history = useHistory();
 
   const getDetails = () => {
@@ -17,7 +17,7 @@ const MatchedJob = ({ data, type }) => {
   };
 
   return (
-    <div className="match">
+    <div className={matchType === 'match' ? 'match' : 'match match--super'}>
       <div className="match__item">
         <img className="match__image" src={type === 'talent' ? data.logo : data.photo} />
       </div>

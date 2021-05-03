@@ -10,7 +10,7 @@ import { checkMatch } from '../../Utils/checkMatch';
 import './TalentCard.scss';
 
 Modal.setAppElement('#root');
-const TalentCard = ({ talent, userId, userType, setStatus, setPage }) => {
+const TalentCard = ({ talent, userId, userType, setStatus, setPage, setIsMatched }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [matchType, setMatchType] = useState('');
 
@@ -41,6 +41,7 @@ const TalentCard = ({ talent, userId, userType, setStatus, setPage }) => {
             if (response.data) {
               setMatchType('match');
               setIsModalOpen(true);
+              setIsMatched(true);
             }
           });
         }
@@ -52,6 +53,7 @@ const TalentCard = ({ talent, userId, userType, setStatus, setPage }) => {
             if (response.data) {
               setMatchType('super-match');
               setIsModalOpen(true);
+              setIsMatched(true);
             }
           });
         }
@@ -85,6 +87,7 @@ const TalentCard = ({ talent, userId, userType, setStatus, setPage }) => {
             if (response.data) {
               setMatchType('match');
               setIsModalOpen(true);
+              setIsMatched(true);
             }
           });
         }
@@ -95,6 +98,7 @@ const TalentCard = ({ talent, userId, userType, setStatus, setPage }) => {
             if (response.data) {
               setMatchType('super-match');
               setIsModalOpen(true);
+              setIsMatched(true);
             }
           });
         }

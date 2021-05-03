@@ -21,7 +21,10 @@ const HomePage = () => {
   const [chat, setChat] = useState('person1');
   const [status, setStatus] = useState('');
   const [data] = useData(userInfo, status);
-  const [matchData] = useMatchData(userInfo && userInfo.userType, userInfo && userInfo.userId);
+  const [matchData, setIsMatched] = useMatchData(
+    userInfo && userInfo.userType,
+    userInfo && userInfo.userId
+  );
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('duuni-app'));
@@ -99,6 +102,7 @@ const HomePage = () => {
               <JobCard
                 setPage={setPage}
                 setStatus={setStatus}
+                setIsMatched={setIsMatched}
                 userId={userInfo.userId}
                 userType={userInfo.userType}
                 className="homepage__arrow"
@@ -109,6 +113,7 @@ const HomePage = () => {
               <TalentCard
                 setPage={setPage}
                 setStatus={setStatus}
+                setIsMatched={setIsMatched}
                 userId={userInfo.userId}
                 userType={userInfo.userType}
                 className="homepage__arrow"
@@ -130,6 +135,7 @@ const HomePage = () => {
               userInfo.userType === 'talent' &&
               matchData.map((match) => (
                 <Match
+                  matchType={match.type}
                   setpage={setPage}
                   type={userInfo && userInfo.userType}
                   data={match.company}
@@ -140,6 +146,7 @@ const HomePage = () => {
               userInfo.userType === 'company' &&
               matchData.map((match) => (
                 <Match
+                  matchType={match.type}
                   setpage={setPage}
                   type={userInfo && userInfo.userType}
                   data={match.talent}
