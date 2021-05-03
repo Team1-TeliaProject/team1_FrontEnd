@@ -148,8 +148,14 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
             </h4>
           </div>
           <div className="jobcard__icons">
-            <FaHeart onClick={handleSuperLike} className="jobcard__icon " />
-            <FaThumbsUp onClick={handleLike} className="jobcard__icon " />
+            <div className="jobcard__icon-div">
+              <FaHeart onClick={handleSuperLike} className="jobcard__icon " />
+              <span>Super-like</span>
+            </div>
+            <div className="jobcard__icon-div">
+              <FaThumbsUp onClick={handleLike} className="jobcard__icon " />
+              <span>Like</span>
+            </div>
           </div>
         </div>
       ) : null}

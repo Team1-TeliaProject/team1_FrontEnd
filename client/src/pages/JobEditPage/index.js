@@ -69,16 +69,16 @@ const JobEditPage = ({ match }) => {
         <h3 className="job-edit__heading">EDIT JOB DETAILS</h3>
 
         <form className="job-edit__form">
-          <p className="job-edit__label">Job title</p>
           <Input
+            label="Job Title"
             type="text"
             placeholder="Job Title"
             id="title"
             defaultValue={job.title}
             handleInputChange={setFields}
           />
-          <p className="job-edit__label">Deadline</p>
           <Input
+            label="Application deadline"
             type="text"
             placeholder="Deadline"
             id="deadline"
@@ -86,31 +86,31 @@ const JobEditPage = ({ match }) => {
             handleInputChange={setFields}
             handleFocus={(e) => (e.target.type = 'date')}
           />
-          <p className="job-edit__label">Location</p>
           <Input
+            label="Location"
             type="text"
             placeholder="City, Country role based on"
             id="location"
             defaultValue={job.location}
             handleInputChange={setFields}
           />
-          <p className="job-edit__label">Job Description</p>
           <Textarea
+            label="Job Description"
             maxLength={300}
             placeholder="Job Description"
             id="description"
             defaultValue={job.description}
             handleInputChange={setFields}
           />
-          <p className="job-edit__label">Seniority Level</p>
           <InputSelect
+            label="Seniority Level"
             defaultValue={job.level}
             handleInputChange={(e) => setLevel(e.target.value)}
             placeholder="Select seniority"
             options={['Junior', 'Mid-Senior', 'Senior', 'Internship']}
           />
-          <p className="job-edit__label">Job Type</p>
           <InputSelect
+            label="Job Type"
             handleInputChange={(e) => setType(e.target.value)}
             placeholder="Select Job-type"
             options={['Full-time', 'Part-time']}

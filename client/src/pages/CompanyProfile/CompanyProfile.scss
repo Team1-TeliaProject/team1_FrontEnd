@@ -3,7 +3,7 @@
 
 .company {
   @include pageBase;
-  margin: 100px auto;
+  margin-bottom: 100px;
   min-height: 100vh;
   display: flex;
   justify-content: center;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Modal from 'react-modal';
 
@@ -6,11 +6,12 @@ import Button from '../Button';
 import Input from '../Input';
 import ProfileDropdown from '../ProfileDropdown';
 import { useForm } from '../../hooks/useForm';
+import { logUser } from '../../services/login';
+
 import logo from '../../Assets/final_logo.svg';
 import profilePic from '../../Assets/proifle.jpeg';
 
 import './Navigation.scss';
-import { logUser } from '../../services/login';
 
 Modal.setAppElement('#root');
 function Navigation() {

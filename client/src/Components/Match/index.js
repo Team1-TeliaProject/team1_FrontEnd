@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { FaCommentDots, FaInfoCircle } from 'react-icons/fa';
 
 import './Match.scss';
 
-const MatchedJob = ({ data, type, setPage }) => {
+const MatchedJob = ({ data, type }) => {
   const history = useHistory();
 
   const getDetails = () => {

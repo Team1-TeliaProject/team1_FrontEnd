@@ -3,7 +3,7 @@
 
 .job-edit {
   @include pageBase;
-  margin: 100px auto;
+  margin-bottom: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,9 +22,12 @@
   }
 
   &__label {
-    margin: 0;
+    width: 100%;
+    text-align: start;
+    margin: 10px 0 0 0;
+    font-family: $nunito;
     font-size: $t-small;
-    color: $white;
+    color: $light;
   }
 
   &__heading {

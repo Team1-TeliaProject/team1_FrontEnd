@@ -5,12 +5,13 @@ import Select from 'react-select';
 import Input from '../../Components/Input';
 import InputSelect from '../../Components/InputSelect';
 import Textarea from '../../Components/Textarea';
+import ImageUpload from '../../Components/ImageUpload';
 import Button from '../../Components/Button';
 import { useForm } from '../../hooks/useForm';
 import { useUser } from '../../hooks/useUser';
-import ImageUpload from '../../Components/ImageUpload';
 import { typeOptions, techOptions } from '../../Utils/selectOptions';
 import { updateCompany, updateTalent } from '../../services/userService';
+
 import profilePhoto from '../../Assets/proifle.jpeg';
 
 import './ProfileEditPage.scss';
@@ -112,7 +113,7 @@ const ProfileEditPage = ({ match }) => {
     const techs = options.map((opt) => opt.value);
     setTechList(techs);
   };
-
+  console.log(error);
   return (
     user && (
       <div className="profile-edit">
@@ -134,7 +135,7 @@ const ProfileEditPage = ({ match }) => {
               defaultValue={user.lastName}
               handleInputChange={setFields}
               label="Last Name"
-            />          
+            />
             <Input
               type="email"
               placeholder="Email Address"
@@ -142,7 +143,7 @@ const ProfileEditPage = ({ match }) => {
               defaultValue={user.email}
               handleInputChange={setFields}
               label="Email Address"
-            />      
+            />
             <Input
               type="phone"
               placeholder="Phone Number"
@@ -150,7 +151,7 @@ const ProfileEditPage = ({ match }) => {
               defaultValue={user.phone}
               handleInputChange={setFields}
               label="Phone Number"
-            />    
+            />
             <Input
               type="text"
               placeholder="City, Country you live-in"
@@ -158,7 +159,7 @@ const ProfileEditPage = ({ match }) => {
               defaultValue={user.location}
               handleInputChange={setFields}
               label="Location"
-            /> 
+            />
             <Input
               type="text"
               placeholder="Title, e.g, Full-Stack developer"
@@ -166,14 +167,14 @@ const ProfileEditPage = ({ match }) => {
               defaultValue={user.title}
               handleInputChange={setFields}
               label="Title"
-            /> 
+            />
             <Input
               type="text"
               placeholder="Your GitHub link"
               id="github"
               defaultValue={user.github}
               handleInputChange={setFields}
-              label="Your Github Link"
+              label="Github"
             />
             <Input
               type="text"
@@ -181,15 +182,15 @@ const ProfileEditPage = ({ match }) => {
               id="linkedin"
               defaultValue={user.linkedin}
               handleInputChange={setFields}
-              label="Your LinkedIn Link"
-            /> 
+              label="LinkedIn"
+            />
             <Textarea
               maxLength={300}
               placeholder="Describe yourself. Max.300 characters"
               id="about"
               defaultValue={user.about}
               handleInputChange={setFields}
-              label="Describe Yourself"
+              label="About"
             />
             <InputSelect
               handleInputChange={(e) => setLevel(e.target.value)}
@@ -197,7 +198,6 @@ const ProfileEditPage = ({ match }) => {
               options={['Junior', 'Mid-Senior', 'Senior', 'Internship']}
               id={id}
               label="Level"
-              
             />
             <p className="profile-edit__label">Job Type</p>
             <Select
@@ -216,7 +216,7 @@ const ProfileEditPage = ({ match }) => {
               styles={selectStyles}
               isMulti
               name="tech"
-              options={techOptions}  
+              options={techOptions}
             />
             <div className="profile-edit__image-div">
               <img className="profile-edit__image" src={photo} alt="profile" />
@@ -229,7 +229,7 @@ const ProfileEditPage = ({ match }) => {
           </form>
         )}
         {type === 'company' && (
-          <form className="profile-edit__form">          
+          <form className="profile-edit__form">
             <Input
               type="text"
               placeholder="Company Name"
@@ -237,7 +237,7 @@ const ProfileEditPage = ({ match }) => {
               defaultValue={user.name}
               handleInputChange={setFields}
               label="Company Name"
-            />     
+            />
             <Input
               type="email"
               placeholder="Email Address"
@@ -245,7 +245,7 @@ const ProfileEditPage = ({ match }) => {
               defaultValue={user.email}
               handleInputChange={setFields}
               label="Email Address"
-            />   
+            />
             <Input
               type="text"
               placeholder="City, Country you are located"
@@ -253,7 +253,7 @@ const ProfileEditPage = ({ match }) => {
               defaultValue={user.location}
               handleInputChange={setFields}
               label="Location"
-            />    
+            />
             <Input
               type="text"
               placeholder="Company website"
@@ -261,7 +261,7 @@ const ProfileEditPage = ({ match }) => {
               defaultValue={user.website}
               handleInputChange={setFields}
               label="Company Website"
-            />    
+            />
             <Textarea
               maxLength={300}
               placeholder="Company info Max.300 characters"

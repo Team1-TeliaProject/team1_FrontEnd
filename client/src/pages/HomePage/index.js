@@ -5,7 +5,8 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import JobCard from '../../Components/JobCard';
 import TalentCard from '../../Components/TalentCard';
 import Match from '../../Components/Match';
-import { jobList, talentList, talentMatches, companyMatches, chats } from '../../Utils/dummyData';
+import Loading from '../../Components/Loading';
+import { chats } from '../../Utils/dummyData';
 
 import './HomePage.scss';
 import Messages from '../../Components/Messages';
@@ -117,7 +118,7 @@ const HomePage = () => {
             <FaArrowRight onClick={handleRightArrow} FaArrowLeft className="homepage__arrow" />
           </div>
         ) : (
-          <h3 style={{ color: 'white' }}>no</h3>
+          <Loading text={userInfo.userType === 'talent' ? 'jobs' : 'talents'} />
         ))}
 
       {/* Mathces--------------- */}

@@ -3,7 +3,7 @@
 
 .profile-edit {
   @include pageBase;
-  margin-top: 100px;
+  margin-bottom: 100px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,9 +22,12 @@
     flex-direction: column;
   }
   &__label {
-    margin: 0;
+    width: 100%;
+    text-align: start;
+    margin: 10px 0 0 0;
+    font-family: $nunito;
     font-size: $t-small;
-    color: $white;
+    color: $light;
   }
 
   &__heading {

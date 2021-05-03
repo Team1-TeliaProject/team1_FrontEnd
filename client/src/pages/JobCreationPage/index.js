@@ -91,7 +91,7 @@ const JobCreationPage = ({ match }) => {
           id="description"
           value={description}
           handleInputChange={setFields}
-          label="Job Description"  
+          label="Job Description"
         />
         <InputSelect
           handleInputChange={(e) => setLevel(e.target.value)}
@@ -105,6 +105,7 @@ const JobCreationPage = ({ match }) => {
           options={['Full-time', 'Part-time']}
           label="Job Type"
         />
+        <p className="job-create__label">Techs</p>
         <Select
           placeholder="select techs"
           onChange={handleChangeTech}
