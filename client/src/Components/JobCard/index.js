@@ -11,7 +11,7 @@ import { checkMatch } from '../../Utils/checkMatch';
 import './JobCard.scss';
 
 Modal.setAppElement('#root');
-const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
+const Jobcard = ({ job, userId, userType, setStatus, setPage, setIsMatched }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [matchType, setMatchType] = useState('');
 
@@ -41,6 +41,8 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
             if (response.data) {
               setMatchType('match');
               setIsModalOpen(true);
+              setIsMatched(true);
+              //create chat group/ function here
             }
           });
         }
@@ -51,6 +53,8 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
             if (response.data) {
               setMatchType('super-match');
               setIsModalOpen(true);
+              setIsMatched(true);
+              //create chat group/ function here
             }
           });
         }
@@ -61,7 +65,6 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
   const handleSuperLike = () => {
     superlikeJob(userId, job.id).then(async (response) => {
       if (response.data) {
-        console.log(response.data);
         setStatus('liked');
         setTimeout(() => {
           setStatus('');
@@ -85,6 +88,8 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
             if (response.data) {
               setMatchType('match');
               setIsModalOpen(true);
+              setIsMatched(true);
+              //create chat group/ function here
             }
           });
         }
@@ -95,6 +100,8 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
             if (response.data) {
               setMatchType('super-match');
               setIsModalOpen(true);
+              setIsMatched(true);
+              //create chat group/ function here
             }
           });
         }
@@ -148,8 +155,14 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage }) => {
             </h4>
           </div>
           <div className="jobcard__icons">
-            <FaHeart onClick={handleSuperLike} className="jobcard__icon " />
-            <FaThumbsUp onClick={handleLike} className="jobcard__icon " />
+            <div className="jobcard__icon-div">
+              <FaHeart onClick={handleSuperLike} className="jobcard__icon " />
+              <span>Super-like</span>
+            </div>
+            <div className="jobcard__icon-div">
+              <FaThumbsUp onClick={handleLike} className="jobcard__icon " />
+              <span>Like</span>
+            </div>
           </div>
         </div>
       ) : null}

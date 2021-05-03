@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { FaCommentDots, FaInfoCircle } from 'react-icons/fa';
 
 import './Match.scss';
 
-const MatchedJob = ({ data, type, setPage }) => {
+const MatchedJob = ({ data, type, matchType }) => {
   const history = useHistory();
 
   const getDetails = () => {
@@ -17,7 +17,7 @@ const MatchedJob = ({ data, type, setPage }) => {
   };
 
   return (
-    <div className="match">
+    <div className={matchType === 'match' ? 'match' : 'match match--super'}>
       <div className="match__item">
         <img className="match__image" src={type === 'talent' ? data.logo : data.photo} />
       </div>

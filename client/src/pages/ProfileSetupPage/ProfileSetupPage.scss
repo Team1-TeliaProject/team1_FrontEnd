@@ -85,6 +85,14 @@
   &__select {
     height: 50px;
   }
+  &__label {
+    width: 100%;
+    text-align: start;
+    margin: 10px 0 0 0;
+    font-family: $nunito;
+    font-size: $t-small;
+    color: $light;
+  }
 
   &__btn-div {
     width: 100%;

@@ -3,7 +3,6 @@
 
 .job-create {
   @include pageBase;
-  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +27,15 @@
     letter-spacing: 2px;
     font-weight: bold;
     margin-bottom: 20px;
+  }
+
+  &__label {
+    width: 100%;
+    text-align: start;
+    margin: 10px 0 0 0;
+    font-family: $nunito;
+    font-size: $t-small;
+    color: $light;
   }
 
   &__btn-div {

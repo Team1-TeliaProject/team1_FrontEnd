@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import EscapeOutside from 'react-escape-outside';
+import React from 'react';
 import { FaUserAlt } from 'react-icons/fa';
 import { IoLogOutOutline } from 'react-icons/io5';
 
 import './profiledropdn.scss';
 
-const ProfileDropdown = ({ handleEdit, handleExit, setIsModalOpen }) => {
+const ProfileDropdown = ({ handleEdit, handleExit }) => {
   return (
     <section className="dropdown">
       <div className="dropdown__item dropdown__item--top" onClick={handleEdit}>

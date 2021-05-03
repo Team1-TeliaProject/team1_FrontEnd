@@ -194,7 +194,7 @@ const ProfileSetupPage = ({ match }) => {
               id={id}
               label={'Level'}
             />
-
+            <p className="profile-setup__label">Job-type</p>
             <Select
               placeholder="select job-type"
               onChange={handleChangeType}
@@ -203,6 +203,7 @@ const ProfileSetupPage = ({ match }) => {
               name="type"
               options={typeOptions}
             />
+            <p className="profile-setup__label">Techs</p>
             <Select
               placeholder="select techs"
               onChange={handleChangeTech}
@@ -248,7 +249,7 @@ const ProfileSetupPage = ({ match }) => {
               handleInputChange={setFields}
               label="Company Website"
             />
-
+            <p className="profile-setup__label">Techs</p>
             <Select
               placeholder="select techs"
               onChange={handleChangeTech}

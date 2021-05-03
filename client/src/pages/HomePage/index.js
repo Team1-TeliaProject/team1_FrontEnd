@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FiArrowLeftCircle, FiArrowRightCircle } from 'react-icons/fi';
 
 import JobCard from '../../Components/JobCard';
 import TalentCard from '../../Components/TalentCard';
 import Match from '../../Components/Match';
-import { jobList, talentList, talentMatches, companyMatches, chats } from '../../Utils/dummyData';
+import Loading from '../../Components/Loading';
+import { chats } from '../../Utils/dummyData';
 
 import './HomePage.scss';
 import Messages from '../../Components/Messages';
@@ -20,7 +21,10 @@ const HomePage = () => {
   const [chat, setChat] = useState('person1');
   const [status, setStatus] = useState('');
   const [data] = useData(userInfo, status);
-  const [matchData] = useMatchData(userInfo && userInfo.userType, userInfo && userInfo.userId);
+  const [matchData, setIsMatched] = useMatchData(
+    userInfo && userInfo.userType,
+    userInfo && userInfo.userId
+  );
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('duuni-app'));
@@ -93,11 +97,12 @@ const HomePage = () => {
       {page === 'job/talent' &&
         (data.length > 0 && userInfo ? (
           <div className="homepage__main">
-            <FaArrowLeft onClick={handleLeftArrow} className="homepage__arrow" />
+            <FiArrowLeftCircle onClick={handleLeftArrow} className="homepage__arrow" />
             {userInfo.userType === 'talent' && (
               <JobCard
                 setPage={setPage}
                 setStatus={setStatus}
+                setIsMatched={setIsMatched}
                 userId={userInfo.userId}
                 userType={userInfo.userType}
                 className="homepage__arrow"
@@ -108,16 +113,21 @@ const HomePage = () => {
               <TalentCard
                 setPage={setPage}
                 setStatus={setStatus}
+                setIsMatched={setIsMatched}
                 userId={userInfo.userId}
                 userType={userInfo.userType}
                 className="homepage__arrow"
                 talent={data[currentItem]}
               />
             )}
-            <FaArrowRight onClick={handleRightArrow} FaArrowLeft className="homepage__arrow" />
+            <FiArrowRightCircle
+              onClick={handleRightArrow}
+              FaArrowLeft
+              className="homepage__arrow"
+            />
           </div>
         ) : (
-          <h3 style={{ color: 'white' }}>no</h3>
+          <Loading text={userInfo.userType === 'talent' ? 'jobs' : 'talents'} />
         ))}
 
       {/* Mathces--------------- */}
@@ -129,6 +139,7 @@ const HomePage = () => {
               userInfo.userType === 'talent' &&
               matchData.map((match) => (
                 <Match
+                  matchType={match.type}
                   setpage={setPage}
                   type={userInfo && userInfo.userType}
                   data={match.company}
@@ -139,6 +150,7 @@ const HomePage = () => {
               userInfo.userType === 'company' &&
               matchData.map((match) => (
                 <Match
+                  matchType={match.type}
                   setpage={setPage}
                   type={userInfo && userInfo.userType}
                   data={match.talent}

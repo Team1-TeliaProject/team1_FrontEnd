@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { FaHeart, FaThumbsUp } from 'react-icons/fa';
 
 import Button from '../Button';
-import { useMatchInfo } from '../../hooks/useMatchData';
 import { createMatch } from '../../services/matchService';
 import { getOneCompany, likeTalent, superlikeTalent } from '../../services/userService';
 import { checkMatch } from '../../Utils/checkMatch';
 
 import './TalentCard.scss';
+
 Modal.setAppElement('#root');
-const TalentCard = ({ talent, userId, userType, setStatus, setPage }) => {
+const TalentCard = ({ talent, userId, userType, setStatus, setPage, setIsMatched }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [matchType, setMatchType] = useState('');
 
@@ -35,23 +35,25 @@ const TalentCard = ({ talent, userId, userType, setStatus, setPage }) => {
         );
 
         if (isMatched === 'match') {
-          console.log('it is a match');
           const matchInfo = { companyId: userId, talentId: talent.id, type: 'match' };
           createMatch(matchInfo).then((response) => {
             if (response.data) {
               setMatchType('match');
               setIsModalOpen(true);
+              setIsMatched(true);
+              //create chat group/ function here
             }
           });
         }
 
         if (isMatched === 'supermatch') {
           const matchInfo = { companyId: userId, talentId: talent.id, type: 'supermatch' };
-          console.log('match-info', matchInfo);
           createMatch(matchInfo).then((response) => {
             if (response.data) {
               setMatchType('super-match');
               setIsModalOpen(true);
+              setIsMatched(true);
+              //create chat group/ function here
             }
           });
         }
@@ -79,22 +81,24 @@ const TalentCard = ({ talent, userId, userType, setStatus, setPage }) => {
         );
 
         if (isMatched === 'match') {
-          console.log('it is a match');
           const matchInfo = { companyId: userId, talentId: talent.id, type: 'match' };
           createMatch(matchInfo).then((response) => {
             if (response.data) {
               setMatchType('match');
               setIsModalOpen(true);
+              setIsMatched(true);
+              //create chat group/ function here
             }
           });
         }
         if (isMatched === 'supermatch') {
           const matchInfo = { companyId: userId, talentId: talent.id, type: 'supermatch' };
-          console.log('match-info', matchInfo);
           createMatch(matchInfo).then((response) => {
             if (response.data) {
               setMatchType('super-match');
               setIsModalOpen(true);
+              setIsMatched(true);
+              //create chat group/ function here
             }
           });
         }
@@ -138,8 +142,14 @@ const TalentCard = ({ talent, userId, userType, setStatus, setPage }) => {
         <p className="talent-card__text talent-card__text--description">{talent.about}</p>
       </div>
       <div className="talent-card__icons">
-        <FaHeart onClick={handleSuperLike} className="talent-card__icon " />
-        <FaThumbsUp onClick={handleLike} className="talent-card__icon " />
+        <div className="talent-card__icon-div">
+          <FaHeart onClick={handleSuperLike} className="talent-card__icon " />
+          <span>Super-like</span>
+        </div>
+        <div className="talent-card__icon-div">
+          <FaThumbsUp onClick={handleLike} className="talent-card__icon " />
+          <span>Like</span>
+        </div>
       </div>
       <Modal isOpen={isModalOpen} style={customStyles}>
         <div onClick={() => setIsModalOpen(false)} className="close">

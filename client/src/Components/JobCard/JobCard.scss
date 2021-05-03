@@ -47,6 +47,7 @@
 
   &__skills {
     width: 100%;
+    height: 40px;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -106,17 +107,22 @@
     background-color: $white;
   }
 
+  &__icon-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   &__icon {
     font-size: $t-big;
     color: $primary;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    margin-bottom: 5px;
 
     &:hover {
       transform: scale(1.2);
-    }
-
-    &--disabled {
     }
   }
 }
