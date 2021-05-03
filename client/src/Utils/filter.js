@@ -1,4 +1,4 @@
-export const filter = async (datapool, search) => {
+export const filter = (datapool, search) => {
   // Takes two parameter
   /**
    * paramter datapool is array of data
@@ -6,23 +6,19 @@ export const filter = async (datapool, search) => {
    * if search includes more than 50% of content of datapool.techs, it is added to display list
    */
 
-  if ((await datapool) && (await search)) {
-    const found = [];
-    let num = 0;
-    datapool.map((item) => {
-      const data = item.techs;
-      for (let i = 0; i < data.length; i++) {
-        if (search.includes(data[i])) {
-          num++;
-        }
-      }
-      if (num > search.length * 0.5) {
-        num = 0;
-        found.push(item);
-      }
-    });
-    console.log('returned from filter----', found);
-    return found;
-  }
-  return null;
+  const removeDuplicates = (arr1, arr2) => {
+    return [...new Set(arr1.concat(arr2).filter((e) => arr2.includes(e) && arr1.includes(e)))];
+  };
+
+  const filteredData = datapool.filter((item) => {
+    if (removeDuplicates(item.techs, search).length > 0 * item.techs.length) {
+      return item;
+    }
+  });
+
+  return filteredData;
+};
+
+export const excludeLiked = (dataPool, likeList) => {
+  return dataPool.filter((job) => !likeList.includes(job.id));
 };

@@ -12,6 +12,7 @@ const EmployeeProfile = ({ match }) => {
   const id = match.params.id;
   const history = useHistory();
   const [user, setUser] = useState(null);
+  const [logger] = useState(JSON.parse(localStorage.getItem('duuni-app')));
 
   useEffect(() => {
     getOneTalent(id).then((response) => {
@@ -21,7 +22,7 @@ const EmployeeProfile = ({ match }) => {
     });
   }, []);
 
-  console.log('user--', user);
+  console.log('logger', user);
 
   return (
     user && (
@@ -83,13 +84,16 @@ const EmployeeProfile = ({ match }) => {
             {user.github && <AiFillGithub className="employee__icon" />}
             {user.linkedin && <AiFillLinkedin className="employee__icon" />}
           </div>
-          <div className="employee__btn-div">
-            <Button
-              handleClick={() => history.push(`/profile/edit/${user.id}/${user.userType}`)}
-              text="Edit Profile"
-              modifier="light"
-            />
-          </div>
+
+          {logger.userInfo.userId === user.id && (
+            <div className="employee__btn-div">
+              <Button
+                handleClick={() => history.push(`/profile/edit/${user.id}/${user.userType}`)}
+                text="Edit Profile"
+                modifier="light"
+              />
+            </div>
+          )}
         </div>
       </div>
     )

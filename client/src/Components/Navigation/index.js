@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Modal from 'react-modal';
 
@@ -15,7 +15,7 @@ import { logUser } from '../../services/login';
 Modal.setAppElement('#root');
 function Navigation() {
   const history = useHistory();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('duuni-app')));
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -43,14 +43,13 @@ function Navigation() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
     const credentials = { email, password };
     logUser(credentials).then((response) => {
       if (response.data) {
         setIsModalOpen(false);
         setUser(response.data);
         localStorage.setItem('duuni-app', JSON.stringify(response.data));
-        history.push('/home');
+        history.push('/');
       }
     });
   };
@@ -60,11 +59,10 @@ function Navigation() {
     setUser(null);
     localStorage.removeItem('duuni-app');
     setIsDropdownOpen(false);
-    history.push('/');
+    history.push('/landingPage');
   };
 
   const handleProfile = () => {
-    console.log('try--', user.userInfo.userType);
     if (user.userInfo.userType === 'talent') {
       history.push(`/employeeProfile/${user.userInfo.userId}`);
       setIsDropdownOpen(false);
@@ -79,13 +77,14 @@ function Navigation() {
       <img className="nav__logo" src={logo} alt="logo" onClick={() => history.push('/')} />
       <div className="nav__profile-div">
         {user ? (
-          <div className="nav__user-div">
+          <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="nav__user-div">
             <img
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               className="nav__profile-photo"
               src={user.userInfo.photo ? user.userInfo.photo : profilePic}
             />
-            {/* <h2 className="nav__profile-name">{user.userInfo.firstName}</h2> */}
+            <span className="nav__profile-name">
+              {user.userInfo.name ? user.userInfo.name : ''}
+            </span>
           </div>
         ) : (
           <Button text="Login" modifier="nav" handleClick={() => setIsModalOpen(true)} />

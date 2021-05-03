@@ -32,7 +32,7 @@
   &__avatar {
     height: 120px;
     width: 120px;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 50%;
     background-color: $white;
     margin-right: 20px;
@@ -114,6 +114,9 @@
 
     &:hover {
       transform: scale(1.2);
+    }
+
+    &--disabled {
     }
   }
 }

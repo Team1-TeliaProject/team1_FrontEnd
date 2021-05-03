@@ -1,34 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 import JobCard from '../../Components/JobCard';
 import TalentCard from '../../Components/TalentCard';
 import Match from '../../Components/Match';
-import { jobList, talentMatches, companyMatches, chats } from '../../Utils/dummyData';
-import { useFilter } from '../../Utils/filterTalent';
+import { jobList, talentList, talentMatches, companyMatches, chats } from '../../Utils/dummyData';
 
 import './HomePage.scss';
 import Messages from '../../Components/Messages';
+import { useData } from '../../hooks/useData';
+import { useMatchData } from '../../hooks/useMatchData';
 
 const HomePage = () => {
-  const [userType, setUserType] = useState('company');
+  const history = useHistory();
+  const [userInfo, setUserInfo] = useState('');
   const [currentItem, setCurrentItem] = useState(0);
   const [page, setPage] = useState('job/talent');
   const [chat, setChat] = useState('person1');
-  const [talentList] = useFilter('607ff8b0bdf4856ef06039aa', 'company'); //TODO pass id, and userType dynamically based on job
-  //const [jobList] = useFilter('608a8686891cf0048db17407', 'talent'); ////TODO pass id and userType dynamically based on userId
-  const handleRightArrow = () => {
-    if (userType === 'talent') {
-      setCurrentItem(currentItem === jobList.length - 1 ? 0 : currentItem + 1);
+  const [status, setStatus] = useState('');
+  const [data] = useData(userInfo, status);
+  const [matchData] = useMatchData(userInfo && userInfo.userType, userInfo && userInfo.userId);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('duuni-app'));
+    if (user) {
+      setUserInfo(user.userInfo);
+      setStatus('render');
+      setTimeout(() => {
+        setStatus('');
+      }, 500);
     } else {
-      setCurrentItem(currentItem === talentList.length - 1 ? 0 : currentItem + 1);
+      history.push('/landingPage');
+      setUserInfo('');
+    }
+  }, []);
+
+  const handleRightArrow = () => {
+    if (userInfo.userType === 'talent') {
+      setCurrentItem(currentItem === data.length - 1 ? 0 : currentItem + 1);
+    } else {
+      setCurrentItem(currentItem === data.length - 1 ? 0 : currentItem + 1);
     }
   };
+
   const handleLeftArrow = () => {
-    if (userType === 'talent') {
-      setCurrentItem(currentItem === 0 ? jobList.length - 1 : currentItem - 1);
+    if (userInfo.userType === 'talent') {
+      setCurrentItem(currentItem === 0 ? data.length - 1 : currentItem - 1);
     } else {
-      setCurrentItem(currentItem === 0 ? talentList.length - 1 : currentItem - 1);
+      setCurrentItem(currentItem === 0 ? data.length - 1 : currentItem - 1);
     }
   };
 
@@ -43,7 +63,7 @@ const HomePage = () => {
               : 'homepage__nav-items homepage__nav-items--dim'
           }
         >
-          {userType === 'talent' ? 'Jobs' : 'Talents'}
+          {userInfo && userInfo.userType === 'talent' ? 'Jobs' : 'Talents'}
         </span>
         <span
           onClick={() => setPage('matches')}
@@ -67,33 +87,69 @@ const HomePage = () => {
         </span>
       </div>
       <hr className="homepage__hr" />
-      {page === 'job/talent' && (
-        <div className="homepage__main">
-          <FaArrowLeft onClick={handleLeftArrow} className="homepage__arrow" />
-          {userType === 'talent' && (
-            <JobCard className="homepage__arrow" job={jobList[currentItem]} />
-          )}
-          {userType === 'company' && (
-            <TalentCard className="homepage__arrow" talent={talentList[currentItem]} />
-          )}
-          <FaArrowRight onClick={handleRightArrow} FaArrowLeft className="homepage__arrow" />
-        </div>
-      )}
+
+      {/* job/talent cards------ */}
+
+      {page === 'job/talent' &&
+        (data.length > 0 && userInfo ? (
+          <div className="homepage__main">
+            <FaArrowLeft onClick={handleLeftArrow} className="homepage__arrow" />
+            {userInfo.userType === 'talent' && (
+              <JobCard
+                setPage={setPage}
+                setStatus={setStatus}
+                userId={userInfo.userId}
+                userType={userInfo.userType}
+                className="homepage__arrow"
+                job={data[currentItem]}
+              />
+            )}
+            {userInfo.userType === 'company' && (
+              <TalentCard
+                setPage={setPage}
+                setStatus={setStatus}
+                userId={userInfo.userId}
+                userType={userInfo.userType}
+                className="homepage__arrow"
+                talent={data[currentItem]}
+              />
+            )}
+            <FaArrowRight onClick={handleRightArrow} FaArrowLeft className="homepage__arrow" />
+          </div>
+        ) : (
+          <h3 style={{ color: 'white' }}>no</h3>
+        ))}
+
+      {/* Mathces--------------- */}
 
       {page === 'matches' && (
         <div className="homepage__matches">
           <div className="homepage__match-list">
-            {userType === 'talent' &&
-              talentMatches.map((match) => (
-                <Match setpage={setPage} type={userType} data={match} key={match.id} />
+            {userInfo &&
+              userInfo.userType === 'talent' &&
+              matchData.map((match) => (
+                <Match
+                  setpage={setPage}
+                  type={userInfo && userInfo.userType}
+                  data={match.company}
+                  key={match.id}
+                />
               ))}
-            {userType === 'company' &&
-              companyMatches.map((match) => (
-                <Match setpage={setPage} type={userType} data={match} key={match.id} />
+            {userInfo &&
+              userInfo.userType === 'company' &&
+              matchData.map((match) => (
+                <Match
+                  setpage={setPage}
+                  type={userInfo && userInfo.userType}
+                  data={match.talent}
+                  key={match.id}
+                />
               ))}
           </div>
         </div>
       )}
+
+      {/* Messages */}
 
       {page === 'messages' && (
         <div className="homepage__message">
