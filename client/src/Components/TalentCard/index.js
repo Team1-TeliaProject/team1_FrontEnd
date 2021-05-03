@@ -35,7 +35,6 @@ const TalentCard = ({ talent, userId, userType, setStatus, setPage, setIsMatched
         );
 
         if (isMatched === 'match') {
-          console.log('it is a match');
           const matchInfo = { companyId: userId, talentId: talent.id, type: 'match' };
           createMatch(matchInfo).then((response) => {
             if (response.data) {
@@ -49,7 +48,6 @@ const TalentCard = ({ talent, userId, userType, setStatus, setPage, setIsMatched
 
         if (isMatched === 'supermatch') {
           const matchInfo = { companyId: userId, talentId: talent.id, type: 'supermatch' };
-          console.log('match-info', matchInfo);
           createMatch(matchInfo).then((response) => {
             if (response.data) {
               setMatchType('super-match');
@@ -83,7 +81,6 @@ const TalentCard = ({ talent, userId, userType, setStatus, setPage, setIsMatched
         );
 
         if (isMatched === 'match') {
-          console.log('it is a match');
           const matchInfo = { companyId: userId, talentId: talent.id, type: 'match' };
           createMatch(matchInfo).then((response) => {
             if (response.data) {
@@ -96,7 +93,6 @@ const TalentCard = ({ talent, userId, userType, setStatus, setPage, setIsMatched
         }
         if (isMatched === 'supermatch') {
           const matchInfo = { companyId: userId, talentId: talent.id, type: 'supermatch' };
-          console.log('match-info', matchInfo);
           createMatch(matchInfo).then((response) => {
             if (response.data) {
               setMatchType('super-match');

@@ -65,7 +65,6 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage, setIsMatched }) =>
   const handleSuperLike = () => {
     superlikeJob(userId, job.id).then(async (response) => {
       if (response.data) {
-        console.log(response.data);
         setStatus('liked');
         setTimeout(() => {
           setStatus('');
