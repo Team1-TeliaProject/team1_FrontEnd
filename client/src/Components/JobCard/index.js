@@ -42,6 +42,7 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage, setIsMatched }) =>
               setMatchType('match');
               setIsModalOpen(true);
               setIsMatched(true);
+              //create chat group/ function here
             }
           });
         }
@@ -53,6 +54,7 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage, setIsMatched }) =>
               setMatchType('super-match');
               setIsModalOpen(true);
               setIsMatched(true);
+              //create chat group/ function here
             }
           });
         }
@@ -88,6 +90,7 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage, setIsMatched }) =>
               setMatchType('match');
               setIsModalOpen(true);
               setIsMatched(true);
+              //create chat group/ function here
             }
           });
         }
@@ -99,6 +102,7 @@ const Jobcard = ({ job, userId, userType, setStatus, setPage, setIsMatched }) =>
               setMatchType('super-match');
               setIsModalOpen(true);
               setIsMatched(true);
+              //create chat group/ function here
             }
           });
         }

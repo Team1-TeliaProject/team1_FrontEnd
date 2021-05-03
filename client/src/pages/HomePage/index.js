@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FiArrowLeftCircle, FiArrowRightCircle } from 'react-icons/fi';
 
 import JobCard from '../../Components/JobCard';
 import TalentCard from '../../Components/TalentCard';
@@ -97,7 +97,7 @@ const HomePage = () => {
       {page === 'job/talent' &&
         (data.length > 0 && userInfo ? (
           <div className="homepage__main">
-            <FaArrowLeft onClick={handleLeftArrow} className="homepage__arrow" />
+            <FiArrowLeftCircle onClick={handleLeftArrow} className="homepage__arrow" />
             {userInfo.userType === 'talent' && (
               <JobCard
                 setPage={setPage}
@@ -120,7 +120,11 @@ const HomePage = () => {
                 talent={data[currentItem]}
               />
             )}
-            <FaArrowRight onClick={handleRightArrow} FaArrowLeft className="homepage__arrow" />
+            <FiArrowRightCircle
+              onClick={handleRightArrow}
+              FaArrowLeft
+              className="homepage__arrow"
+            />
           </div>
         ) : (
           <Loading text={userInfo.userType === 'talent' ? 'jobs' : 'talents'} />
