@@ -18,6 +18,7 @@ const Messages = ({ chats }) => {
         <Input
           placeholder="Write your message"
           handleInputChange={(e) => setMessage(e.target.value)}
+          label="Message"
         />
         <IoMdSend className="messages__icon" />
       </div>

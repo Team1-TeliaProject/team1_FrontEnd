@@ -107,6 +107,7 @@ const ProfileRegistration = ({ match }) => {
             id="firstName"
             value={firstName}
             handleInputChange={setFields}
+            label="First Name"
           />
           <Input
             type="text"
@@ -114,6 +115,7 @@ const ProfileRegistration = ({ match }) => {
             id="lastName"
             value={lastName}
             handleInputChange={setFields}
+            label="Last Name"
           />
           <Input
             type="email"
@@ -121,6 +123,7 @@ const ProfileRegistration = ({ match }) => {
             id="email"
             value={email}
             handleInputChange={setFields}
+            label="Email"
           />
           <Input
             type="password"
@@ -128,13 +131,15 @@ const ProfileRegistration = ({ match }) => {
             id="password"
             value={password}
             handleInputChange={setFields}
+            label="Password"
           />
           <Input
             type="password"
-            placeholder="Re-Password"
+            placeholder="Repeat-Password"
             id="passwordRe"
             value={passwordRe}
             handleInputChange={setFields}
+            label="Repeat Password"
           />
           <div className="profile-registration__btn-div">
             <Button modifier="light" text="Create" handleClick={createTalentAccount} />
@@ -159,6 +164,7 @@ const ProfileRegistration = ({ match }) => {
             id="companyName"
             value={companyName}
             handleInputChange={setFields}
+            label="Company Name"
           />
 
           <Input
@@ -167,6 +173,7 @@ const ProfileRegistration = ({ match }) => {
             id="email"
             value={email}
             handleInputChange={setFields}
+            label="Email"
           />
           <Input
             type="password"
@@ -174,13 +181,15 @@ const ProfileRegistration = ({ match }) => {
             id="password"
             value={password}
             handleInputChange={setFields}
+            label="Password"
           />
           <Input
             type="password"
-            placeholder="Re-Password"
+            placeholder="Repeat-Password"
             id="passwordRe"
             value={passwordRe}
             handleInputChange={setFields}
+            label="Repeat Password"
           />
           <div className="profile-registration__btn-div">
             <Button modifier="light" text="Create" handleClick={createCompanyAccount} />
