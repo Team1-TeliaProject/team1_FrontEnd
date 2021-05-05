@@ -38,10 +38,6 @@
   .landing-page {
     height: 100vh;
 
-    // &__heading {
-    //   font-size: $t-xl;
-    // }
-
     &__btn-div {
       width: 40%;
     }
@@ -55,6 +51,7 @@
   .landing-page {
     &__btn-div {
       width: 90%;
+      height: 300px;
     }
   }
 }
@@ -62,6 +59,7 @@
 @media screen and (max-width: 600px) {
   .landing-page {
     @include pageBaseSmall;
+    margin: 50px auto;
     &__heading {
       // font-size: 5vw;
       text-align: center;
@@ -74,7 +72,6 @@
     @include pageBaseSmall;
 
     &__heading {
-      // font-size: 5.5vw;
       font-weight: bold;
       text-align: center;
     }

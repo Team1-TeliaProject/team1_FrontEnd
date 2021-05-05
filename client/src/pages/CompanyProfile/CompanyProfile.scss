@@ -3,7 +3,7 @@
 
 .company {
   @include pageBase;
-  margin-bottom: 100px;
+  margin: 100px auto;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -94,6 +94,25 @@
 }
 
 @media screen and (max-width: 600px) {
-  .employer {
+  .company {
+    flex-direction: column;
+    justify-content: center;
+
+    &__profile-div {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    &__image {
+      width: 100%;
+    }
+
+    &__content {
+      width: 100%;
+    }
+
+    &__btn-div {
+      width: 100%;
+    }
   }
 }

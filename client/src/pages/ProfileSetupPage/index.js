@@ -95,7 +95,7 @@ const ProfileSetupPage = ({ match }) => {
         }
       })
       .catch((error) => {
-        console.log(error.response.data);
+        console.log(error.response.data.Error);
       });
   };
 
@@ -116,7 +116,7 @@ const ProfileSetupPage = ({ match }) => {
         }
       })
       .catch((error) => {
-        setError(error.response.data);
+        setError(error.response.data.Error);
       });
   };
 

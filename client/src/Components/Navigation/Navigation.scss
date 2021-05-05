@@ -48,9 +48,9 @@
   &__dropdown-div {
     border-radius: 6px;
     background-color: $light;
-    position: absolute;
     top: 90px;
     right: 30px;
+    position: absolute;
 
     &--close {
       display: none;
@@ -113,7 +113,24 @@
     width: 50vw;
   }
 }
+
 @media screen and (max-width: 768px) {
+  .nav {
+    padding: 5px 20px;
+    &__profile-div {
+      width: 100px;
+      justify-content: flex-end;
+    }
+
+    &__user-div {
+      height: 55px;
+    }
+
+    &__dropdown-div {
+      right: 10px;
+    }
+  }
+
   .login-content {
     width: 80vw;
 
@@ -129,10 +146,12 @@
 
 @media screen and (max-width: 600px) {
   .nav {
-    padding: 20px;
-
     &__logo {
-      width: 8em;
+      width: 10em;
+    }
+
+    &__dropdown-div {
+      z-index: 999999999;
     }
   }
   .login-content {

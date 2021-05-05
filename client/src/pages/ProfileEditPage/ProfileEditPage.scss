@@ -3,7 +3,7 @@
 
 .profile-edit {
   @include pageBase;
-  margin-bottom: 100px;
+  margin: 100px auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -101,6 +101,7 @@
 @media screen and (max-width: 600px) {
   .profile-edit {
     @include pageBaseSmall;
+    margin-top: 100px;
     &__heading {
       font-size: 6vw;
     }
