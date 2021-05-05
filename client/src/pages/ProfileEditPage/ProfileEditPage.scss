@@ -101,6 +101,7 @@
 @media screen and (max-width: 600px) {
   .profile-edit {
     @include pageBaseSmall;
+    margin-top: 100px;
     &__heading {
       font-size: 6vw;
     }
