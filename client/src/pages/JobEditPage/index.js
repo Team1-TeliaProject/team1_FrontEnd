@@ -45,7 +45,7 @@ const JobEditPage = ({ match }) => {
         }
       })
       .then((error) => {
-        setError(error.response.data);
+        setError(error.response.data.Error);
       });
   };
 

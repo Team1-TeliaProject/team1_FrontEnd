@@ -48,7 +48,7 @@ const JobCreationPage = ({ match }) => {
         }
       })
       .then((error) => {
-        setError(error.response.data);
+        setError(error.response.data.Error);
       });
   };
 
@@ -66,7 +66,6 @@ const JobCreationPage = ({ match }) => {
       <h3 className="job-create__heading">ADD A NEW ROLE</h3>
       <form className="job-create__form">
         <p className={error ? 'job-create__error ' : 'job-create__error--hidden'}>{error}</p>
-
         <Input
           type="text"
           placeholder="Job Title"

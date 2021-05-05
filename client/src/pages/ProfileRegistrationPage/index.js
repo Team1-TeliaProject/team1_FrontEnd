@@ -13,7 +13,7 @@ const ProfileRegistration = ({ match }) => {
   const history = useHistory();
   const type = match.params.type;
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [error, setError] = useState('error');
+  const [error, setError] = useState('');
   const [user, setUser] = useState(null);
 
   const [fields, setFields] = useForm({
@@ -44,7 +44,7 @@ const ProfileRegistration = ({ match }) => {
             }
           })
           .catch((error) => {
-            console.log(error.response);
+            setError(error.response.data.Error);
           });
       }
     }
@@ -68,7 +68,7 @@ const ProfileRegistration = ({ match }) => {
             }
           })
           .catch((error) => {
-            console.log(error.response.data);
+            setError(error.response.data.Error);
           });
       }
     }
@@ -85,19 +85,13 @@ const ProfileRegistration = ({ match }) => {
     }
   };
 
-  console.log('test--', user);
-
   return (
     <div className="profile-registration">
       {type === 'talent' && (
         <form className="profile-registration__form">
           <h3 className="profile-registration__heading">CREATE AN ACCOUNT</h3>
           <p
-            className={
-              error !== 'error'
-                ? 'profile-registration__error'
-                : 'profile-registration__error-hidden'
-            }
+            className={error ? 'profile-registration__error' : 'profile-registration__error-hidden'}
           >
             {error}
           </p>
@@ -202,10 +196,7 @@ const ProfileRegistration = ({ match }) => {
         </div>
         <div className="registration-modal">
           <h1 className="registration-modal__title">REGISTRATION SUCCESSFULL!</h1>
-          <p className="registration-modal__text">
-            <b>Hi! We are glad you are here!</b> <br /> Please help us providing you a personalized
-            user experience by setting up your profile.{' '}
-          </p>
+          <p className="registration-modal__text">Please complete your profile.</p>
           <div className="registration-modal__btn-div">
             <p className="registration-modal__skip" onClick={() => history.push('/home')}>
               skip

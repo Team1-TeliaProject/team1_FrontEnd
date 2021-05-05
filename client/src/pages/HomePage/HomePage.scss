@@ -4,7 +4,7 @@
 .homepage {
   @include pageBase;
   height: 100vh;
-  margin: 20 0 100px 0;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   padding: 0 150px 300px;
@@ -124,7 +124,7 @@
 
 @media screen and (max-width: 450px) {
   .homepage {
-    margin-top: 100px;
+    margin-top: 80px;
     padding: 0 10px;
     &__nav-items {
       font-size: $t-small;
@@ -136,7 +136,7 @@
     }
 
     &__matches {
-      width: 95%;
+      width: 100%;
       margin-top: 0px;
     }
 

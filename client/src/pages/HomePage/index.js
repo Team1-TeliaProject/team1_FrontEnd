@@ -132,9 +132,9 @@ const HomePage = () => {
 
       {/* Mathces--------------- */}
 
-      {page === 'matches' && (
-        <div className="homepage__matches">
-          <div className="homepage__match-list">
+      {page === 'matches' &&
+        (matchData.length > 0 ? (
+          <div className="homepage__matches">
             {userInfo &&
               userInfo.userType === 'talent' &&
               matchData.map((match) => (
@@ -158,8 +158,9 @@ const HomePage = () => {
                 />
               ))}
           </div>
-        </div>
-      )}
+        ) : (
+          <Loading text="matches" />
+        ))}
 
       {/* Messages */}
 

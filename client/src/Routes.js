@@ -20,7 +20,7 @@ const Routes = () => (
     <Route exact path="/landingPage" component={LandingPage} />
     <Route exact path="/job/:id/details" component={JobDetailsPage} />
     <Route exact path="/registration/:type" component={ProfileRegistration} />
-    <ProtectedRoute exact path="/profilesetup/:type/:id" component={ProfileSetupPage} />
+    <Route exact path="/profilesetup/:type/:id" component={ProfileSetupPage} />
     <ProtectedRoute exact path="/profile/edit/:id/:type" component={ProfileEditPage} />
     <ProtectedRoute exact path="/profile/:id/vacancy/addnew" component={JobCreationPage} />
     <ProtectedRoute exact path="/profile/vacancy/:id/edit" component={JobEditPage} />

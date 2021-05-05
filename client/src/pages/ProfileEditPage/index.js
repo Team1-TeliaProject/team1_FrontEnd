@@ -87,7 +87,7 @@ const ProfileEditPage = ({ match }) => {
             history.push(`/employeeProfile/${id}`);
           }
         })
-        .catch((error) => setError(error.response.data));
+        .catch((error) => setError(error.response.data.Error));
     } else {
       const updates = { name: companyName, email, location, website, about, logo, techs: techList };
       updateCompany(id, updates)
@@ -96,7 +96,7 @@ const ProfileEditPage = ({ match }) => {
             history.push(`/companyProfile/${id}`);
           }
         })
-        .catch((error) => setError(error.response.data));
+        .catch((error) => setError(error.response.data.Error));
     }
   };
 

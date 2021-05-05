@@ -8,6 +8,8 @@
   width: 100%;
   height: 50px;
   transition: 0.3s ease-in-out;
+  margin: 10px 0;
+  font-size: $t-m-s;
   cursor: pointer;
 
   &--dark {
@@ -24,7 +26,6 @@
     color: $white;
   }
   &--light {
-    font-size: $t-small;
     border-radius: $r-medium;
     color: $black;
     background-color: $light;

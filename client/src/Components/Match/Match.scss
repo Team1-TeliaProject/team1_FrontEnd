@@ -73,13 +73,23 @@
     position: relative;
 
     &__image {
-      height: 120px;
+      height: 100px;
     }
 
     &__item {
+      margin-right: 5px;
       &--text {
         padding: 5px 0;
+        margin-right: 10px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .match {
+    &__image {
+      display: none;
     }
   }
 }
