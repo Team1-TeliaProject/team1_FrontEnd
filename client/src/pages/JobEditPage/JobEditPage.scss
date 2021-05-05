@@ -21,6 +21,15 @@
     flex-direction: column;
   }
 
+  &__error {
+    color: #ec4c4c;
+    margin: 0;
+
+    &--hidden {
+      opacity: 0;
+    }
+  }
+
   &__label {
     width: 100%;
     text-align: start;

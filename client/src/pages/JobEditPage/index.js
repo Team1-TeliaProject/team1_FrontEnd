@@ -19,6 +19,7 @@ const JobEditPage = ({ match }) => {
   const [level, setLevel] = useState(job.level);
   const [type, setType] = useState(job.type);
   const [techList, setTechList] = useState([]);
+  const [error, setError] = useState('');
   const [fields, setFields] = useForm({
     title: '',
     deadline: '',
@@ -37,11 +38,15 @@ const JobEditPage = ({ match }) => {
   const updateJob = (e) => {
     e.preventDefault();
     const updates = { title, deadline, location, description, level, type, techs: techList };
-    editJob(id, updates).then((response) => {
-      if (response.data) {
-        history.push(`/companyProfile/${job.company}`);
-      }
-    });
+    editJob(id, updates)
+      .then((response) => {
+        if (response.data) {
+          history.push(`/companyProfile/${job.company}`);
+        }
+      })
+      .then((error) => {
+        setError(error.response.data);
+      });
   };
 
   useEffect(() => {
@@ -51,8 +56,6 @@ const JobEditPage = ({ match }) => {
       }
     });
   }, []);
-
-  console.log('testjob--', job);
 
   const selectStyles = {
     control: (styles) => ({ ...styles, minHeight: '48px', marginBottom: '10px', marginTop: '10px' })
@@ -69,6 +72,7 @@ const JobEditPage = ({ match }) => {
         <h3 className="job-edit__heading">EDIT JOB DETAILS</h3>
 
         <form className="job-edit__form">
+          <p className={error ? 'job-edit__error ' : 'job-edit__error--hidden'}>{error}</p>
           <Input
             label="Job Title"
             type="text"

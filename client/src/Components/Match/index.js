@@ -32,7 +32,7 @@ const MatchedJob = ({ data, type, matchType }) => {
         <p className="match__normal-text">{type == 'talent' ? data.email : data.level}</p>
       </div>
       <div className="match__item match__item--icons">
-        <FaCommentDots className="match__icon" />
+        {/* <FaCommentDots className="match__icon" /> */}
         <FaInfoCircle onClick={getDetails} className="match__icon" />
       </div>
     </div>
