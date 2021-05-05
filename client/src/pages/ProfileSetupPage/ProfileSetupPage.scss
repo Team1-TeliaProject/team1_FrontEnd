@@ -21,6 +21,7 @@
   }
 
   &__image {
+    background-color: rgba(255, 255, 255, 0.548);
     width: 30%;
     height: 200px;
     border-radius: 6px 0px 0px 6px;
@@ -35,6 +36,15 @@
     background-color: $light;
     display: flex;
     flex-direction: column;
+  }
+
+  &__error {
+    color: #ec4c4c;
+    margin: 0;
+
+    &--hidden {
+      opacity: 0;
+    }
   }
 
   &__text {

@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import './ImageUpload.scss';
 
 const ImageUpload = ({ setImage }) => {
-  const [setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  console.log(loading);
   // eslint-disable-next-line no-undef
   const api = process.env.REACT_APP_CLOUDINARY;
   const uploadImage = async (e) => {

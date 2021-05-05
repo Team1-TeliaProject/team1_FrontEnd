@@ -15,6 +15,7 @@ import { editCompany, editTalent, getOneCompany, getOneTalent } from '../../serv
 
 const ProfileSetupPage = ({ match }) => {
   const history = useHistory();
+  const [error, setError] = useState('');
   const type = match.params.type;
   const id = match.params.id;
   const [user, setUser] = useState('');
@@ -115,7 +116,7 @@ const ProfileSetupPage = ({ match }) => {
         }
       })
       .catch((error) => {
-        console.log(error.response.data);
+        setError(error.response.data);
       });
   };
 
@@ -139,6 +140,9 @@ const ProfileSetupPage = ({ match }) => {
             </div>
           </div>
           <form className="profile-setup__form">
+            <p className={error ? 'profile-setup__error ' : 'profile-setup__error--hidden'}>
+              {error}
+            </p>
             <Input
               type="phone"
               placeholder="Phone Number"
@@ -222,7 +226,7 @@ const ProfileSetupPage = ({ match }) => {
       {type === 'company' && (
         <div className="profile-setup__content">
           <div className="profile-setup__data">
-            <img className=" profile-setup__image" src={logo} />
+            {logo ? <img className=" profile-setup__image" src={logo} /> : <span>loading...</span>}
             <div className="profile-setup__info-div">
               <p className="profile-setup__text profile-setup__text--big">{user && user.name}</p>
               <p className="profile-setup__text profile-setup__text--small">{user && user.email}</p>
@@ -233,6 +237,9 @@ const ProfileSetupPage = ({ match }) => {
             </div>
           </div>
           <form className="profile-setup__form">
+            <p className={error ? 'profile-setup__error ' : 'profile-setup__error--hidden'}>
+              {error}
+            </p>
             <Input
               type="text"
               placeholder="City, Country you are located"

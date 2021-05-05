@@ -76,6 +76,15 @@
     margin: 20px 0;
   }
 
+  &__error {
+    color: #ec4c4c;
+    margin: 0;
+
+    &--hidden {
+      opacity: 0;
+    }
+  }
+
   &__btn-div {
     width: 100%;
     margin-top: 20px;

@@ -17,6 +17,7 @@ Modal.setAppElement('#root');
 function Navigation() {
   const history = useHistory();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('duuni-app')));
+  const [error, setError] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -45,14 +46,18 @@ function Navigation() {
   const handleLogin = (e) => {
     e.preventDefault();
     const credentials = { email, password };
-    logUser(credentials).then((response) => {
-      if (response.data) {
-        setIsModalOpen(false);
-        setUser(response.data);
-        localStorage.setItem('duuni-app', JSON.stringify(response.data));
-        history.push('/');
-      }
-    });
+    logUser(credentials)
+      .then((response) => {
+        if (response.data) {
+          setIsModalOpen(false);
+          setUser(response.data);
+          localStorage.setItem('duuni-app', JSON.stringify(response.data));
+          history.push('/');
+        }
+      })
+      .catch((error) => {
+        setError(error.response.data);
+      });
   };
 
   const handleLogout = (e) => {
@@ -95,8 +100,11 @@ function Navigation() {
         <div onClick={() => setIsModalOpen(false)} className="close">
           X
         </div>
-        <div className="login-content">
+        <form className="login-content">
           <h1 className="login-content__title">LOG IN</h1>
+          <p className={error ? 'login-content__error ' : 'login-content__error--hidden'}>
+            {error}
+          </p>
           <Input
             id="email"
             value={email}
@@ -122,7 +130,7 @@ function Navigation() {
               Reset
             </span>
           </p>
-        </div>
+        </form>
       </Modal>
       <div
         className={

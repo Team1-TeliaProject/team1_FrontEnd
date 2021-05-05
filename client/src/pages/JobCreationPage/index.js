@@ -15,6 +15,7 @@ import { createJob } from '../../services/jobService';
 const JobCreationPage = ({ match }) => {
   const history = useHistory();
   const { id } = match.params;
+  const [error, setError] = useState('');
   const [level, setLevel] = useState('');
   const [type, setType] = useState([]);
   const [techList, setTechList] = useState([]);
@@ -40,11 +41,15 @@ const JobCreationPage = ({ match }) => {
       techs: techList
     };
 
-    createJob(job).then((response) => {
-      if (response.data) {
-        history.push(`/companyProfile/${id}`);
-      }
-    });
+    createJob(job)
+      .then((response) => {
+        if (response.data) {
+          history.push(`/companyProfile/${id}`);
+        }
+      })
+      .then((error) => {
+        setError(error.response.data);
+      });
   };
 
   const selectStyles = {
@@ -60,6 +65,8 @@ const JobCreationPage = ({ match }) => {
     <div className="job-create">
       <h3 className="job-create__heading">ADD A NEW ROLE</h3>
       <form className="job-create__form">
+        <p className={error ? 'job-create__error ' : 'job-create__error--hidden'}>{error}</p>
+
         <Input
           type="text"
           placeholder="Job Title"
