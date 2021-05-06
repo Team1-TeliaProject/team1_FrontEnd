@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 const ImageUpload = ({ setImage }) => {
   const [loading, setLoading] = useState(false);
   console.log(loading);
+
   // eslint-disable-next-line no-undef
   const api = process.env.REACT_APP_CLOUDINARY;
+
   const uploadImage = async (e) => {
     const files = e.target.files;
     const data = new FormData();
