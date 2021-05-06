@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:5000/api/jobs';
+const baseUrl = 'https://duuni-app.herokuapp.com/api/jobs';
 
 export const getAllJobs = async () => {
   return await axios.get(baseUrl);
