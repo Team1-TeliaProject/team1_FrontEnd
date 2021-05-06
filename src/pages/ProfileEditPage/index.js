@@ -45,8 +45,6 @@ const ProfileEditPage = ({ match }) => {
     about: '',
   });
 
-  console.log('photo-test', photo);
-
   const {
     firstName,
     lastName,
