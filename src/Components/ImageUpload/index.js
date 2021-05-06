@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import './ImageUpload.scss';
-
 const ImageUpload = ({ setImage }) => {
   const [loading, setLoading] = useState(false);
   console.log(loading);
@@ -15,7 +13,7 @@ const ImageUpload = ({ setImage }) => {
     setLoading(true);
     const res = await fetch(api, {
       method: 'POST',
-      body: data
+      body: data,
     });
     const file = await res.json();
     setImage(file.secure_url);
