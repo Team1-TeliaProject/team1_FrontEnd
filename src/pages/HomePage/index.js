@@ -21,10 +21,7 @@ const HomePage = () => {
   const [chat, setChat] = useState('person1');
   const [status, setStatus] = useState('');
   const [data] = useData(userInfo, status);
-  const [matchData, setIsMatched] = useMatchData(
-    userInfo && userInfo.userType,
-    userInfo && userInfo.userId
-  );
+  const [matchData, setIsMatched] = useMatchData(userInfo && userInfo);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('duuni-app'));

@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+// const baseUrlTalent = 'http://localhost:5000/api/talents';
+// const baseurlCompany = 'http://localhost:5000/api/companies';
 const baseUrlTalent = 'https://duuni-app.herokuapp.com/api/talents';
 const baseurlCompany = 'https://duuni-app.herokuapp.com/api/companies';
 

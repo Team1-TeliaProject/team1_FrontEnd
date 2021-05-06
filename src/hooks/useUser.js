@@ -3,7 +3,6 @@ import { getOneTalent, getOneCompany } from '../services/userService';
 
 export const useUser = (id, type) => {
   const [user, setUser] = useState(null);
-
   const fetchUser = async () => {
     if (type === 'talent') {
       await getOneTalent(id).then((response) => {

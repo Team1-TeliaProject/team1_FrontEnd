@@ -14,39 +14,43 @@ export const useData = (userInfo, status) => {
   const [superlikes, setSuperlikes] = useState('');
   const [finalData, setFinalData] = useState([]);
 
-  const getUserData = () => {
-    if (userInfo.userType === 'talent') {
-      getOneTalent(userInfo.userId).then((response) => {
-        if (response.data) {
-          setSearch(response.data.techs);
-          setLikes(response.data.likes);
-          setSuperlikes(response.data.superLikes);
-        }
-      });
-    } else {
-      getOneCompany(userInfo.userId).then((response) => {
-        if (response.data) {
-          setSearch(response.data.techs);
-          setLikes(response.data.likes);
-          setSuperlikes(response.data.superLikes);
-        }
-      });
+  const getUserData = async () => {
+    if (userInfo) {
+      if (userInfo.userType === 'talent') {
+        await getOneTalent(userInfo.userId).then((response) => {
+          if (response.data) {
+            setSearch(response.data.techs);
+            setLikes(response.data.likes);
+            setSuperlikes(response.data.superLikes);
+          }
+        });
+      } else {
+        await getOneCompany(userInfo.userId).then((response) => {
+          if (response.data) {
+            setSearch(response.data.techs);
+            setLikes(response.data.likes);
+            setSuperlikes(response.data.superLikes);
+          }
+        });
+      }
     }
   };
 
-  const getData = () => {
-    if (userInfo.userType === 'talent') {
-      getAllJobs().then((response) => {
-        if (response.data) {
-          setData(response.data);
-        }
-      });
-    } else {
-      getAllTalents().then((response) => {
-        if (response.data) {
-          setData(response.data);
-        }
-      });
+  const getData = async () => {
+    if (userInfo) {
+      if (userInfo.userType === 'talent') {
+        await getAllJobs().then((response) => {
+          if (response.data) {
+            setData(response.data);
+          }
+        });
+      } else {
+        await getAllTalents().then((response) => {
+          if (response.data) {
+            setData(response.data);
+          }
+        });
+      }
     }
   };
 
