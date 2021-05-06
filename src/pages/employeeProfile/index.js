@@ -92,8 +92,17 @@ const EmployeeProfile = ({ match }) => {
           )}
 
           <div className="employee__icons">
-            {user.github && <AiFillGithub className="employee__icon" />}
-            {user.linkedin && <AiFillLinkedin className="employee__icon" />}
+            {user.github && (
+              <a href={user.github} target="blank">
+                {' '}
+                <AiFillGithub className="employee__icon" />
+              </a>
+            )}
+            {user.linkedin && (
+              <a href={user.linkedin} target="blank">
+                <AiFillLinkedin className="employee__icon" />{' '}
+              </a>
+            )}
           </div>
 
           {logger.userInfo.userId === user.id && (

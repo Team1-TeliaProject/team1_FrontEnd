@@ -5,6 +5,7 @@ const ImageUpload = ({ setImage }) => {
   console.log(loading);
 
   // eslint-disable-next-line no-undef
+
   const api = process.env.REACT_APP_CLOUDINARY;
 
   const uploadImage = async (e) => {
@@ -12,6 +13,7 @@ const ImageUpload = ({ setImage }) => {
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'preset1');
+    console.log('in component--', data);
     setLoading(true);
     const res = await fetch(api, {
       method: 'POST',

@@ -21,11 +21,31 @@ const Routes = () => (
     <Route exact path="/job/:id/details" component={JobDetailsPage} />
     <Route exact path="/registration/:type" component={ProfileRegistration} />
     <Route exact path="/profilesetup/:type/:id" component={ProfileSetupPage} />
-    <ProtectedRoute exact path="/profile/edit/:id/:type" component={ProfileEditPage} />
-    <ProtectedRoute exact path="/profile/:id/vacancy/addnew" component={JobCreationPage} />
-    <ProtectedRoute exact path="/profile/vacancy/:id/edit" component={JobEditPage} />
-    <ProtectedRoute exact path="/companyProfile/:id" component={CompanyProfile} />
-    <ProtectedRoute exact path="/employeeProfile/:id" component={EmployeeProfile} />
+    <ProtectedRoute
+      exact
+      path="/profile/edit/:id/:type"
+      component={ProfileEditPage}
+    />
+    <ProtectedRoute
+      exact
+      path="/profile/:id/vacancy/addnew"
+      component={JobCreationPage}
+    />
+    <ProtectedRoute
+      exact
+      path="/profile/vacancy/:id/edit"
+      component={JobEditPage}
+    />
+    <ProtectedRoute
+      exact
+      path="/companyProfile/:id"
+      component={CompanyProfile}
+    />
+    <ProtectedRoute
+      exact
+      path="/employeeProfile/:id"
+      component={EmployeeProfile}
+    />
   </Switch>
 );
 

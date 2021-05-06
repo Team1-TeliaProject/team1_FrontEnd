@@ -22,10 +22,17 @@ const ProfileRegistration = ({ match }) => {
     companyName: '',
     email: '',
     password: '',
-    passwordRe: ''
+    passwordRe: '',
   });
 
-  const { firstName, lastName, companyName, email, password, passwordRe } = fields;
+  const {
+    firstName,
+    lastName,
+    companyName,
+    email,
+    password,
+    passwordRe,
+  } = fields;
 
   const createTalentAccount = (e) => {
     e.preventDefault();
@@ -81,8 +88,8 @@ const ProfileRegistration = ({ match }) => {
       left: '50%',
       right: 'auto',
       bottom: 'auto',
-      transform: 'translate(-50%, -50%)'
-    }
+      transform: 'translate(-50%, -50%)',
+    },
   };
 
   return (
@@ -91,7 +98,11 @@ const ProfileRegistration = ({ match }) => {
         <form className="profile-registration__form">
           <h3 className="profile-registration__heading">CREATE AN ACCOUNT</h3>
           <p
-            className={error ? 'profile-registration__error' : 'profile-registration__error-hidden'}
+            className={
+              error
+                ? 'profile-registration__error'
+                : 'profile-registration__error-hidden'
+            }
           >
             {error}
           </p>
@@ -136,7 +147,11 @@ const ProfileRegistration = ({ match }) => {
             label="Repeat Password"
           />
           <div className="profile-registration__btn-div">
-            <Button modifier="light" text="Create" handleClick={createTalentAccount} />
+            <Button
+              modifier="light"
+              text="Create"
+              handleClick={createTalentAccount}
+            />
           </div>
         </form>
       )}
@@ -186,7 +201,11 @@ const ProfileRegistration = ({ match }) => {
             label="Repeat Password"
           />
           <div className="profile-registration__btn-div">
-            <Button modifier="light" text="Create" handleClick={createCompanyAccount} />
+            <Button
+              modifier="light"
+              text="Create"
+              handleClick={createCompanyAccount}
+            />
           </div>
         </form>
       )}
@@ -195,17 +214,26 @@ const ProfileRegistration = ({ match }) => {
           X
         </div>
         <div className="registration-modal">
-          <h1 className="registration-modal__title">REGISTRATION SUCCESSFULL!</h1>
-          <p className="registration-modal__text">Please complete your profile.</p>
+          <h1 className="registration-modal__title">
+            REGISTRATION SUCCESSFULL!
+          </h1>
+          <p className="registration-modal__text">
+            Please complete your profile.
+          </p>
           <div className="registration-modal__btn-div">
-            <p className="registration-modal__skip" onClick={() => history.push('/home')}>
+            <p
+              className="registration-modal__skip"
+              onClick={() => history.push('/')}
+            >
               skip
             </p>
             <span className="registration-modal__btn-seperator"></span>
             <Button
               modifier="light"
               text="Setup Profile"
-              handleClick={() => history.push(`/profilesetup/${type}/${user.id}`)}
+              handleClick={() =>
+                history.push(`/profilesetup/${type}/${user.id}`)
+              }
             />
           </div>
         </div>

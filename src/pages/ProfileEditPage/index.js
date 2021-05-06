@@ -23,8 +23,12 @@ const ProfileEditPage = ({ match }) => {
   const [error, setError] = useState('');
   const [user] = useUser(id, type);
   const [level, setLevel] = useState('');
-  const [photo, setPhoto] = useState(user && user.photo ? user.photo : profilePhoto);
-  const [logo, setLogo] = useState(user && user.logo ? user.logo : profilePhoto);
+  const [photo, setPhoto] = useState(
+    user && user.photo ? user.photo : profilePhoto
+  );
+  const [logo, setLogo] = useState(
+    user && user.logo ? user.logo : profilePhoto
+  );
   const [typeList, setTypeList] = useState([]);
   const [techList, setTechList] = useState([]);
   const [fields, setFields] = useForm({
@@ -38,8 +42,10 @@ const ProfileEditPage = ({ match }) => {
     github: '',
     linkedin: '',
     website: '',
-    about: ''
+    about: '',
   });
+
+  console.log('photo-test', photo);
 
   const {
     firstName,
@@ -52,7 +58,7 @@ const ProfileEditPage = ({ match }) => {
     github,
     linkedin,
     website,
-    about
+    about,
   } = fields;
 
   const defaultTechs =
@@ -78,7 +84,7 @@ const ProfileEditPage = ({ match }) => {
         level,
         type: typeList,
         techs: techList,
-        photo
+        photo,
       };
 
       updateTalent(id, updates)
@@ -89,7 +95,15 @@ const ProfileEditPage = ({ match }) => {
         })
         .catch((error) => setError(error.response.data.Error));
     } else {
-      const updates = { name: companyName, email, location, website, about, logo, techs: techList };
+      const updates = {
+        name: companyName,
+        email,
+        location,
+        website,
+        about,
+        logo,
+        techs: techList,
+      };
       updateCompany(id, updates)
         .then((response) => {
           if (response.data.result) {
@@ -101,7 +115,12 @@ const ProfileEditPage = ({ match }) => {
   };
 
   const selectStyles = {
-    control: (styles) => ({ ...styles, minHeight: '48px', marginBottom: '10px', marginTop: '10px' })
+    control: (styles) => ({
+      ...styles,
+      minHeight: '48px',
+      marginBottom: '10px',
+      marginTop: '10px',
+    }),
   };
 
   const handleChangeType = (options) => {
@@ -120,7 +139,11 @@ const ProfileEditPage = ({ match }) => {
         <h3 className="profile-edit__heading">UPDATE YOUR PROFILE</h3>
         {type === 'talent' && (
           <form className="profile-edit__form">
-            <p className={error ? 'profile-edit__error ' : 'profile-edit__error--hidden'}>
+            <p
+              className={
+                error ? 'profile-edit__error ' : 'profile-edit__error--hidden'
+              }
+            >
               {error}
             </p>
             <Input
@@ -227,13 +250,21 @@ const ProfileEditPage = ({ match }) => {
             </div>
 
             <div className="profile-edit__btn-div">
-              <Button modifier="light" text="Update" handleClick={updateProfile} />
+              <Button
+                modifier="light"
+                text="Update"
+                handleClick={updateProfile}
+              />
             </div>
           </form>
         )}
         {type === 'company' && (
           <form className="profile-edit__form">
-            <p className={error ? 'profile-edit__error ' : 'profile-edit__error--hidden'}>
+            <p
+              className={
+                error ? 'profile-edit__error ' : 'profile-edit__error--hidden'
+              }
+            >
               {error}
             </p>
             <Input
@@ -292,7 +323,11 @@ const ProfileEditPage = ({ match }) => {
               <ImageUpload setImage={setLogo} />
             </div>
             <div className="profile-edit__btn-div">
-              <Button modifier="light" text="Update" handleClick={updateProfile} />
+              <Button
+                modifier="light"
+                text="Update"
+                handleClick={updateProfile}
+              />
             </div>
           </form>
         )}
