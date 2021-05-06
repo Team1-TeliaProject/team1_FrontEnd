@@ -16,12 +16,12 @@ export const filter = (datapool, search) => {
 
   // eslint-disable-next-line array-callback-return
   const filteredData = datapool.filter((item) => {
-    if (removeDuplicates(item.techs, search).length > 0 * item.techs.length) {
+    if (removeDuplicates(item.techs, search).length > 0.5 * item.techs.length) {
       return item;
     }
   });
 
-  return filteredData;
+  return filteredData.length > 1 ? filteredData : datapool;
 };
 
 export const excludeLiked = (dataPool, likeList) => {
