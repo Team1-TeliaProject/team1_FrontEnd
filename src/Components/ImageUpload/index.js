@@ -13,7 +13,6 @@ const ImageUpload = ({ setImage }) => {
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'preset1');
-    console.log('in component--', data);
     setLoading(true);
     const res = await fetch(api, {
       method: 'POST',

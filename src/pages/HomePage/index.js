@@ -7,11 +7,11 @@ import TalentCard from '../../Components/TalentCard';
 import Match from '../../Components/Match';
 import Loading from '../../Components/Loading';
 import { chats } from '../../Utils/dummyData';
-
-import './HomePage.scss';
 import Messages from '../../Components/Messages';
 import { useData } from '../../hooks/useData';
 import { useMatchData } from '../../hooks/useMatchData';
+
+import './HomePage.scss';
 
 const HomePage = () => {
   const history = useHistory();

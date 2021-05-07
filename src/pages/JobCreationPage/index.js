@@ -23,7 +23,7 @@ const JobCreationPage = ({ match }) => {
     title: '',
     deadline: '',
     location: '',
-    description: ''
+    description: '',
   });
 
   const { title, deadline, location, description } = fields;
@@ -38,7 +38,7 @@ const JobCreationPage = ({ match }) => {
       description,
       level,
       type,
-      techs: techList
+      techs: techList,
     };
 
     createJob(job)
@@ -48,12 +48,17 @@ const JobCreationPage = ({ match }) => {
         }
       })
       .then((error) => {
-        setError(error.response.data.Error);
+        setError(error && error.response.data.Error);
       });
   };
 
   const selectStyles = {
-    control: (styles) => ({ ...styles, minHeight: '48px', marginBottom: '10px', marginTop: '10px' })
+    control: (styles) => ({
+      ...styles,
+      minHeight: '48px',
+      marginBottom: '10px',
+      marginTop: '10px',
+    }),
   };
 
   const handleChangeTech = (options) => {
@@ -65,7 +70,11 @@ const JobCreationPage = ({ match }) => {
     <div className="job-create">
       <h3 className="job-create__heading">ADD A NEW ROLE</h3>
       <form className="job-create__form">
-        <p className={error ? 'job-create__error ' : 'job-create__error--hidden'}>{error}</p>
+        <p
+          className={error ? 'job-create__error ' : 'job-create__error--hidden'}
+        >
+          {error}
+        </p>
         <Input
           type="text"
           placeholder="Job Title"

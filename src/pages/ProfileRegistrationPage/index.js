@@ -6,6 +6,7 @@ import Input from '../../Components/Input';
 import Button from '../../Components/Button';
 import { useForm } from '../../hooks/useForm';
 import { registerCompany, registerTalent } from '../../services/userService';
+import { logUser } from '../../services/login';
 
 import './ProfileRegistration.scss';
 
@@ -90,6 +91,23 @@ const ProfileRegistration = ({ match }) => {
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
     },
+  };
+
+  const handleSkip = (e) => {
+    e.preventDefault();
+    const credentials = { email, password };
+    logUser(credentials)
+      .then((response) => {
+        if (response.data) {
+          setIsModalOpen(false);
+          setUser(response.data);
+          localStorage.setItem('duuni-app', JSON.stringify(response.data));
+          history.push('/');
+        }
+      })
+      .catch((error) => {
+        setError(error.response.data.Error);
+      });
   };
 
   return (
@@ -221,10 +239,7 @@ const ProfileRegistration = ({ match }) => {
             Please complete your profile.
           </p>
           <div className="registration-modal__btn-div">
-            <p
-              className="registration-modal__skip"
-              onClick={() => history.push('/')}
-            >
+            <p className="registration-modal__skip" onClick={handleSkip}>
               skip
             </p>
             <span className="registration-modal__btn-seperator"></span>
