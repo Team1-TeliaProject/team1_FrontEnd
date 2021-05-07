@@ -53,7 +53,7 @@ const JobEditPage = ({ match }) => {
         }
       })
       .then((error) => {
-        setError(error.response.data.Error);
+        setError(error && error.response.data.Error);
       });
   };
 

@@ -23,12 +23,8 @@ const ProfileEditPage = ({ match }) => {
   const [error, setError] = useState('');
   const [user] = useUser(id, type);
   const [level, setLevel] = useState('');
-  const [photo, setPhoto] = useState(
-    user && user.photo ? user.photo : profilePhoto
-  );
-  const [logo, setLogo] = useState(
-    user && user.logo ? user.logo : profilePhoto
-  );
+  const [photo, setPhoto] = useState(user && user.photo ? user.photo : '');
+  const [logo, setLogo] = useState(user && user.logo ? user.logo : '');
   const [typeList, setTypeList] = useState([]);
   const [techList, setTechList] = useState([]);
   const [fields, setFields] = useForm({
@@ -91,7 +87,7 @@ const ProfileEditPage = ({ match }) => {
             history.push(`/employeeProfile/${id}`);
           }
         })
-        .catch((error) => setError(error.response.data.Error));
+        .catch((error) => setError(error && error.response.data.Error));
     } else {
       const updates = {
         name: companyName,
@@ -108,7 +104,7 @@ const ProfileEditPage = ({ match }) => {
             history.push(`/companyProfile/${id}`);
           }
         })
-        .catch((error) => setError(error.response.data.Error));
+        .catch((error) => setError(error && error.response.data.Error));
     }
   };
 
@@ -243,7 +239,13 @@ const ProfileEditPage = ({ match }) => {
               options={techOptions}
             />
             <div className="profile-edit__image-div">
-              <img className="profile-edit__image" src={photo} alt="profile" />
+              {user.photo && (
+                <img
+                  className="profile-edit__image"
+                  src={photo ? photo : user.photo}
+                  alt="profile"
+                />
+              )}
               <ImageUpload setImage={setPhoto} />
             </div>
 
@@ -317,7 +319,13 @@ const ProfileEditPage = ({ match }) => {
             />
 
             <div className="profile-edit__image-div">
-              <img className="profile-edit__image" src={logo} alt="profile" />
+              {user.logo && (
+                <img
+                  className="profile-edit__image"
+                  src={logo ? logo : user.logo}
+                  alt="profile"
+                />
+              )}
               <ImageUpload setImage={setLogo} />
             </div>
             <div className="profile-edit__btn-div">
