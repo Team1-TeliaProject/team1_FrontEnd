@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Button from '../../Components/Button';
-import profilePic from '../../Assets/proifle.jpeg';
 import Job from '../../Components/Job';
 import { getOneCompany } from '../../services/userService';
 import { getJobsByCompany } from '../../services/jobService';
+
+import profilePic from '../../Assets/proifle.jpeg';
 
 import './CompanyProfile.scss';
 const CompanyProfile = ({ match }) => {
@@ -14,6 +15,7 @@ const CompanyProfile = ({ match }) => {
   const [user, setUser] = useState(null);
   const [jobs, setJobs] = useState([]);
   const [status, setStatus] = useState('');
+  const [logger] = useState(JSON.parse(localStorage.getItem('duuni-app')));
 
   useEffect(() => {
     getOneCompany(id).then((response) => {
@@ -71,33 +73,37 @@ const CompanyProfile = ({ match }) => {
               </div>
             )}
 
-            <div className="company__btn-div">
-              <Button
-                handleClick={() =>
-                  history.push(`/profile/${id}/vacancy/addnew`)
-                }
-                text="Add a Job"
-                modifier="light"
-              />
-              <div style={{ width: '20px' }}></div>
-              <Button
-                handleClick={() =>
-                  history.push(`/profile/edit/${user.id}/${user.userType}`)
-                }
-                text="Edit Profile"
-                modifier="light"
-              />
-            </div>
-          </div>
-          <div className="company__jobs">
-            {jobs.length > 0 ? (
-              jobs.map((job) => (
-                <Job setStatus={setStatus} key={job.id} job={job} />
-              ))
-            ) : (
-              <h3 style={{ textAlign: 'center' }}>No jobs to show</h3>
+            {logger.userInfo.userId === user.id && (
+              <div className="company__btn-div">
+                <Button
+                  handleClick={() =>
+                    history.push(`/profile/${id}/vacancy/addnew`)
+                  }
+                  text="Add a Job"
+                  modifier="light"
+                />
+                <Button
+                  handleClick={() =>
+                    history.push(`/profile/edit/${user.id}/${user.userType}`)
+                  }
+                  text="Edit Profile"
+                  modifier="light"
+                />
+              </div>
             )}
           </div>
+
+          {logger.userInfo.userId === user.id && (
+            <div className="company__jobs">
+              {jobs.length > 0 ? (
+                jobs.map((job) => (
+                  <Job setStatus={setStatus} key={job.id} job={job} />
+                ))
+              ) : (
+                <h3 style={{ textAlign: 'center' }}>No jobs to show</h3>
+              )}
+            </div>
+          )}
         </div>
       </div>
     )
