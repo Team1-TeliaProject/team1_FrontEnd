@@ -6,7 +6,7 @@ const ImageUpload = ({ setImage }) => {
 
   // eslint-disable-next-line no-undef
 
-  const api = process.env.REACT_APP_CLOUDINARY;
+  const api = 'https://api.cloudinary.com/v1_1/chiranjibi/image/upload';
 
   const uploadImage = async (e) => {
     const files = e.target.files;
