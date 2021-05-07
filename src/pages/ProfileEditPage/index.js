@@ -12,8 +12,6 @@ import { useUser } from '../../hooks/useUser';
 import { typeOptions, techOptions } from '../../Utils/selectOptions';
 import { updateCompany, updateTalent } from '../../services/userService';
 
-import profilePhoto from '../../Assets/proifle.jpeg';
-
 import './ProfileEditPage.scss';
 
 const ProfileEditPage = ({ match }) => {
