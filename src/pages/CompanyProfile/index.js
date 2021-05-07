@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Button from '../../Components/Button';
-import profilePic from '../../Assets/proifle.jpeg';
 import Job from '../../Components/Job';
 import { getOneCompany } from '../../services/userService';
 import { getJobsByCompany } from '../../services/jobService';
+
+import profilePic from '../../Assets/proifle.jpeg';
 
 import './CompanyProfile.scss';
 const CompanyProfile = ({ match }) => {
