@@ -41,6 +41,7 @@ export const useData = (userInfo, status) => {
       if (userInfo.userType === 'talent') {
         await getAllJobs().then((response) => {
           if (response.data) {
+            console.log('all jobs--', response.data);
             setData(response.data);
           }
         });

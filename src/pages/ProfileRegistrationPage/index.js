@@ -47,6 +47,20 @@ const ProfileRegistration = ({ match }) => {
         registerTalent(userInfo)
           .then((response) => {
             if (response.data) {
+              const credentials = { email, password };
+              logUser(credentials)
+                .then((response) => {
+                  if (response.data) {
+                    console.log('logged in---');
+                    localStorage.setItem(
+                      'duuni-app',
+                      JSON.stringify(response.data)
+                    );
+                  }
+                })
+                .catch((error) => {
+                  setError(error.response.data.Error);
+                });
               setUser(response.data);
               setIsModalOpen(true);
             }
@@ -71,6 +85,20 @@ const ProfileRegistration = ({ match }) => {
         registerCompany(userInfo)
           .then((response) => {
             if (response.data) {
+              const credentials = { email, password };
+              logUser(credentials)
+                .then((response) => {
+                  if (response.data) {
+                    console.log('logged in---');
+                    localStorage.setItem(
+                      'duuni-app',
+                      JSON.stringify(response.data)
+                    );
+                  }
+                })
+                .catch((error) => {
+                  setError(error.response.data.Error);
+                });
               setUser(response.data);
               setIsModalOpen(true);
             }

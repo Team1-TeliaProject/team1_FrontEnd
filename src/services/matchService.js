@@ -8,6 +8,5 @@ export const createMatch = async (matchInfo) => {
 };
 
 export const getMatches = async (type, id) => {
-  console.log('in service', type, id);
   return await axios.get(`${baseUrl}/${type}/${id}`);
 };
