@@ -25,11 +25,11 @@ const HomePage = ({ location }) => {
   const [matchData, setIsMatched] = useMatchData(userInfo && userInfo);
 
   const dummyMatch = [
-    {"name" : 'person1', "id" : 1},
-    {"name" : 'person2', "id" : 2},
-    {"name" : 'person3', "id" : 3},
-    {"name" : 'person4', "id" : 4},
-    {"name" : 'person5', "id" : 5}
+    { "name": 'person1', "id": 1 },
+    { "name": 'person2', "id": 2 },
+    { "name": 'person3', "id": 3 },
+    { "name": 'person4', "id": 4 },
+    { "name": 'person5', "id": 5 }
   ];
 
   useEffect(() => {
@@ -137,8 +137,8 @@ const HomePage = ({ location }) => {
             />
           </div>
         ) : (
-          <Loading text={userInfo.userType === 'talent' ? 'jobs' : 'talents'} />
-        ))}
+            <Loading text={userInfo.userType === 'talent' ? 'jobs' : 'talents'} />
+          ))}
 
       {/* Mathces--------------- */}
 
@@ -169,8 +169,8 @@ const HomePage = ({ location }) => {
               ))}
           </div>
         ) : (
-          <Loading text="matches" />
-        ))}
+            <Loading text="matches" />
+          ))}
 
       {/* Messages */}
 
@@ -181,7 +181,7 @@ const HomePage = ({ location }) => {
             {dummyMatch.map((item, index) => (
               <div
                 className={
-                  chat === item.name
+                  chatUser.name === item.name
                     ? 'homepage__sidebar-item homepage__sidebar-item--highlight'
                     : 'homepage__sidebar-item'
                 }
@@ -193,7 +193,7 @@ const HomePage = ({ location }) => {
             ))}
           </div>
           <div className="homepage__message-main">
-            <Messages chats={chats} userInfo={userInfo} matchedUser={chatUser}/>
+            <Messages chats={chats} userInfo={userInfo} matchedUser={chatUser} />
           </div>
         </div>
       )}
