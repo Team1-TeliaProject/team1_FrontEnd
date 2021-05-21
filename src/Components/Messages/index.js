@@ -1,71 +1,75 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Chat from '../Chat';
 import Input from '../Input';
 import { IoMdSend } from 'react-icons/io';
 
 import './Messages.scss';
-import io from "socket.io-client";
+import io from 'socket.io-client';
 
 const ENDPOINT = 'http://localhost:5000/';
-const Messages = ({ userInfo, matchedUser}) => {
+const Messages = ({ userInfo, matchedUser }) => {
+  //*****************************
+  //*******CHAT CODE START*******
+  //*****************************
+  const socket = io(ENDPOINT);
+  const [text, setText] = useState('');
+  const [messages, setMessages] = useState([]);
+  const [contactRoom, setContactRoom] = useState();
 
-    //*****************************
-    //*******CHAT CODE START*******
-    //*****************************
-    const socket = io(ENDPOINT);
-    const [text, setText] = useState('');
-    const [messages, setMessages] = useState([]);
-    const [contactRoom, setContactRoom] = useState();
+  const addNewMessage = (message) => {
+    setMessages((messages) => [...messages, message]);
+  };
 
-    const addNewMessage = (message) => {
-        setMessages(messages => [...messages, message])
-    }
+  const sendMessage = (event) => {
+    event.preventDefault();
+    event.target.blur();
+    const message = {
+      created_at: new Date(Date.now()).toISOString(),
+      message: text,
+      to: matchedUser.id,
+      from: userInfo.userId,
+    };
 
-    const sendMessage = (event) => {
-        event.preventDefault();
-        event.target.blur()
-        const message = {
-            created_at: new Date(Date.now()).toISOString(),
-            message: text,
-            to: matchedUser.id,
-            from: userInfo.userId,
+    addNewMessage(message);
+    socket.emit('push new message', message, contactRoom);
+    setText('');
+  };
+
+  //Join Room
+  useEffect(() => {
+    console.log(userInfo);
+    setContactRoom(userInfo.userId + matchedUser.id);
+
+    socket.emit(
+      'join',
+      {
+        me: userInfo.userId,
+        contact: matchedUser.id,
+        room: userInfo.userId + matchedUser.id,
+      },
+      (error) => {
+        if (error) {
+          alert('ERROR : ' + error);
         }
+      }
+    );
 
-        addNewMessage(message)
-        socket.emit("push new message", message, contactRoom);
-        setText('')
-    }
+    socket.on('get message history', setMessages);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [matchedUser]);
 
-    //Join Room
-    useEffect(() => {
-        console.log(userInfo);
-        setContactRoom(userInfo.userId + matchedUser.id)
+  //New Message
+  useEffect(() => {
+    socket.on('new message', (message) => addNewMessage(message));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [messages]);
 
-        socket.emit("join", {
-            me: userInfo.userId,
-            contact: matchedUser.id,
-            room: userInfo.userId + matchedUser.id,
-        },(error) => {
-            if(error) {
-                alert('ERROR : '+error);
-            }
-        });
-
-        socket.on("get message history", setMessages)
-
-    }, [matchedUser]);
-
-    //New Message
-    useEffect(() => {
-        socket.on("new message", (message) => addNewMessage(message))
-    }, [messages]);
-
-    return (
+  return (
     <div className="messages">
       <div className="messages__chat-div">
         {messages.map((item, index) => (
-            <Chat chat={item} user={userInfo} key={index} />
+          <Chat chat={item} user={userInfo} key={index} />
         ))}
       </div>
       <hr className="messages__hr" />
@@ -73,13 +77,15 @@ const Messages = ({ userInfo, matchedUser}) => {
         <div className="messages__btn-div">
           <Input
             placeholder="Write your message"
-            type='text'
+            type="text"
             value={text}
             handleInputChange={({ target: { value } }) => setText(value)}
-            onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}
+            onKeyPress={(event) =>
+              event.key === 'Enter' ? sendMessage(event) : null
+            }
           />
         </div>
-        <IoMdSend className="messages__icon" onClick={e => sendMessage(e)}/>
+        <IoMdSend className="messages__icon" onClick={(e) => sendMessage(e)} />
       </div>
     </div>
   );
