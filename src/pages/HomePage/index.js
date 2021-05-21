@@ -13,9 +13,10 @@ import { useMatchData } from '../../hooks/useMatchData';
 
 import './HomePage.scss';
 
-const HomePage = () => {
+const HomePage = ({ location }) => {
   const history = useHistory();
   const [userInfo, setUserInfo] = useState('');
+  const [chatUser, setChatUser] = useState(null);
   const [currentItem, setCurrentItem] = useState(0);
   const [page, setPage] = useState('job/talent');
   const [chat, setChat] = useState('person1');
@@ -23,10 +24,19 @@ const HomePage = () => {
   const [data] = useData(userInfo, status);
   const [matchData, setIsMatched] = useMatchData(userInfo && userInfo);
 
+  const dummyMatch = [
+    { "name": 'person1', "id": 1 },
+    { "name": 'person2', "id": 2 },
+    { "name": 'person3', "id": 3 },
+    { "name": 'person4', "id": 4 },
+    { "name": 'person5', "id": 5 }
+  ];
+
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('duuni-app'));
     if (user) {
       setUserInfo(user.userInfo);
+      setChatUser(dummyMatch[0]);
       setStatus('render');
       setTimeout(() => {
         setStatus('');
@@ -35,7 +45,6 @@ const HomePage = () => {
       history.push('/landingPage');
       setUserInfo('');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleRightArrow = () => {
@@ -128,8 +137,8 @@ const HomePage = () => {
             />
           </div>
         ) : (
-          <Loading text={userInfo.userType === 'talent' ? 'jobs' : 'talents'} />
-        ))}
+            <Loading text={userInfo.userType === 'talent' ? 'jobs' : 'talents'} />
+          ))}
 
       {/* Mathces--------------- */}
 
@@ -160,8 +169,8 @@ const HomePage = () => {
               ))}
           </div>
         ) : (
-          <Loading text="matches" />
-        ))}
+            <Loading text="matches" />
+          ))}
 
       {/* Messages */}
 
@@ -169,30 +178,22 @@ const HomePage = () => {
         <div className="homepage__message">
           <div className="homepage__message-sidebar">
             <p className="homepage__chat-title">Chat List</p>
-            {[
-              'person1',
-              'person2',
-              'person3',
-              'person4',
-              'person 5',
-              'person,6',
-              'person7',
-            ].map((item, index) => (
+            {dummyMatch.map((item, index) => (
               <div
                 className={
-                  chat === item
+                  chatUser.name === item.name
                     ? 'homepage__sidebar-item homepage__sidebar-item--highlight'
                     : 'homepage__sidebar-item'
                 }
-                onClick={() => setChat(item)}
+                onClick={() => setChatUser(item)}
                 key={index}
               >
-                {item}
+                {item.name}
               </div>
             ))}
           </div>
           <div className="homepage__message-main">
-            <Messages chats={chats} />
+            <Messages chats={chats} userInfo={userInfo} matchedUser={chatUser} />
           </div>
         </div>
       )}
