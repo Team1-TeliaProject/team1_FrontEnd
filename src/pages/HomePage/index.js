@@ -19,7 +19,7 @@ const HomePage = ({ location }) => {
   const [chatUser, setChatUser] = useState(null);
   const [currentItem, setCurrentItem] = useState(0);
   const [page, setPage] = useState('job/talent');
-  const [chat, setChat] = useState('person1');
+  const [chat, setChat] = useState([]);
   const [status, setStatus] = useState('');
   const [data] = useData(userInfo, status);
   const [matchData, setIsMatched] = useMatchData(userInfo && userInfo);
@@ -36,7 +36,6 @@ const HomePage = ({ location }) => {
     const user = JSON.parse(localStorage.getItem('duuni-app'));
     if (user) {
       setUserInfo(user.userInfo);
-      setChatUser(dummyMatch[0]);
       setStatus('render');
       setTimeout(() => {
         setStatus('');
@@ -46,6 +45,26 @@ const HomePage = ({ location }) => {
       setUserInfo('');
     }
   }, []);
+
+  useEffect(()=>{
+    matchData.map((item, index)=>{
+      let chatItem = {}
+      if(userInfo.userType == 'talent'){
+        chatItem.id = item.company.id;
+        chatItem.name = item.company.name;
+      }else{
+        chatItem.id = item.talent.id;
+        chatItem.name = item.talent.firstName + ' ' + item.talent.lastName;
+      }
+
+      if(index == 0){
+        setChatUser(chatItem);
+      }
+
+      setChat(chat => [...chat, chatItem])
+    })
+
+  },[matchData]);
 
   const handleRightArrow = () => {
     if (userInfo.userType === 'talent') {
@@ -178,10 +197,10 @@ const HomePage = ({ location }) => {
         <div className="homepage__message">
           <div className="homepage__message-sidebar">
             <p className="homepage__chat-title">Chat List</p>
-            {dummyMatch.map((item, index) => (
+            {chat.map((item, index) => (
               <div
                 className={
-                  chat === item.name
+                  chatUser.name === item.name
                     ? 'homepage__sidebar-item homepage__sidebar-item--highlight'
                     : 'homepage__sidebar-item'
                 }

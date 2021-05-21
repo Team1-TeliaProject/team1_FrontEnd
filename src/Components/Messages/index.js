@@ -7,7 +7,7 @@ import { IoMdSend } from 'react-icons/io';
 import './Messages.scss';
 import io from "socket.io-client";
 
-const ENDPOINT = 'http://localhost:5000/';
+const ENDPOINT = 'https://duuni-app.herokuapp.com';
 const Messages = ({ userInfo, matchedUser}) => {
 
     //*****************************
@@ -39,7 +39,6 @@ const Messages = ({ userInfo, matchedUser}) => {
 
     //Join Room
     useEffect(() => {
-        console.log(userInfo);
         setContactRoom(userInfo.userId + matchedUser.id)
 
         socket.emit("join", {
@@ -53,12 +52,8 @@ const Messages = ({ userInfo, matchedUser}) => {
         });
 
         socket.on("get message history", setMessages)
-
-    }, [matchedUser]);
-
-    //New Message
-    useEffect(() => {
         socket.on("new message", (message) => addNewMessage(message))
+
     }, [messages]);
 
     return (
