@@ -19,17 +19,17 @@ const HomePage = ({ location }) => {
   const [chatUser, setChatUser] = useState(null);
   const [currentItem, setCurrentItem] = useState(0);
   const [page, setPage] = useState('job/talent');
-  const [chat, setChat] = useState('person1');
+  // const [chat, setChat] = useState('person1');
   const [status, setStatus] = useState('');
   const [data] = useData(userInfo, status);
   const [matchData, setIsMatched] = useMatchData(userInfo && userInfo);
 
   const dummyMatch = [
-    { "name": 'person1', "id": 1 },
-    { "name": 'person2', "id": 2 },
-    { "name": 'person3', "id": 3 },
-    { "name": 'person4', "id": 4 },
-    { "name": 'person5', "id": 5 }
+    { name: 'person1', id: 1 },
+    { name: 'person2', id: 2 },
+    { name: 'person3', id: 3 },
+    { name: 'person4', id: 4 },
+    { name: 'person5', id: 5 },
   ];
 
   useEffect(() => {
@@ -45,6 +45,7 @@ const HomePage = ({ location }) => {
       history.push('/landingPage');
       setUserInfo('');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleRightArrow = () => {
@@ -137,8 +138,8 @@ const HomePage = ({ location }) => {
             />
           </div>
         ) : (
-            <Loading text={userInfo.userType === 'talent' ? 'jobs' : 'talents'} />
-          ))}
+          <Loading text={userInfo.userType === 'talent' ? 'jobs' : 'talents'} />
+        ))}
 
       {/* Mathces--------------- */}
 
@@ -169,8 +170,8 @@ const HomePage = ({ location }) => {
               ))}
           </div>
         ) : (
-            <Loading text="matches" />
-          ))}
+          <Loading text="matches" />
+        ))}
 
       {/* Messages */}
 
@@ -193,7 +194,11 @@ const HomePage = ({ location }) => {
             ))}
           </div>
           <div className="homepage__message-main">
-            <Messages chats={chats} userInfo={userInfo} matchedUser={chatUser} />
+            <Messages
+              chats={chats}
+              userInfo={userInfo}
+              matchedUser={chatUser}
+            />
           </div>
         </div>
       )}
